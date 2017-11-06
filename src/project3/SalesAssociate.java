@@ -8,6 +8,8 @@ package project3;
 /**
  *
  * @author andyluong
+ * @author anthonyPhimmasone
+ * @author brianJustice
  */
 public class SalesAssociate extends LoginAccount {
     
