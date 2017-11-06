@@ -7,6 +7,8 @@
 /**
  *
  * @author andyluong
+ * @author anthonyPhimmasone
+ * @author brianJustice
  */
 public class Part {
     protected String name;
