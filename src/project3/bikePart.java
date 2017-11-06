@@ -6,10 +6,12 @@
 package project3;
 
 /**
- *
+ * Class BikePart
  * @author andyluong
+ * @author AnthonyPhimmasone
+ * @author BrianJustice
  */
-public class bikePart {
+public class BikePart {
 
 /**
  * Data members
@@ -31,7 +33,7 @@ public class bikePart {
  * @param quantity bike part quantity
  */
 
-    public bikePart(String partName, int partNumber, double price, double salesPrice, 
+    public BikePart(String partName, int partNumber, double price, double salesPrice, 
             boolean onSale, int quantity) {
         this.partName = partName;
         this.partNumber = partNumber;
@@ -147,13 +149,7 @@ public class bikePart {
     public int getQuantity() {
         return quantity;
     }
-    /** soldQuantity Remaining quantity of bike part
-     * @return sold bike part quantity
-     */
-    public int getSoldQuantity() {
-        return quantity - 1;
-    }
-    
+  
     /**
      * toString display bike part attributes
      * @return part name, part number, price, sale price, on sale, quantity
