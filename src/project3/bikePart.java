@@ -8,8 +8,8 @@ package project3;
 /**
  * Class BikePart
  * @author andyluong
- * @author AnthonyPhimmasone
- * @author BrianJustice
+ * @author anthonyPhimmasone
+ * @author brianJustice
  */
 public class BikePart {
 
