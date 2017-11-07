@@ -1,15 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+package project3;
 
 /**
  *
+ * class Part
  * @author andyluong
  * @author anthonyPhimmasone
  * @author brianJustice
+ *
  */
+
 public class Part {
     protected String name;
     protected String number;
@@ -22,18 +21,16 @@ public class Part {
         this.price = new Cost(cost);
     }
 
-    public String getName() { 
-        return name; 
+    public String getName() {
+        return name;
     }
-    public String getNumber() { 
-        return number; 
+    public String getNumber() {
+        return number;
     }
-    public String getPrice() { 
-        return price.toString(); 
+    public String getPrice() {
+        return price.toString();
     }
-    public void setPrice(String price) { 
-        this.price = new Cost(price); 
+    public void setPrice(String price) {
+        this.price = new Cost(price);
     }
-
-    
 }

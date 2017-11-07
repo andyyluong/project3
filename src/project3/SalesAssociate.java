@@ -1,47 +1,42 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package project3;
 
 /**
  *
+ * class Main
  * @author andyluong
  * @author anthonyPhimmasone
  * @author brianJustice
+ *
  */
-public class SalesAssociate extends LoginAccount {
-    
-    private String WarehouseName;
-    private Warehouse Warehouse;
 
-    public SalesAssociate(Person p, String aUserName, String aPassword, String aWarehouseName, Warehouse aWarehouse) {
-        super(p, aUserName, aPassword);
-        WarehouseName = aWarehouseName;
-        Warehouse = aWarehouse;
+public class SalesAssociate extends LoginAccount {
+    private String WarehouseName;
+    private Warehouse warehouse;
+
+    public SalesAssociate(String firstName, String lastName, int age, int phoneNumber, String emailAddress,
+                          String userName, String password, String warehouseName) {
+        super(new Person(firstName, lastName, age, phoneNumber, emailAddress), userName, password);
+        this.WarehouseName = warehouseName;
+        //this.Warehouse = warehouse;
     }
-   
-    public void setWarehouseName(String aWarehouseName) {
-        WarehouseName = aWarehouseName;
-    }
-    
+
+    //-----------------------------------------------------------------------------------------------------------------
+    //Getters & Setters
+
     public String getWarehouseName() {
         return WarehouseName;
     }
-    
-    public void setWarehouse(Warehouse w) {
-        Warehouse = w;
+
+    public void setWarehouseName(String warehouseName) {
+        WarehouseName = warehouseName;
     }
-    
+
     public Warehouse getWarehouse() {
-        return Warehouse;
+        return warehouse;
     }
-    
-    
-    
-    
-    
+
+    public void setWarehouse(Warehouse warehouse) {
+        this.warehouse = warehouse;
+    }
 }
 
-    

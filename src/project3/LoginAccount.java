@@ -1,52 +1,43 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package project3;
 
-/**
- *
- * @author andyluong
- * @author anthonyPhimmasone
- * @author brianJustice
- */
 public class LoginAccount {
-    
+
+    public Person person;
     public String userName;
     public String password;
-    public Person person;
-    
-    public LoginAccount(Person aPerson, String aUserName, String aPassword) {
-        person = aPerson;
-        userName = aUserName;
-        password = aPassword;
-        
+
+    public LoginAccount(Person person, String userName, String password) {
+        this.person = person;
+        this.userName = userName;
+        this.password = password;
     }
-    
-    public void setPerson(Person aPerson) {
-        person = aPerson;
-    }
-    
+
+    //-----------------------------------------------------------------------------------------------------------------
+    //Getters & Setters
+
     public Person getPerson() {
         return person;
     }
-    
-    public void setUserName(String aUserName) {
-        userName = aUserName;
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
-    
+
     public String getUserName() {
         return userName;
     }
-    
-    public void setPassword(String aPassword) {
-        password = aPassword;
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
-    
+
     public String getPassword() {
         return password;
     }
-    
-    
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String toString() { return person + " " + userName + " " + password; }
 }

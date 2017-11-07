@@ -1,73 +1,81 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package project3;
 
 /**
  *
+ * class Person
  * @author andyluong
  * @author anthonyPhimmasone
  * @author brianJustice
+ *
  */
+
 public class Person {
-    
+
     public String firstName;
     public String lastName;
     public int age;
     public int phoneNumber;
     public String emailAddress;
-    
-    Person(String aFirstName, String aLastName, int aAge, int aPhoneNumber,
-            String aEmailAddress) {
-        firstName = aFirstName;
-        lastName = aLastName;
-        age = aAge;
-        phoneNumber = aPhoneNumber;
-        emailAddress = aEmailAddress;
-        
+
+    public Person(String firstName, String lastName, int age, int phoneNumber,
+           String aEmailAddress) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.phoneNumber = phoneNumber;
+        this.emailAddress = aEmailAddress;
     }
-    
-    public void setFirstName(String aFirstName) {
-       firstName = aFirstName;
-    }
-    
+    //-----------------------------------------------------------------------------------------------------------------
+    //Getters & Setters
+
     public String getFirstName() {
-       return firstName;
+        return firstName;
     }
-    
-    public void setLastName(String aLastName) {
-        lastName = aLastName;
-    } 
-    
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
     public String getLastName() {
         return lastName;
     }
-    
-    public void setAge(int aAge) {
-        age = aAge;
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
-    
+
     public int getAge() {
         return age;
     }
-    
-    public void setPhoneNumber(int aPhoneNumber) {
-        phoneNumber = aPhoneNumber;         
+
+    public void setAge(int age) {
+        this.age = age;
     }
-    
+
     public int getPhoneNumber() {
         return phoneNumber;
     }
-    
-    public void setEmailAddress(String aEmailAddress) {
-        emailAddress = aEmailAddress;
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
-    
+
     public String getEmailAddress() {
         return emailAddress;
     }
-    
 
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    /**
+     * method toString
+     * @return firstName
+     * @return lastName
+     * @return age
+     * @return phoneNumber
+     * @return emailAddress
+     *
+     */
+    public String toString() {return firstName + " " + lastName + " " + age + " " + phoneNumber + " " + emailAddress;}
 }
