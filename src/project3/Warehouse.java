@@ -2,20 +2,23 @@ package project3;
 
 import java.util.ArrayList;
 
-public class Warehouse {
-
-    /**ArrayList<String> bpWarehouse = new ArrayList();
-
-    public Warehouse(ArrayList<String> warehouse) {
-        bpWarehouse = warehouse;
-    }
-
-    public ArrayList<String> getBikePart() {
-        return bpWarehouse;
-    }
-
-    public void addBikePart(String part) {
-        bpWarehouse.add(part);
-    }
-     */
+/**
+ *
+ * @author brian
+ */
+public interface Warehouse
+{
+    ArrayList<Inventory> inventoryWarehouse = new ArrayList();
+            
+    public Inventory findInventoryByName(String name);
+    
+    public Inventory findInventoryByNumber(int number);
+    
+    public void addInventory(String part);
+    
+    public void sell(int partNumber, int amount);
+    
+    //public String sortName();
+    
+    //public String sortNumber();
 }
