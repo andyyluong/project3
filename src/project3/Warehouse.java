@@ -6,9 +6,23 @@ import java.util.ArrayList;
  *
  * @author brian
  */
-public interface Warehouse
+public abstract class Warehouse Implements Serializable
 {
-    ArrayList<Inventory> inventoryWarehouse = new ArrayList();
+    private ArrayList<Inventory> inventoryWarehouse;
+    private String name;
+    private WarehouseType warehouseType;
+    
+    public Warehouse(String name, WarehouseType warehouseType)
+    {
+        inventoryWarehouse = new ArrayList<>();
+        this.name = name;
+        this.warehouseType = warehouseType;
+    }
+    
+    public WarehouseType getType()
+    {
+        return warehouseType;
+    }
             
     public Inventory findInventoryByName(String name);
     
