@@ -18,7 +18,7 @@ Age:
 Email: Anthony@bikePart.com
 
 Sales Associate:
-Last Name: Brian
+First Name: Brian
 U:sales
 P:associate
 Phone Number: 6543210
