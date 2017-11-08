@@ -3,16 +3,9 @@ package project3;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-
-/**
- *
- * class Person
- * @author andyluong
- * @author anthonyPhimmasone
- * @author brianJustice
- */
 
 public class Controller {
 
@@ -23,7 +16,7 @@ public class Controller {
     private Button updateWarehouseInventoryButton;
 
     @FXML
-    private TextField passwordTextField;
+    private PasswordField passwordTextField;
 
     @FXML
     private TextArea myTextAreaAssociateText;
@@ -35,13 +28,28 @@ public class Controller {
     private TextField emailAdminText;
 
     @FXML
+    private TextField phoneNumberAdminText;
+
+    @FXML
     private TextField quantityAssociateText;
+
+    @FXML
+    private Button LogoutButton3;
+
+    @FXML
+    private Button LogoutButton2;
 
     @FXML
     private TextArea myTextAreaAdminText;
 
     @FXML
+    private Button LogoutButton1;
+
+    @FXML
     private TextField lastNameAdminText;
+
+    @FXML
+    private Button LogoutButton4;
 
     @FXML
     private TextArea myTextAreaOfficeText;
@@ -51,6 +59,9 @@ public class Controller {
 
     @FXML
     private Button createAccountButton;
+
+    @FXML
+    private TextField ageAdminText;
 
     @FXML
     private Button generateSalesPaycheckButton;
@@ -122,9 +133,6 @@ public class Controller {
     private Button loadWarehouseDeliveryButton;
 
     @FXML
-    private TextArea myTextArea;
-
-    @FXML
     private TextField salesPaycheckText;
 
     @FXML
@@ -157,12 +165,22 @@ public class Controller {
     }
 
     @FXML
+    void doLogoutButton1(ActionEvent event) {
+
+    }
+
+    @FXML
     void doGenerateSalesInvoice(ActionEvent event) {
 
     }
 
     @FXML
     void doGenerateSalesVanFileButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doLogoutButton2(ActionEvent event) {
 
     }
 
@@ -177,12 +195,22 @@ public class Controller {
     }
 
     @FXML
+    void doLogoutButton3(ActionEvent event) {
+
+    }
+
+    @FXML
     void doLoadWarehouseDelivery(ActionEvent event) {
 
     }
 
     @FXML
     void doUpdateWarehouseInventoryButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doLogoutButton4(ActionEvent event) {
 
     }
 
