@@ -24,10 +24,24 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }
-
+    
+  /*@Override
+    public void stop()
+    {
+        FileOutputStream warehouseInventoryFileOut = new FileOutputStream("warehouseInvetory.ser");
+        FileOutputStream bikeDBFileOut = new FileOutputStream("bikeDB.ser");
+        ObjectOutputStream warehouseInventoryOut = new ObjectOutputStream(warehouseInventoryFileOut);
+        ObjectOutputStream bikeDBOut = new ObjectOutputStream("bikeDB.ser");
+        warehouseInventoryOut.writeObject(warehouseInventory);
+        warehouseInventoryOut.close();
+        warehouseInventoryFileOut.close();
+        bikeDBOut.writeObject(warehouseInventory);
+        bikeDBOut.close();
+        bikeDBFileOut.close();
+    }*/
 
     public static void main(String[] args) {
-      /*FileInputStream warehouseInventoryFile = new FileInputStream("warehouseInventory.ser");
+        FileInputStream warehouseInventoryFile = new FileInputStream("warehouseInventory.ser");
         FileInputStream bikeDBFile = new FileInputStream("bikeDB.ser);
         ObjectInputStream warehouseInventoryIn = new ObjectInputStream(warehouseInventoryFile);
         ObjectInputStream bikeDBIn  = new ObjectInputStream(bikeDBFile);
@@ -37,7 +51,6 @@ public class Main extends Application {
         bikeDB = (bikeDB) bikeDBIn.readObject();
         bikeDBIn.close();
         bikeDBFile.close();
-        */
         launch(args);
     }
 }
