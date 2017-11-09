@@ -2,7 +2,7 @@ package project3;
 
 /**
  *
- * class Person
+ * Person class defines a person 
  * @author andyluong
  * @author anthonyPhimmasone
  * @author brianJustice
