@@ -14,7 +14,7 @@ package project3;
 
  * @author brianJustice
 
- *
+ * @author alexLundin
 
  * This is a BikePart class that stores information about bicycle part
 
