@@ -32,8 +32,6 @@ package project3;
 
 public class BikePart implements Serializable{
 
-
-
     private String partName;
 
     private int partNumber;
@@ -41,8 +39,6 @@ public class BikePart implements Serializable{
     private double listPrice;
 
     private double salesPrice;
-
-
 
     /** Description of BikePart Class
 
@@ -72,8 +68,6 @@ public class BikePart implements Serializable{
 
     }
 
-
-
     /**
 
      * Method setPartName
@@ -89,8 +83,6 @@ public class BikePart implements Serializable{
         this.partName = partName;
 
     }
-
-
 
     /**
 
@@ -108,8 +100,6 @@ public class BikePart implements Serializable{
 
     }
 
-
-
     /**
 
      * Method setPartNumber
@@ -126,8 +116,6 @@ public class BikePart implements Serializable{
 
     }
 
-
-
     /**
 
      * Method getPartNumber
@@ -141,10 +129,7 @@ public class BikePart implements Serializable{
     public int getPartNumber() {
 
         return partNumber;
-
     }
-
-
 
     /**
 
@@ -159,10 +144,7 @@ public class BikePart implements Serializable{
     public void setListPrice(double listPrice){
 
         this.listPrice = listPrice;
-
     }
-
-
 
     /**
 
@@ -177,10 +159,7 @@ public class BikePart implements Serializable{
     public double getListPrice() {
 
         return listPrice;
-
     }
-
-
 
     /**
 
@@ -195,10 +174,7 @@ public class BikePart implements Serializable{
     public void setSalesPrice(double salesPrice){
 
         this.salesPrice = salesPrice;
-
     }
-
-
 
     /**
 
@@ -213,7 +189,6 @@ public class BikePart implements Serializable{
     public double getSalesPrice() {
 
         return salesPrice;
-
     }
 
     /**
@@ -233,7 +208,5 @@ public class BikePart implements Serializable{
     public String toString() {
 
         return partName + "," + partNumber + "," + listPrice + "," + salesPrice;
-
     }
-
 }
