@@ -6,6 +6,7 @@ package project3;
  * @author andyluong
  * @author anthonyPhimmasone
  * @author brianJustice
+ * @author alexLundin
  *
  * This is a BikePart class that stores information about bicycle part
  * partName - The name of the part
