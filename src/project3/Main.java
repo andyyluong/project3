@@ -27,6 +27,17 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+      /*FileInputStream warehouseInventoryFile = new FileInputStream("warehouseInventory.ser");
+        FileInputStream bikeDBFile = new FileInputStream("bikeDB.ser);
+        ObjectInputStream warehouseInventoryIn = new ObjectInputStream(warehouseInventoryFile);
+        ObjectInputStream bikeDBIn  = new ObjectInputStream(bikeDBFile);
+        warehouseInventory = (WarehouseInventory) warehouseInventoryIn.readObject();
+        warehouseInventoryIn.close();
+        warehouseInventoryFile.close();
+        bikeDB = (bikeDB) bikeDBIn.readObject();
+        bikeDBIn.close();
+        bikeDBFile.close();
+        */
         launch(args);
     }
 }
