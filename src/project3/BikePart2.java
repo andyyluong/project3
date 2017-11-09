@@ -30,7 +30,7 @@ package project3;
 
  */
 
-public class BikePart {
+public class BikePart implements Serializable{
 
 
 
