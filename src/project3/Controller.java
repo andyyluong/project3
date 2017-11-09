@@ -164,9 +164,9 @@ public class Controller {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         systemAdminTab.setDisable(false);
         loginscreenTab.setDisable(true);
-        warehouseManagerTab.setDisable(true);
-        officeManagerTab.setDisable(true);
-        salesAssociateTab.setDisable(true);
+        warehouseManagerTab.setDisable(false);
+        officeManagerTab.setDisable(false);
+        salesAssociateTab.setDisable(false);
         selectionModel.select(systemAdminTab);
     }
 
@@ -186,8 +186,14 @@ public class Controller {
     }
 
     @FXML
-    void doLogoutButton1(ActionEvent event) {
-
+        void doLogoutButton1(ActionEvent event) {
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+        systemAdminTab.setDisable(true);
+        loginscreenTab.setDisable(false);
+        warehouseManagerTab.setDisable(true);
+        officeManagerTab.setDisable(true);
+        salesAssociateTab.setDisable(true);
+        selectionModel.select(loginscreenTab);
     }
 
     @FXML
@@ -202,6 +208,13 @@ public class Controller {
 
     @FXML
     void doLogoutButton2(ActionEvent event) {
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+        systemAdminTab.setDisable(true);
+        loginscreenTab.setDisable(false);
+        warehouseManagerTab.setDisable(true);
+        officeManagerTab.setDisable(true);
+        salesAssociateTab.setDisable(true);
+        selectionModel.select(loginscreenTab);
 
     }
 
@@ -217,6 +230,13 @@ public class Controller {
 
     @FXML
     void doLogoutButton3(ActionEvent event) {
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+        systemAdminTab.setDisable(true);
+        loginscreenTab.setDisable(false);
+        warehouseManagerTab.setDisable(true);
+        officeManagerTab.setDisable(true);
+        salesAssociateTab.setDisable(true);
+        selectionModel.select(loginscreenTab);
 
     }
 
@@ -232,6 +252,13 @@ public class Controller {
 
     @FXML
     void doLogoutButton4(ActionEvent event) {
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+        systemAdminTab.setDisable(true);
+        loginscreenTab.setDisable(false);
+        warehouseManagerTab.setDisable(true);
+        officeManagerTab.setDisable(true);
+        salesAssociateTab.setDisable(true);
+        selectionModel.select(loginscreenTab);
 
     }
 
