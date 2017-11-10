@@ -1,16 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package project3;
    
 import java.util.*;
 
 /**
  * A bundle of line items that is again a line item.
+ * andyluong
  */
 public class Bundle implements SalesItem {
+   
+    private ArrayList<SalesItem> items;
+   
     /**
      * Constructs a bundle with no items.
      */
@@ -27,7 +26,8 @@ public class Bundle implements SalesItem {
     public void add(SalesItem item) {
         items.add(item);
     }
-
+     
+    @Override
     public double getPrice() {
         double price = 0;
 
@@ -35,7 +35,17 @@ public class Bundle implements SalesItem {
             price += item.getPrice();
         return price;
     }
-
+   
+    @Override
+    public String getName() {
+        String name = "";
+        
+        for(SalesItem item : items)
+            name = item.getName();
+        return name;
+    }
+    
+    @Override
     public String toString() {
         String description = "Bundle: ";
         for (int i = 0; i < items.size(); i++) {
@@ -45,15 +55,5 @@ public class Bundle implements SalesItem {
         return description;
     }
 
-    private ArrayList<SalesItem> items;
-
-    @Override
-    public String getName() {
-        String name = "";
-        
-        for(SalesItem item : items)
-            name = item.getName();
-        return name;
-    }
 }
     
