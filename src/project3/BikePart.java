@@ -1,36 +1,22 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package project3;
 
-
+import java.io.Serializable;
 
 /**
-
  *
-
- * class Person
-
  * @author andyluong
-
  * @author anthonyPhimmasone
-
  * @author brianJustice
-
  * @author alexLundin
-
+ * 
  * This is a BikePart class that stores information about bicycle part
-
- * partName - The name of the part
-
- * partNumber - The number of the part
-
- * listPrice - The list price of the part
-
- * salesPrice -  The sales price of the part
-
- *
-
  */
-
-public class BikePart implements Serializable{
+public class BikePart implements Serializable {
 
     private String partName;
 
@@ -40,22 +26,13 @@ public class BikePart implements Serializable{
 
     private double salesPrice;
 
-    /** Description of BikePart Class
-
-     * This class stores information about the following bicycle information:
-
-     * part name, list price, sales price, and if the part is on sale.
-
-     * Method BikePart
-
-     * @param partName
-
-     * @param partNumber
-
-     * @param listPrice
-
+    /**
+     * BikePart constructor
+     * @param partName Bike part name
+     * @param partNumber Bike part number
+     * @param listPrice Bike part list price
+     * @param salesPrice Bike part sales price
      */
-
     public BikePart(String partName, int partNumber, double listPrice, double salesPrice) {
 
         this.partName = partName;
@@ -65,19 +42,13 @@ public class BikePart implements Serializable{
         this.listPrice = listPrice;
 
         this.salesPrice = salesPrice;
-
     }
 
     /**
-
      * Method setPartName
-
-     * @param partName
-
-     * The name of the part
-
+     * @param partName Bike part name
+     * Set the name of the part
      */
-
     public void setPartName(String partName) {
 
         this.partName = partName;
@@ -85,15 +56,10 @@ public class BikePart implements Serializable{
     }
 
     /**
-
      * Method getPartName
-
      * @return partName
-
-     * The name of the part
-
+     * Get the name of the part
      */
-
     public String getPartName() {
 
         return partName;
@@ -101,15 +67,10 @@ public class BikePart implements Serializable{
     }
 
     /**
-
      * Method setPartNumber
-
-     * @param partNumber
-
-     * The number of the part
-
+     * @param partNumber Bike part number
+     * Set the number of the part
      */
-
     public void setPartNumber(int partNumber){
 
         this.partNumber = partNumber;
@@ -117,94 +78,60 @@ public class BikePart implements Serializable{
     }
 
     /**
-
      * Method getPartNumber
-
-     * @return partNumber
-
-     * The number of the part
-
+     * @return partNumber Bike part number
+     * Get the number of the part
      */
-
     public int getPartNumber() {
 
         return partNumber;
     }
 
     /**
-
      * Method setListPrice
-
-     * @param listPrice
-
-     * The list price of the part
-
+     * @param listPrice Bike part list price
+     * Set the list price of the part
      */
-
     public void setListPrice(double listPrice){
 
         this.listPrice = listPrice;
     }
 
     /**
-
      * Method getListPrice
-
-     * @return listPrice
-
-     * The list price of the part
-
+     * @return listPrice Bike part list price
+     * Get the list price of the part
      */
-
     public double getListPrice() {
 
         return listPrice;
     }
 
     /**
-
      * Method setSalesPrice
-
-     * @param salesPrice
-
-     * The sales price of the part
-
+     * @param salesPrice Bike part sales price
+     * Set the sales price of the part
      */
-
     public void setSalesPrice(double salesPrice){
 
         this.salesPrice = salesPrice;
     }
 
     /**
-
      * Method getSalesPrice
-
-     * @return salesPrice
-
-     * The sales price of the part
-
+     * @return salesPrice Bike part sales price
+     * Get the sales price of the part
      */
-
     public double getSalesPrice() {
 
         return salesPrice;
     }
 
     /**
-
      * Method toString
-
-     * @return partName - The name of the part
-
-     * @return partNumber - The number of the part
-
-     * @return listPrice - The list price of the part
-
-     * @return salesPrice -  The sales price of the part
-
+     * @return part name, part number, list price, and sales price
      */
-
+    @Override
     public String toString() {
 
         return partName + "," + partNumber + "," + listPrice + "," + salesPrice;
