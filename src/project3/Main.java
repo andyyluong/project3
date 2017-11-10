@@ -9,6 +9,9 @@ package project3;
  *
  */
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -42,23 +45,23 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         File file1 = new File("warehouseInventory.ser");
-        File fil2 = new File("bikeDB.ser");
+        File file2 = new File("bikeDB.ser");
         if(file1.exists())
-        }
+        { 
             FileInputStream warehouseInventoryFile = new FileInputStream("warehouseInventory.ser");            
             ObjectInputStream warehouseInventoryIn = new ObjectInputStream(warehouseInventoryFile);            
             warehouseInventory = (WarehouseInventory) warehouseInventoryIn.readObject();
             warehouseInventoryIn.close();
             warehouseInventoryFile.close();            
-         }
-         if(file2.exists())
-         {
-            FileInputStream bikeDBFile = new FileInputStream("bikeDB.ser);
+        }
+        if(file2.exists())
+        {
+            FileInputStream bikeDBFile = new FileInputStream("bikeDB.ser");
             ObjectInputStream bikeDBIn  = new ObjectInputStream(bikeDBFile);
             bikeDB = (bikeDB) bikeDBIn.readObject();
             bikeDBIn.close();
             bikeDBFile.close();                                                 
-         }
+        }
             launch(args);
     }
 }
