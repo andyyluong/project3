@@ -41,16 +41,24 @@ public class Main extends Application {
     }*/
 
     public static void main(String[] args) {
-        FileInputStream warehouseInventoryFile = new FileInputStream("warehouseInventory.ser");
-        FileInputStream bikeDBFile = new FileInputStream("bikeDB.ser);
-        ObjectInputStream warehouseInventoryIn = new ObjectInputStream(warehouseInventoryFile);
-        ObjectInputStream bikeDBIn  = new ObjectInputStream(bikeDBFile);
-        warehouseInventory = (WarehouseInventory) warehouseInventoryIn.readObject();
-        warehouseInventoryIn.close();
-        warehouseInventoryFile.close();
-        bikeDB = (bikeDB) bikeDBIn.readObject();
-        bikeDBIn.close();
-        bikeDBFile.close();
-        launch(args);
+        File file1 = new File("warehouseInventory.ser");
+        File fil2 = new File("bikeDB.ser");
+        if(file1.exists())
+        }
+            FileInputStream warehouseInventoryFile = new FileInputStream("warehouseInventory.ser");            
+            ObjectInputStream warehouseInventoryIn = new ObjectInputStream(warehouseInventoryFile);            
+            warehouseInventory = (WarehouseInventory) warehouseInventoryIn.readObject();
+            warehouseInventoryIn.close();
+            warehouseInventoryFile.close();            
+         }
+         if(file2.exists())
+         {
+            FileInputStream bikeDBFile = new FileInputStream("bikeDB.ser);
+            ObjectInputStream bikeDBIn  = new ObjectInputStream(bikeDBFile);
+            bikeDB = (bikeDB) bikeDBIn.readObject();
+            bikeDBIn.close();
+            bikeDBFile.close();                                                 
+         }
+            launch(args);
     }
 }
