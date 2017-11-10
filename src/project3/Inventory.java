@@ -36,7 +36,7 @@ public class Inventory implements Seriablizable{
     
     @Override
     public String toString(){
-        return bikePart.toString() + "," + String.valueOf(onSale) + "," + String.valueOf(quantity);
+        return bikePart.toString() + "," + onSale + "," + quantity;
     }
 
     public String getName(){
