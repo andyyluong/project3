@@ -10,7 +10,10 @@ import java.io.Serializable;
 
 /**
  *
- * @author andyluong
+ * @author andyLuong
+ * @author anthonyPhimmasone
+ * @author brianJustice
+ * @author alexLundin
  */
 public class Inventory implements Serializable {
     private BikePart bikePart;
