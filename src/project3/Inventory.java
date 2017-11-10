@@ -5,17 +5,20 @@
  */
 package project3;
 
+import java.io.Serializable;
+
+
 /**
  *
- * @author brian
+ * @author andyluong
  */
-public class Inventory implements Seriablizable{
+public class Inventory implements Serializable {
     private BikePart bikePart;
     private Boolean onSale;
     private int quantity;
     
     public Inventory(BikePart bikepart, Boolean onSale){
-        this.bikePart = bikePart;
+        this.bikePart = bikepart;
         this.onSale = onSale;
     }
     public void add(int number){
@@ -40,7 +43,7 @@ public class Inventory implements Seriablizable{
     }
 
     public String getName(){
-        return bikePart.getName();
+        return bikePart.getPartName();
     }
 
     public double getSalesPrice(){
@@ -48,10 +51,11 @@ public class Inventory implements Seriablizable{
     }
 
     public int getNumber(){
-        return bikePart.getNumber();
+        return bikePart.getPartNumber();
     }
 
     public double getListPrice(){
         return bikePart.getListPrice();
     }
 }
+    
