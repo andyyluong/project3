@@ -2,10 +2,12 @@ package project3;
 
 /**
  *
- * @author brian
+ * @author brianJustice
+ * @author andyLuong
+ * @author anthonyPhimmasone
+ * @author alexLundin
  */
+public enum WarehouseType {
 
-public enum WarehouseType
-{
     SALES, MAIN
 }
