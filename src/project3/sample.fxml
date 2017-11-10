@@ -86,23 +86,11 @@
                      <children>
                         <Button fx:id="readSalesInvoiceButton" layoutX="23.0" layoutY="336.0" mnemonicParsing="false" onAction="#doReadSalesInvoice" text="Read Sales Invoice" />
                         <Button fx:id="generateSalesPaycheckButton" layoutX="286.0" layoutY="336.0" mnemonicParsing="false" onAction="#doGenerateSalesPaycheck" text="Generate Sales Paycheck" />
-                        <TextField fx:id="salesPaycheckText" layoutX="181.0" layoutY="36.0" />
-                        <TextField fx:id="customerNameOfficeText" layoutX="181.0" layoutY="67.0" />
-                        <TextField fx:id="partNameOfficeText" layoutX="84.0" layoutY="100.0" />
-                        <TextField fx:id="partNumberOfficeText" layoutX="319.0" layoutY="100.0" />
-                        <TextField fx:id="listPriceOfficeText" layoutX="84.0" layoutY="137.0" />
-                        <TextField fx:id="salesPriceOfficeText" layoutX="319.0" layoutY="137.0" />
-                        <TextField fx:id="onSaleOfficeText" layoutX="84.0" layoutY="172.0" />
-                        <TextField fx:id="quantityOfficeText" layoutX="319.0" layoutY="172.0" />
-                        <Label layoutX="84.0" layoutY="40.0" text="Sales Paycheck:" />
-                        <Label layoutX="52.0" layoutY="71.0" text="Customer/Client name:" />
-                        <Label layoutX="23.0" layoutY="104.0" text="Part Name:" />
-                        <Label layoutX="244.0" layoutY="104.0" text="Part Number:" />
-                        <Label layoutX="23.0" layoutY="141.0" text="List Price:" />
-                        <Label layoutX="256.0" layoutY="141.0" text="Sales Price:" />
-                        <Label layoutX="34.0" layoutY="176.0" text="On Sale:" />
-                        <Label layoutX="261.0" layoutY="176.0" text="Quantity:" />
-                        <TextArea fx:id="myTextAreaOfficeText" layoutX="20.0" layoutY="206.0" prefHeight="121.0" prefWidth="449.0" />
+                        <TextField fx:id="StartDateText" layoutX="156.0" layoutY="58.0" />
+                        <TextField fx:id="EndDateText" layoutX="156.0" layoutY="98.0" />
+                        <Label layoutX="90.0" layoutY="62.0" text="Start Date:" />
+                        <Label layoutX="93.0" layoutY="102.0" text="End Date:" />
+                        <TextArea fx:id="myTextAreaOfficeText" layoutX="20.0" layoutY="149.0" prefHeight="178.0" prefWidth="449.0" />
                         <Button fx:id="LogoutButton3" layoutX="394.0" layoutY="45.0" mnemonicParsing="false" onAction="#doLogoutButton3" text="Logout" />
                      </children>
                   </AnchorPane>

@@ -3,11 +3,15 @@ package project3;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 public class Controller {
-
-    @FXML
-    private TextField partNumberOfficeText;
 
     @FXML
     private Button updateWarehouseInventoryButton;
@@ -58,6 +62,9 @@ public class Controller {
     private Button createAccountButton;
 
     @FXML
+    private TextField StartDateText;
+
+    @FXML
     private TextField ageAdminText;
 
     @FXML
@@ -67,34 +74,22 @@ public class Controller {
     private TextField onSaleAssociateText;
 
     @FXML
-    private TextField salesPriceOfficeText;
-
-    @FXML
-    private TextField onSaleOfficeText;
-
-    @FXML
     private TextField usernameAdminText;
 
     @FXML
     private Button loginButton;
 
     @FXML
-    private TextField quantityOfficeText;
-
-    @FXML
     private TextField salesVanFileNameText;
 
     @FXML
-    private TextField customerNameOfficeText;
+    private AnchorPane AnchorPane;
 
     @FXML
     private Button resetPasswordButton;
 
     @FXML
     private TextField partNameAssociateText;
-
-    @FXML
-    private TextField partNameOfficeText;
 
     @FXML
     private TextField firstNameAdminText;
@@ -112,9 +107,6 @@ public class Controller {
     private Button readSalesInvoiceButton;
 
     @FXML
-    private TextField listPriceOfficeText;
-
-    @FXML
     private Button generateSalesVanFileButton;
 
     @FXML
@@ -124,13 +116,13 @@ public class Controller {
     private Button deleteAccountButton;
 
     @FXML
+    private TextField EndDateText;
+
+    @FXML
     private TextField listPriceAssociateText;
 
     @FXML
     private Button loadWarehouseDeliveryButton;
-
-    @FXML
-    private TextField salesPaycheckText;
 
     @FXML
     private TextField warehouseNameText;
@@ -140,7 +132,7 @@ public class Controller {
 
     @FXML
     private TextField passwordAdminText;
-
+    
     @FXML
     private TabPane tabPane;
 
