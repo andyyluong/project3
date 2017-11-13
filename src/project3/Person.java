@@ -1,5 +1,5 @@
 package project3;
-
+import java.io.Serializable
 /**
  *
  * Person class defines a person 
@@ -9,7 +9,7 @@ package project3;
  *
  */
 
-public class Person {
+public class Person implements Serializable{
 
     public String firstName;
     public String lastName;
