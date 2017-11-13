@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package project3;
-
+import java.io.Serializable
 /**
  *
  * @author andyluong
  */
-public class WarehouseManager extends LoginAccount {
+public class WarehouseManager extends LoginAccount, Serializable {
     
     public WarehouseManager(Person p, String aUserName, String aPassword) {
         super(p, aUserName, aPassword);
