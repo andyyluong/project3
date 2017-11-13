@@ -6,7 +6,7 @@ package project3;
  * @author andyluong
  * @author anthonyPhimmasone
  * @author brianJustice
- *
+ * @uthor alexLudin
  */
 
 import java.io.File;
@@ -28,24 +28,25 @@ public class Main extends Application {
         primaryStage.show();
     }
     
-  /*@Override
-    public void stop()
-    {
+  @Override
+  public void stop(){
         FileOutputStream warehouseInventoryFileOut = new FileOutputStream("warehouseInvetory.ser");
-        FileOutputStream bikeDBFileOut = new FileOutputStream("bikeDB.ser");
+        FileOutputStream accountListFileOut = new FileOutputStream("accountList.ser");
         ObjectOutputStream warehouseInventoryOut = new ObjectOutputStream(warehouseInventoryFileOut);
-        ObjectOutputStream bikeDBOut = new ObjectOutputStream("bikeDB.ser");
+        ObjectOutputStream accountListOut = new ObjectOutputStream(accountListFileOut);
         warehouseInventoryOut.writeObject(warehouseInventory);
         warehouseInventoryOut.close();
         warehouseInventoryFileOut.close();
-        bikeDBOut.writeObject(warehouseInventory);
-        bikeDBOut.close();
-        bikeDBFileOut.close();
-    }*/
+        accountListOut.writeObject(warehouseInventory);
+        accountListDBOut.close();
+        accountListFileOut.close();
+    }
 
     public static void main(String[] args) {
         File file1 = new File("warehouseInventory.ser");
-        File file2 = new File("bikeDB.ser");
+        File file2 = new File("accountList.ser");
+        WarehouseInventory warehouseInventory = new WarehouseInventory();
+        AccountList accountList = new accountList();
         if(file1.exists())
         { 
             FileInputStream warehouseInventoryFile = new FileInputStream("warehouseInventory.ser");            
@@ -56,11 +57,11 @@ public class Main extends Application {
         }
         if(file2.exists())
         {
-            FileInputStream bikeDBFile = new FileInputStream("bikeDB.ser");
-            ObjectInputStream bikeDBIn  = new ObjectInputStream(bikeDBFile);
-            bikeDB = (bikeDB) bikeDBIn.readObject();
-            bikeDBIn.close();
-            bikeDBFile.close();                                                 
+            FileInputStream accountListFile = new FileInputStream("accountList.ser");
+            ObjectInputStream accountListIn  = new ObjectInputStream(bikeDBFile);
+            accountList = (accountList) accountListIn.readObject();
+            accountListIn.close();
+            accountListFile.close();                                                 
         }
             launch(args);
     }
