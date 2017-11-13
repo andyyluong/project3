@@ -18,4 +18,5 @@ public class AccountList implements Serializable{
   
   public void add(LoginAccount account){
   accounts.add(account);
+  }
 }
