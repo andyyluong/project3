@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.io.Serializable;
 /**
  *
- * @author brian
+ * @author brianJustice
+ * @author andyluong
+ * @author anthonyPhimmasone
+ * @author alexLundin
  */
 public abstract class Warehouse Implements Serializable
 {
