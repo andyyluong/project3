@@ -6,12 +6,16 @@ package project3;
  * @author andyluong
  * @author anthonyPhimmasone
  * @author brianJustice
- * @uthor alexLudin
+ * @author alexLudin
  */
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,7 +23,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-
+    public static WarehouseInventory warehouseInventory = new WarehouseInventory();
+    public static AccountList accountList = new AccountList();
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
@@ -29,7 +34,7 @@ public class Main extends Application {
     }
     
   @Override
-  public void stop(){
+  public void stop() throws FileNotFoundException, IOException{
         FileOutputStream warehouseInventoryFileOut = new FileOutputStream("warehouseInvetory.ser");
         FileOutputStream accountListFileOut = new FileOutputStream("accountList.ser");
         ObjectOutputStream warehouseInventoryOut = new ObjectOutputStream(warehouseInventoryFileOut);
@@ -37,16 +42,14 @@ public class Main extends Application {
         warehouseInventoryOut.writeObject(warehouseInventory);
         warehouseInventoryOut.close();
         warehouseInventoryFileOut.close();
-        accountListOut.writeObject(warehouseInventory);
-        accountListDBOut.close();
+        accountListOut.writeObject(accountList);
+        accountListOut.close();
         accountListFileOut.close();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
         File file1 = new File("warehouseInventory.ser");
         File file2 = new File("accountList.ser");
-        WarehouseInventory warehouseInventory = new WarehouseInventory();
-        AccountList accountList = new accountList();
         if(file1.exists())
         { 
             FileInputStream warehouseInventoryFile = new FileInputStream("warehouseInventory.ser");            
@@ -58,8 +61,8 @@ public class Main extends Application {
         if(file2.exists())
         {
             FileInputStream accountListFile = new FileInputStream("accountList.ser");
-            ObjectInputStream accountListIn  = new ObjectInputStream(bikeDBFile);
-            accountList = (accountList) accountListIn.readObject();
+            ObjectInputStream accountListIn  = new ObjectInputStream(accountListFile);
+            accountList = (AccountList) accountListIn.readObject();
             accountListIn.close();
             accountListFile.close();                                                 
         }
