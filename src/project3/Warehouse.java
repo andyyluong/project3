@@ -1,7 +1,7 @@
 package project3;
 
 import java.util.ArrayList;
-
+import java.io.Serializable;
 /**
  *
  * @author brian
