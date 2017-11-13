@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package project3;
-
+import java.io.Serializable
 /**
  * LoginAccount class contains the information of a login account
  * @author andyluong
  */
-public class LoginAccount {
+public class LoginAccount implements Serializable{
     
     /**
      * Data members
