@@ -16,6 +16,6 @@ public class AccountList implements Serializable{
     accounts = new ArrayList<>();
   }
   
-  public add(LoginAccount account){
+  public void add(LoginAccount account){
   accounts.add(account);
 }
