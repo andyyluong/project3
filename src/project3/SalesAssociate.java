@@ -1,5 +1,5 @@
 package project3;
-
+import java.io.Serializable
 /**
  *
  * class Main
@@ -9,7 +9,7 @@ package project3;
  *
  */
 
-public class SalesAssociate extends LoginAccount {
+public class SalesAssociate extends LoginAccount, Serializable {
     private String WarehouseName;
     private Warehouse warehouse;
 
