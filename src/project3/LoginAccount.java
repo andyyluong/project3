@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package project3;
-import java.io.Serializable
+import java.io.Serializable;
 /**
  * LoginAccount class contains the information of a login account
  * @author andyluong
