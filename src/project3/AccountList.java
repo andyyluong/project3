@@ -12,6 +12,7 @@ import java.util.ArrayList;
 */
 public class AccountList implements Serializable{
   private ArrayList<LoginAccount> accounts;
+  private ArrayList<LoginAccount> salesAssociates;
   
   /**
    * AccountList constructor
@@ -25,6 +26,9 @@ public class AccountList implements Serializable{
    * @param account Login account
    */
   public void add(LoginAccount account){
+    if(account.getType()==AccountType.SALES_ASSOCIATE){
+      salesAssociates.add(account);
+    }
     accounts.add(account);
   }
   
