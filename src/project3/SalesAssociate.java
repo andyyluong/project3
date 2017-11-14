@@ -9,7 +9,7 @@ import java.io.Serializable;
  *
  */
 
-public class SalesAssociate extends LoginAccount, Serializable {
+public class SalesAssociate extends LoginAccount implements Serializable {
     private String WarehouseName;
     private Warehouse warehouse;
 
