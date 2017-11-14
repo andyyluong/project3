@@ -1,3 +1,4 @@
+
 package project3;
 import java.io.Serializable;
 /**
@@ -12,11 +13,13 @@ import java.io.Serializable;
 public class SalesAssociate extends LoginAccount implements Serializable {
     private String WarehouseName;
     private Warehouse warehouse;
-
+    private AccountType accountType;
+    
     public SalesAssociate(String firstName, String lastName, int age, int phoneNumber, String emailAddress,
                           String userName, String password, String warehouseName) {
         super(new Person(firstName, lastName, age, phoneNumber, emailAddress), userName, password);
         this.WarehouseName = warehouseName;
+        accountType = AccountType.SALES_ASSOCIATE;
         //this.Warehouse = warehouse;
     }
 
