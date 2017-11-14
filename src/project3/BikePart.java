@@ -3,13 +3,11 @@ package project3;
 import java.io.Serializable;
 
 /**
- *
+ * This is a BikePart class that stores information about bicycle part
  * @author andyluong
  * @author anthonyPhimmasone
  * @author brianJustice
  * @author alexLundin
- * 
- * This is a BikePart class that stores information about bicycle part
  */
 public class BikePart implements Serializable {
 
@@ -40,9 +38,8 @@ public class BikePart implements Serializable {
     }
 
     /**
-     * Method setPartName
-     * @param partName Bike part name
-     * Set the name of the part
+     * Set part name of the part
+     * @param partName Part name
      */
     public void setPartName(String partName) {
 
@@ -51,9 +48,8 @@ public class BikePart implements Serializable {
     }
 
     /**
-     * Method getPartName
-     * @return partName
-     * Get the name of the part
+     * Get part name of the part
+     * @return Bike Part name 
      */
     public String getPartName() {
 
@@ -62,9 +58,8 @@ public class BikePart implements Serializable {
     }
 
     /**
-     * Method setPartNumber
-     * @param partNumber Bike part number
      * Set the number of the part
+     * @param partNumber Bike part number
      */
     public void setPartNumber(int partNumber){
 
@@ -73,9 +68,8 @@ public class BikePart implements Serializable {
     }
 
     /**
-     * Method getPartNumber
-     * @return partNumber Bike part number
      * Get the number of the part
+     * @return Bike part number
      */
     public int getPartNumber() {
 
@@ -83,9 +77,8 @@ public class BikePart implements Serializable {
     }
 
     /**
-     * Method setListPrice
-     * @param listPrice Bike part list price
      * Set the list price of the part
+     * @param listPrice Bike part list price
      */
     public void setListPrice(double listPrice){
 
@@ -93,9 +86,8 @@ public class BikePart implements Serializable {
     }
 
     /**
-     * Method getListPrice
-     * @return listPrice Bike part list price
      * Get the list price of the part
+     * @return Bike part list price
      */
     public double getListPrice() {
 
@@ -103,9 +95,8 @@ public class BikePart implements Serializable {
     }
 
     /**
-     * Method setSalesPrice
-     * @param salesPrice Bike part sales price
      * Set the sales price of the part
+     * @param salesPrice Bike part sales price
      */
     public void setSalesPrice(double salesPrice){
 
@@ -113,9 +104,8 @@ public class BikePart implements Serializable {
     }
 
     /**
-     * Method getSalesPrice
-     * @return salesPrice Bike part sales price
      * Get the sales price of the part
+     * @return salesPrice Bike part sales price
      */
     public double getSalesPrice() {
 
@@ -123,7 +113,7 @@ public class BikePart implements Serializable {
     }
 
     /**
-     * Method toString
+     * toString Displays bike part attributes
      * @return part name, part number, list price, and sales price
      */
     @Override
