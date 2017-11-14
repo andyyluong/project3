@@ -9,7 +9,7 @@ import java.io.Serializable;
  *
  * @author andyluong
  */
-public class WarehouseManager extends LoginAccount, Serializable {
+public class WarehouseManager extends LoginAccount implements Serializable {
     
     public WarehouseManager(Person p, String aUserName, String aPassword) {
         super(p, aUserName, aPassword);
