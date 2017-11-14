@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author anthonyPhimmasone
  * @author alexLundin
  */
-public abstract class Warehouse Implements Serializable
+public abstract class Warehouse implements Serializable
 {
     private ArrayList<Inventory> inventoryWarehouse;
     private String name;
