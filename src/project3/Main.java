@@ -1,14 +1,5 @@
 package project3;
 
-/**
- *
- * class Main
- * @author andyluong
- * @author anthonyPhimmasone
- * @author brianJustice
- * @author alexLudin
- */
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,6 +13,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Main class
+ * @author andyLuong
+ * @author anthonyPhimmasone
+ * @author brianJustice
+ * @author alexLudin
+ */
 public class Main extends Application {
     public static WarehouseInventory warehouseInventory = new WarehouseInventory();
     public static AccountList accountList = new AccountList();
@@ -32,7 +30,12 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }
-    
+  
+  /**
+   * Program execution stops
+   * @throws FileNotFoundException
+   * @throws IOException 
+   */
   @Override
   public void stop() throws FileNotFoundException, IOException{
         FileOutputStream warehouseInventoryFileOut = new FileOutputStream("warehouseInvetory.ser");
@@ -47,6 +50,13 @@ public class Main extends Application {
         accountListFileOut.close();
     }
 
+  /**
+   * Main method 
+   * @param args Command-line arguments
+   * @throws FileNotFoundException
+   * @throws IOException
+   * @throws ClassNotFoundException 
+   */
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
         File file1 = new File("warehouseInventory.ser");
         File file2 = new File("accountList.ser");
