@@ -67,6 +67,15 @@ public class SalesAssociate extends LoginAccount implements Serializable {
     public void setWarehouse(Warehouse warehouse) {
         this.warehouse = warehouse;
     }
+
+    /**
+     * Get account type
+     * @return Account type
+     */
+    @Override
+    public AccountType getType() {
+        return accountType;
+    }
 }
 
     
