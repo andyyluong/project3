@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package project3;
 
 /**
- *
+ * Observer class contains an observer pattern for changed messages
  * @author andyluong
  */
 public abstract class Observer {
@@ -18,6 +13,5 @@ public abstract class Observer {
      * @param message Text input
      */
     public abstract void messageChanged(String message);
-    
     
 }
