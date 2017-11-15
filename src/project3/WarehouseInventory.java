@@ -1,11 +1,12 @@
 package project3;
 
 /**
-* @author andyluong
-* @author anthonyPhimmasone
-* @author brianJustice
-* @author alexLundin
-*/
+ * WarehouseInventory class defines a warehouse inventory
+ * @author andyluong
+ * @author anthonyPhimmasone
+ * @author brianJustice
+ * @author alexLundin
+ */
 import java.io.Serializable;
 import java.util.ArrayList;
 
