@@ -19,7 +19,7 @@ public interface InvoiceFormatter {
 
     /**
      * Formats a line item of the invoice.
-     * @param item
+     * @param item Sales item
      * @return the formatted line item.
      */
     String formatSalesItem(SalesItem item);
