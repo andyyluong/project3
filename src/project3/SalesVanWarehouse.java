@@ -4,7 +4,7 @@ package project3;
  * SalesVanWarehouse class defines a sales van warehouse
  * @author brian
  */
-public class SalesVanWarehouse extends Warehouse{
+public class SalesVanWarehouse extends Warehouse {
 
     public SalesVanWarehouse(String name, WarehouseType warehouseType) {
         super(name, warehouseType);
