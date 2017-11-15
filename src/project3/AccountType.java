@@ -1,11 +1,14 @@
 package project3;
 /**
-* @author brianJustice
-* @author andyluong
-* @author anthonyPhimmasone
-* @author alexLundin
-*/
+ * AccountType Enum type that contains the type of account
+ * @author brianJustice
+ * @author andyluong
+ * @author anthonyPhimmasone
+ * @author alexLundin
+ */
 
-public enum AccountType{
+public enum AccountType {
+    
   SALES_ASSOCIATE, WAREHOUSE_MANAGER, ADMIN, OFFICE_MANAGER
-  }
+
+}
