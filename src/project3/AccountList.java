@@ -34,21 +34,12 @@ public class AccountList implements Serializable{
     if(account.getType()==AccountType.OFFICE_MANAGER){
         officeManager = (OfficeManager) account;
     }
+    if(account.getType()==AccountType.ADMIN){
+        systemAdministrator = (SystemAdministrator) account;
+    }
+    if(account.getType()==AccountType.WAREHOUSE_MANAGER){
+        warehouseManager = (WarehouseManager) account;
+    }
     accounts.add(account);
-  }
-  
-  public void createAdmin(LoginAccount account){
-      systemAdministrator = (SystemAdministrator) account;
-      add(systemAdministrator);
-  }
-  
-  public void createOfficeManager(LoginAccount account){
-      officeManager = (project3.OfficeManager) account;
-      add(officeManager);
-  }
-  
-  public void createWarehouseManager(LoginAccount account){
-      warehouseManager = (WarehouseManager) account;
-      add(warehouseManager);
-  }
+    }
 }
