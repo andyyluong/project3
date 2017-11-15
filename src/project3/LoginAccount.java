@@ -6,7 +6,7 @@ import java.io.Serializable;
  * LoginAccount class contains the information of a login account
  * @author andyluong
  */
-public abstract class LoginAccount implements Serializable{
+public abstract class LoginAccount implements Serializable {
     
     /**
      * Data members
@@ -75,6 +75,11 @@ public abstract class LoginAccount implements Serializable{
     public String getPassword() {
         return password;
     }
-
+    
+    /**
+     * Get account type
+     * @return Employee account type
+     */
     public abstract AccountType getType();
+    
 }
