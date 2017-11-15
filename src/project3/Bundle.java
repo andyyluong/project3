@@ -4,12 +4,13 @@ import java.util.*;
 
 /**
  * A bundle of line items that is again a line item.
- * andyluong
+ * @author andyLuong
+ * @author anthonyPhimmasone
+ * @author brianJustice
+ * @author alexLundin
  */
 public class Bundle implements SalesItem {
-   
-    private ArrayList<SalesItem> items;
-   
+    
     /**
      * Constructs a bundle with no items.
      */
@@ -19,14 +20,16 @@ public class Bundle implements SalesItem {
 
     /**
      * Adds an item to the bundle.
-     *
      * @param item the item to add
      */
-
     public void add(SalesItem item) {
         items.add(item);
     }
-     
+
+    /**
+     * Get price of sales item
+     * @return Price of sales item
+     */
     @Override
     public double getPrice() {
         double price = 0;
@@ -35,16 +38,10 @@ public class Bundle implements SalesItem {
             price += item.getPrice();
         return price;
     }
-   
-    @Override
-    public String getName() {
-        String name = "";
-        
-        for(SalesItem item : items)
-            name = item.getName();
-        return name;
-    }
-    
+    /**
+     * Display bundle description
+     * @return Description of bundle items
+     */
     @Override
     public String toString() {
         String description = "Bundle: ";
@@ -55,5 +52,19 @@ public class Bundle implements SalesItem {
         return description;
     }
 
+    private ArrayList<SalesItem> items;
+
+    /**
+     * Get name of sales item
+     * @return Name of sales item
+     */
+    @Override
+    public String getName() {
+        String name = "";
+        
+        for(SalesItem item : items)
+            name = item.getName();
+        return name;
+    }
 }
     
