@@ -15,9 +15,9 @@ In our program, these employees (system administrator, office manager, warehouse
 The duties that each type of employee performs are described in various use case scenarios. 
 
 What does the project do?
-The intent for our program for project 3 was to create a software program for clients that are bike part distributorship companys.
+The intent for our program for project 3 was to create a software program for clients that are bike part distributorship companies looking for a software program for their employees.
 Our program contains actions for various accounts that are specific to their employee duties. 
-System administrator duties includes create, remove, and manage accounts. Additionally, this employee can reset password.
+System administrator duties includes create, remove, and manage accounts. Additionally, this employee can reset passwords.
 Office manager duties includes examining parts, restocking parts, and using sales invoice to generate a sales commission.
 Warehouse manager's duty include updating warehouse inventory.
 Sales associate duties includes selling bike parts to clients and generating a sales invoice.
