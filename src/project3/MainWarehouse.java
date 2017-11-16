@@ -1,36 +1,54 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package project3;
 
 /**
- *
- * @author brian
+ * MainWarehouse defines a main warehouse
+ * @author brianJustice
+ * @author andyLuong
+ * @author anthonyPhimmasone
+ * @author alexLundin
  */
-public class MainWarehouse extends Warehouse{
+public class MainWarehouse extends Warehouse {
     
+    /**
+     * Main Warehouse constructor
+     * @param name Name of warehouse
+     * @param warehouseType Warehouse type
+     */
     public MainWarehouse(String name, WarehouseType warehouseType) {
         super(name, warehouseType);
     }
-
-    @Override
+    
+    /**
+     * Find inventory by name
+     * @param name Name of bike part in inventory
+     * @return Bike part by name
+     */
     public Inventory findInventoryByName(String name) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+    /**
+     * Find inventory by number
+     * @param number Number of bike part in inventory
+     * @return Bike part by number
+     */
     public Inventory findInventoryByNumber(int number) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+    /**
+     * Add inventory
+     * @param part Part added to inventory
+     */
     public void addInventory(String part) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+    /**
+     * Sell inventory
+     * @param partNumber Part number of bike part to be sold
+     * @param amount Amount to be sold
+     */
     public void sell(int partNumber, int amount) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
