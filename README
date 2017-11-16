@@ -10,3 +10,18 @@ There is an office manager who keeps track of many business aspects, there is a 
 In our program, these employees (office manager, warehouse manager, and sales associates) have accounts that allow them to perform actions that are specific to their duties. 
 The duties that each type of employee performs are described in various use case scenarios. 
 Additionally, there is a system administrator who manages accounts.
+
+What does the project do?
+
+
+How is it set up?
+
+
+How is it used?
+When the program is executed and starts running, a login screen will appear and prompt the user to enter in an employee's username and password of their login account. There are four different employees that will have login account information: system administrator, office manager, warehouse manager, and sales associate. Once the user enters the information for one of the employee on the login screen, the screen will open to the specific page for that employee with the actions and duties for that employee. Each employee page is divided by tabs in our program.
+
+Collaboration:
+1. Andy Luong
+2. Anthony Phimmasone
+3. Brian Justice
+4. Alex Lundin
