@@ -24,6 +24,7 @@ How is it used?
 When the program is executed and starts running, a login screen will appear and prompt the user to enter in an employee's username and password of their login account. 
 There are four different employees that will have login account information: system administrator, office manager, warehouse manager, and sales associate. 
 Once the user enters the information for one of the employee on the login screen, the screen will open to the specific page for that employee with the actions and duties for that employee. 
+If the user enters a login account information that does not exist, login screen will indicate to the user that the login account information given is not available.
 Each employee page is divided by tabs in our program.
 
 Collaboration:
