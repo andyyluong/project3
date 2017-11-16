@@ -15,6 +15,12 @@ In our program, these employees (system administrator, office manager, warehouse
 The duties that each type of employee performs are described in various use case scenarios. 
 
 What does the project do?
+The intent for our program for project 3 was to create a software program for clients that are bike part distributorship companys.
+Our program contains actions for various accounts that are specific to their employee duties. 
+System administrator duties includes create, remove, and manage accounts. Additionally, this employee can reset password.
+Office manager duties includes examining parts, restocking parts, and using sales invoice to generate a sales commission.
+Warehouse manager's duty include updating warehouse inventory.
+Sales associate duties includes selling bike parts to clients and generating a sales invoice.
 
 
 How is it set up?
@@ -29,6 +35,15 @@ Each employee page is divided by tabs in our program.
 
 Collaboration:
 1. Andy Luong
+My first contribution towards my team was creating the GitHub repository for our project 3 code classes.
+My initial code contribution for my Group Project 3 team was pushing the basic classes that we needed to begin our project.
+These classes included Main, Part, BikePart, Person, LoginAccount, Warehouse, Observer, and SalesItem.
+If I had made any errors or did not include parts needed for each class, my teammates would inform me of the problem(s) and they would edit my code on GitHub. 
+Another major code contribution that I implemented for our Group Project is creating the classes to build the Sales Invoice. 
+These classes included SalesInvoice, InvoiceFormatter interface, SalesItem interface, SimpleFormatter, InvoiceTester, and DiscountedItem. 
+Once again, if I had made any errors or did not include parts needed for each class, my teammates would inform me of the problem(s) and they would edit my code on GitHub.
+I also contributed in the code by adding or editing Javadoc comments for each class. 
+
 2. Anthony Phimmasone
 3. Brian Justice
 4. Alex Lundin
