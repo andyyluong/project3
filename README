@@ -7,10 +7,12 @@ We are a programming team working for Bicycle Parts Distributorship.
 BPD has a warehouse full of bicycle parts. 
 The code and underlying data structures from Projects 1 and 2 apply to Project 3, but we will have to modify them. 
 In this increment of the project BPD has identified several users of the software.  
-There is an office manager who keeps track of many business aspects, there is a warehouse manager, and there is one sales associate in each sales van.
-In our program, these employees (office manager, warehouse manager, and sales associates) have accounts that allow them to perform actions that are specific to their duties. 
+There is a system administrator who creates, removes, and manages accounts. Additionally, can reset password.
+There is an office manager who is responsible for many business aspects, such as examining parts, restocking parts, and using invoice to generate a sales commission. 
+There is a warehouse manager who updates the warehouse inventory.
+There is one sales associate in each sales van who sells bike parts to customers and creates an sales invoice.
+In our program, these employees (system administrator, office manager, warehouse manager, and sales associates) have accounts that allow them to perform actions that are specific to their duties. 
 The duties that each type of employee performs are described in various use case scenarios. 
-Additionally, there is a system administrator who manages accounts.
 
 What does the project do?
 
