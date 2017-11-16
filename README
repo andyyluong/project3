@@ -26,7 +26,7 @@ Sales associate duties includes selling bike parts to clients and generating a s
 How is it set up?
 If someone were to pick up our codebase today, they would get everything running in their local environment by downloading
 all the correct files and placing them into the proper packages accordingly. They would then need to check if the code compiles
-with no errors. If there are any errors, they could check where the problem is comming from and making sure that all the files
+with no errors. If there are any errors, they could check where the problem is coming from and making sure that all the files
 are under the same directory. They can then run the code and see how every part of the code funtions. When the code has ran
 everything in the code is implemented through the main. 
 
