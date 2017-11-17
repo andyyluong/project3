@@ -41,7 +41,8 @@ public class MainWarehouse extends Warehouse {
      * @param part Part added to inventory
      */
     public void addInventory(String part) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String qualities[] = part.split(",");
+        inventoryWarehouse.add(new BikePart(qualities[0], Integer.parseInt(qualities[1]), Double.parseDouble(qualities[2]), Double.parseDouble(qualities[3])), Boolean.parseBoolean(qualities[4]));
     }
 
     /**
