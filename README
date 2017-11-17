@@ -24,10 +24,12 @@ Sales associate duties includes selling bike parts to clients and generating a s
 
 How is it set up?
 If someone were to pick up our codebase today, they would get everything running in their local environment by downloading
-all the correct files and placing them into the proper packages accordingly. They would then need to check if the code compiles
-with no errors. If there are any errors, they can check where the problem is coming from and making sure that all the files
-are under the same directory. They can then run the code and see how every part of the code functions. When the code runs,
-everything in the code is implemented through the main. 
+all the correct files and placing them into the proper packages accordingly. 
+They would then need to check if the code compiles with no errors. 
+If there are any errors, they can check where the problem is coming from and making sure that all the files 
+are under the same directory. 
+They can then run the code and see how every part of the code functions.
+When the code runs, everything in the code is implemented through the main. 
 
 How is it used?
 When the program is executed and starts running, a login screen will appear and prompt the user to enter in an employee's username and password of their login account. 
