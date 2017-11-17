@@ -36,9 +36,3 @@ There are four different employees that will have login account information: sys
 Once the user enters the information for one of the employee on the login screen, the screen will open to the specific page for that employee with the actions and duties for that employee. 
 If the user enters a login account information that does not exist, login screen will indicate to the user that the login account information given is not available.
 Each employee page is divided by tabs in our program.
-
-
-What functionality in our program works?
-
-
-What functionality in our program does not work?
