@@ -22,7 +22,6 @@ Office manager duties includes examining parts, restocking parts, and using sale
 Warehouse manager's duty include updating warehouse inventory.
 Sales associate duties includes selling bike parts to clients and generating a sales invoice.
 
-
 How is it set up?
 If someone were to pick up our codebase today, they would get everything running in their local environment by downloading
 all the correct files and placing them into the proper packages accordingly. They would then need to check if the code compiles
