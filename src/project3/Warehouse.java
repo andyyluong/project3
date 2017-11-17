@@ -42,8 +42,6 @@ public abstract class Warehouse implements Serializable
     
     public abstract void addInventory(String part);
     
-    public abstract void sell(int partNumber, int amount);
-    
     public abstract String sortName();
     
     public abstract String sortNumber();
