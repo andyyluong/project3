@@ -121,4 +121,16 @@ public class BikePart implements Serializable {
 
         return partName + "," + partNumber + "," + listPrice + "," + salesPrice;
     }
+    
+    /**
+     * BikePart constructor for JUnit Test
+     */
+    public BikePart() {
+        
+        partName = "bikehandle";
+        partNumber = 1234567890;
+        listPrice = 10.0;
+        salesPrice = 8.0;
+        
+    }
 }
