@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 public class BikePartTest {
     
     /**
-     * Test of getPartName method, of class BikeParts.
+     * Test of getPartName method, of class BikePart.
      */
     @Test
     public void testGetPartName() {
@@ -23,7 +23,7 @@ public class BikePartTest {
     }
 
     /**
-     * Test of getPartNumber method, of class BikeParts.
+     * Test of getPartNumber method, of class BikePart.
      */
     @Test
     public void testGetPartNumber() {
@@ -35,9 +35,8 @@ public class BikePartTest {
 
     }
 
-
     /**
-     * Test of getPrice method, of class BikeParts.
+     * Test of getPrice method, of class BikePart.
      */
     @Test
     public void testGetPrice() {
