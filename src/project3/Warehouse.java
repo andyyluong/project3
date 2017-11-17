@@ -36,15 +36,15 @@ public abstract class Warehouse implements Serializable
         return warehouseType;
     }
             
-    //public Inventory findInventoryByName(String name);
+    public Inventory findInventoryByName(String name);
     
-    //public Inventory findInventoryByNumber(int number);
+    public Inventory findInventoryByNumber(int number);
     
-    //public void addInventory(String part);
+    public void addInventory(String part);
     
-    //public void sell(int partNumber, int amount);
+    public void sell(int partNumber, int amount);
     
-    //public String sortName();
+    public String sortName();
     
-    //public String sortNumber();
+    public String sortNumber();
 }
