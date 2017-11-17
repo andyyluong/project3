@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * BikePartTest contains the Bike part class JUnit test
+ * BikePartTest contains the Bike part class for JUnit test
  * @author andyluong
  */
 public class BikePartTest {
