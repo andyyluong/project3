@@ -1,218 +1,368 @@
-package sample;
+package project3;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import java.lang.reflect.Array;
+import javafx.scene.layout.AnchorPane;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Scanner;
 
-import static sample.Command.doRead;
-
-/**
- * Class Controller
- * This is a controller class that functions the GUIs commands
- * @author Anthony Phimmasone
- * @course CPSC 240
- * @professor Cooper
- * @version 2017.2.3
- * @build 172.3968.16
- *
- */
 public class Controller {
-    public static Command CMD = new Command();
-    public static ArrayList<BikePart> bikePartArrayList = new ArrayList<>();
 
-    @FXML
-    private TextField inputFileText;
+    public ArrayList<BikePart> BikePartArray = new ArrayList<>();
 
-    @FXML
-    private TextField outputFileNameText;
-
-    @FXML
-    private Button createButton;
-
-    @FXML
-    private Button updateButton;
-
-    @FXML
-    private Button moveButton;
-
-    @FXML
-    private TextArea myTextArea;
-
-    @FXML
-    private TextField fromWarehouseText;
-
-    @FXML
-    private TextField commandParamText;
-
-    @FXML
-    private Button doCommandButton;
-
-    @FXML
-    private TextField warehouseNameText;
-
-    @FXML
-    private TextField commandText;
-
-    @FXML
-    private TextField toWarehousetext;
-
-    /**
-     * method doUpdateButton
-     * @param event
-     */
-
-    //Updates a warehouse
-
-    @FXML
-    void doUpdateButton(ActionEvent event) {
-        //myTextArea.appendText(inputFileText.getText() + " has been updated in " + warehouseNameText.getText() + "\n");
-        String updateWH = inputFileText.getText();
-        WarehouseInventory.updateWarehouse(updateWH, bikePartArrayList);
+    public ArrayList<BikePart> getBikePartArray() {
+        return BikePartArray;
     }
 
-    /**
-     * method doCreateButton
-     * @param event
-     */
+        @FXML
+        private Button updateWarehouseInventoryButton;
 
-    //Creates a warehouse
+        @FXML
+        private PasswordField passwordTextField;
 
-    @FXML
-    void doCreateButton(ActionEvent event) {
-        //myTextArea.appendText("A new warehouse named " + warehouseNameText.getText() + " has been created in " + inputFileText.getText() + "\n");
-        String createWH = inputFileText.getText();
-        WarehouseInventory.createWarehouse(createWH, bikePartArrayList);
+        @FXML
+        private TextArea myTextAreaAssociateText;
 
-        String whName = warehouseNameText.getText();
-        String whFileName = inputFileText.getText();
-    }
+        @FXML
+        private TextArea myTextAreaWarehouseText;
 
-    /**
-     * method doMoveButton
-     * @param event
-     */
+        @FXML
+        private TextField emailAdminText;
 
-    //Moves bike parts to a warehouse
+        @FXML
+        private TextField quantityAssociateText;
 
-    @FXML
-    void doMoveButton(ActionEvent event) {
-        //myTextArea.appendText("A new warehouse named " + fromWarehouseText.getText() + " has moved bike parts to " + toWarehousetext.getText() + " warehouse in " + outputFileNameText.getText() + "\n");
-        String fromWarehouse = fromWarehouseText.getText();
-        String toWarehouse = toWarehousetext.getText();
-        String moveWarehouses = outputFileNameText.getText();
-    }
+        @FXML
+        private Button LogoutButton3;
 
-    /**
-     * method doCommandButton
-     * @param event
-     */
+        @FXML
+        private Button LogoutButton2;
 
-    //Handles commands (Read, Enter, Sell, Display, sort name & sort number)
-    @FXML
-    void doCommandButton(ActionEvent event) {
-        //myTextArea.appendText("You have entered the " + commandText.getText() + " command for " + commandParamText.getText() + "\n");
+        @FXML
+        private TextArea myTextAreaAdminText;
 
-        String CMD = commandText.getText();
-        String param = commandParamText.getText();
+        @FXML
+        private Button LogoutButton1;
 
-        System.out.println(CMD + " " + param);
+        @FXML
+        private TextField lastNameAdminText;
 
-        doRead("MainWarehouse.txt");
+        @FXML
+        private Button sellPartsButton;
 
-        //bikePartArrayList = doRead(param);
+        @FXML
+        private Button LogoutButton4;
 
-        switch (CMD) {
-            case "read":
-                ArrayList <BikePart> tempList;
-                tempList = doRead(param);
-                for (BikePart readParts:tempList){
-                    Main.mainWarehouse.addBikePart(readParts);
-                }
-                bikePartArrayList = doRead(param);
-                if (bikePartArrayList != null) {
-                    myTextArea.appendText("This warehouse has read successfully: " + "\n");
-                    myTextArea.appendText("\n");
-                    myTextArea.appendText("**************************************************************************");
-                    myTextArea.appendText("\n");
-                    for (BikePart bp : bikePartArrayList) {
-                        myTextArea.appendText(bp + "\n");
-                        Main.mainWarehouse.addBikePart(bp);
+        @FXML
+        private Button ExaminePartsButton;
+
+        @FXML
+        private TextArea myTextAreaOfficeText;
+
+        @FXML
+        private Button generateSalesInvoiceButton;
+
+        @FXML
+        private Button createAccountButton;
+
+        @FXML
+        private TextField StartDateText;
+
+        @FXML
+        private Button generateSalesPaycheckButton;
+
+        @FXML
+        private TextField usernameAdminText;
+
+        @FXML
+        private Button loginButton;
+
+        @FXML
+        private TextField salesVanFileNameText;
+
+        @FXML
+        private AnchorPane AnchorPane;
+
+        @FXML
+        private Tab salesAssociateTab;
+
+        @FXML
+        private TextField salesAssociateName;
+
+        @FXML
+        private Button resetPasswordButton;
+
+        @FXML
+        private Tab systemAdminTab;
+
+        @FXML
+        private TextField partNameAssociateText;
+
+        @FXML
+        private Tab warehouseManagerTab;
+
+        @FXML
+        private TextField firstNameAdminText;
+
+        @FXML
+        private Tab loginscreenTab;
+
+        @FXML
+        private TextField warehouseDeliveryFileText;
+
+        @FXML
+        private TextField partNumberAssociateText;
+
+        @FXML
+        private Button readWarehouseDeliveryButton;
+
+        @FXML
+        private TextField CustomerNameAssociateText;
+
+        @FXML
+        private Button deleteAccountButton;
+
+        @FXML
+        private TextField EndDateText;
+
+        @FXML
+        private Tab officeManagerTab;
+
+        @FXML
+        private TextField partNameOfficeManager;
+
+        @FXML
+        private TabPane tabPane;
+
+        @FXML
+        private Button refillPartStock;
+
+        @FXML
+        private TextField partNumberOfficeManager;
+
+        @FXML
+        private TextField warehouseNameText;
+
+        @FXML
+        private TextField usernameTextField;
+
+        @FXML
+        private TextField passwordAdminText;
+
+
+
+        @FXML
+        void doSellPartsButton(ActionEvent event) {
+            Scanner in = new Scanner(System.in);
+            System.out.println("Enter BikePart Number: ");
+            int partNumber = in.nextInt();
+
+            boolean Found = false;
+            Date date = new Date();
+            int i = 0;
+            while (i < BikePartArray.size() && !Found) {
+
+                if (BikePartArray.get(i).getPartNumber() == (partNumber)) {
+                    Found = true;
+                    if (BikePartArray.get(i).getOnSale()) {
+                        System.out.println("Part is on sale this is the sales price and the quantity");
+                        System.out.println(BikePartArray.get(i).getPartName() + " " + BikePartArray.get(i).getSalesPrice() + " " + BikePartArray.get(i).getSoldQuantity());
+                        System.out.println("Time and date sold" + date);
+                    } else if (BikePartArray.get(i).getOnSale()) {
+                        System.out.println("Part is not on sale this is the list price");
+                        System.out.println(BikePartArray.get(i).getPartName() + " " + BikePartArray.get(i).getListPrice() + " " + BikePartArray.get(i).getSoldQuantity());
+                        System.out.println("Time and date sold" + date);
                     }
-                    myTextArea.appendText("\n \n \n");
-                    myTextArea.appendText(("************************************************************************"));
-                } else
-                    myTextArea.appendText("File Not Found");
-                break;
-
-            case "enter":
-                bikePartArrayList.add(Command.doEnter(param));
-                myTextArea.appendText("This part has been entered into the warehouse successfully: " + "\n");
-                if (bikePartArrayList != null) {
-                    myTextArea.appendText(param + "\n");
-                    myTextArea.appendText("\n \n \n");
-                    myTextArea.appendText(("************************************************************************"));
                 }
-                break;
+                i += 1;
+            }
+            if (!Found) {
+                System.out.print("Part Number Not Found!");
+            }
+        }
 
-            case "sell":
-                //Can only sell a part that has just been entered
-                myTextArea.appendText("This part has been sold from the warehouse successfully: " + "\n");
-                myTextArea.appendText(Command.doSell(param) + "\n");
-                if (bikePartArrayList != null) {
-                    myTextArea.appendText("\n \n \n");
-                    myTextArea.appendText(("************************************************************************"));
-                } else
-                    myTextArea.appendText("Part Number Not Found");
-                break;
 
-            case "display":
-                myTextArea.appendText("Part Name " + " Part Price" + "\n");
-                myTextArea.appendText(Command.doDisplay(param) + "\n");
-                myTextArea.appendText("\n \n \n");
-                myTextArea.appendText(("************************************************************************"));
-                if (bikePartArrayList != null) {
 
-                } else
-                    myTextArea.appendText("Part Name Not Found");
-                myTextArea.appendText("\n \n \n");
-                myTextArea.appendText(("************************************************************************"));
-                break;
+        @FXML
+        void doExamineParts(ActionEvent event) {
 
-            case "sortname":
-                myTextArea.appendText("This warehouse has been sorted by part name successfully" + "\n");
-                myTextArea.appendText(Command.doSortName() +"\n");
-                    myTextArea.appendText("\n \n \n");
-                    myTextArea.appendText(("************************************************************************"));
+            Scanner in = new Scanner(System.in);
+            System.out.println("Enter BikePart Name: ");
+            String partName = in.nextLine();
+            //System.out.println("hello :" + partName);
 
-                break;
-            case "sortnumber":
-                myTextArea.appendText("This warehouse has been sorted by part number successfully" + "\n");
-                myTextArea.appendText(Command.doSortNumber() + "\n");
-                for (BikePart bp : bikePartArrayList) {
-                    myTextArea.appendText(bp + "\n");
+            boolean Found = false;
+            int j = 0;
+
+            while (j < BikePartArray.size() && !Found) {
+                //System.out.println(j + "This is J");
+
+
+                if (BikePartArray.get(j).getPartName().equals(partName)) {
+                    Found = true;
+                    if (BikePartArray.get(j).getOnSale()) {
+                        System.out.println("Part Name is on sale this is the sales price");
+                        System.out.println(BikePartArray.get(j).getPartName() + " " + BikePartArray.get(j).getSalesPrice());
+                    } else if (!BikePartArray.get(j).getOnSale()) {
+                        System.out.println("Part Name is not on sale this is the list price");
+                        System.out.println(BikePartArray.get(j).getPartName() + " " + BikePartArray.get(j).getListPrice());
+                    }
                 }
-                myTextArea.appendText("\n \n \n");
-                myTextArea.appendText(("************************************************************************"));
-                break;
+                j += 1;
+            }
 
-            case "save":
-                myTextArea.appendText(Command.doWrite(param,bikePartArrayList) + "\n");
-                myTextArea.appendText("You have successfully saved the warehouse information" + "\n");
-                for (BikePart bp : bikePartArrayList) {
-                    myTextArea.appendText(bp + "\n");
-                }
-                myTextArea.appendText("\n \n \n");
-                myTextArea.appendText(("************************************************************************"));
-                break;
+            if (!Found) {
+                System.out.print("Part Name Not Found!");
+            }
+        }
 
-            default:
-                myTextArea.appendText("Invalid command! Please Try Again.");
+
+
+        @FXML
+        void doRefillPartStock(ActionEvent event) {
 
         }
+
+        @FXML
+        void doReadWarehouseDelivery(ActionEvent event) {
+
+        }
+
+    @FXML
+    void doLoginButton(ActionEvent event) {
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+        systemAdminTab.setDisable(false);
+        loginscreenTab.setDisable(true);
+        warehouseManagerTab.setDisable(false);
+        officeManagerTab.setDisable(false);
+        salesAssociateTab.setDisable(false);
+        selectionModel.select(systemAdminTab);
     }
+
+    @FXML
+    void doCreateAccount(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doDeleteAccount(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doResetPassword(ActionEvent event) {
+
+    }
+
+    @FXML
+        void doLogoutButton1(ActionEvent event) {
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+        systemAdminTab.setDisable(true);
+        loginscreenTab.setDisable(false);
+        warehouseManagerTab.setDisable(true);
+        officeManagerTab.setDisable(true);
+        salesAssociateTab.setDisable(true);
+        selectionModel.select(loginscreenTab);
+    }
+
+    @FXML
+    void doGenerateSalesInvoice(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doGenerateSalesVanFileButton(ActionEvent event) {
+
+
+    }
+
+    @FXML
+    void doLogoutButton2(ActionEvent event) {
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+        systemAdminTab.setDisable(true);
+        loginscreenTab.setDisable(false);
+        warehouseManagerTab.setDisable(true);
+        officeManagerTab.setDisable(true);
+        salesAssociateTab.setDisable(true);
+        selectionModel.select(loginscreenTab);
+
+    }
+
+    @FXML
+    ArrayList<BikePart> doReadSalesInvoice(ActionEvent event) {
+            ArrayList<BikePart> BikePartArray = null;
+            try {
+                myTextAreaOfficeText.appendText("Enter Input File: ");
+                Scanner user = new Scanner(System.in);
+                String inputFile = user.nextLine();
+                File input = new File(inputFile);
+                BikePartArray = new ArrayList<>();
+                Scanner read = new Scanner(input);
+                while (read.hasNextLine()) {
+                    String line = read.nextLine();
+                    String regularEXPRESSION = ",";
+                    String[] presentValue = line.split(regularEXPRESSION);
+                    System.out.println(Arrays.toString(presentValue));
+                    BikePart bp = new BikePart(presentValue[0], Integer.parseInt(presentValue[1]), Double.parseDouble(presentValue[2]),
+                            Double.parseDouble(presentValue[3]));
+                    BikePartArray.add(bp);
+                }
+            }   catch (FileNotFoundException e) {
+                System.out.println("file not found");
+                e.printStackTrace();
+            }
+            return BikePartArray;
+        }
+
+    @FXML
+    void doGenerateSalesPaycheck(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doLogoutButton3(ActionEvent event) {
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+        systemAdminTab.setDisable(true);
+        loginscreenTab.setDisable(false);
+        warehouseManagerTab.setDisable(true);
+        officeManagerTab.setDisable(true);
+        salesAssociateTab.setDisable(true);
+        selectionModel.select(loginscreenTab);
+
+    }
+
+    @FXML
+    void doLoadWarehouseDelivery(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doUpdateWarehouseInventoryButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void doLogoutButton4(ActionEvent event) {
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+        systemAdminTab.setDisable(true);
+        loginscreenTab.setDisable(false);
+        warehouseManagerTab.setDisable(true);
+        officeManagerTab.setDisable(true);
+        salesAssociateTab.setDisable(true);
+        selectionModel.select(loginscreenTab);
+
+    }
+
 }
