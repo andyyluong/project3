@@ -22,8 +22,7 @@ public class SalesAssociate extends LoginAccount implements Serializable {
      * @param password Password of sales associate
      * @param warehouseName Warehouse name of sales associate
      */
-    public SalesAssociate(String firstName, String lastName, String emailAddress,
-                          String userName, String password, String warehouseName) {
+    public SalesAssociate(String firstName, String lastName, String emailAddress, String userName, String password, String warehouseName) {
         super(new Person(firstName, lastName, emailAddress), userName, password);
         this.WarehouseName = warehouseName;
         accountType = AccountType.SALES_ASSOCIATE;

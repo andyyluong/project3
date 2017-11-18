@@ -18,7 +18,7 @@ import javafx.stage.Stage;
  * @author andyLuong
  * @author anthonyPhimmasone
  * @author brianJustice
- * @author alexLudin
+ * @author alexLundin
  */
 public class Main extends Application {
     public static WarehouseInventory warehouseInventory = new WarehouseInventory();
@@ -76,6 +76,16 @@ public class Main extends Application {
             accountListIn.close();
             accountListFile.close();                                                 
         }
+        
+        accountList.add(new SystemAdministrator(new Person("Andy", "Luong", "Andy@bikepart.com"), "system", "admin"));
+        
+        accountList.add(new OfficeManager(new Person("Anthony", "Phimmasone", "Anthony@bikepart.com"), "office", "manager"));
+
+        accountList.add(new WarehouseManager(new Person("Brian", "Justice", "Brian@bikepart.com"), "warehouse", "manager"));
+        
+        accountList.add(new SalesAssociate("Alex", "Lundin", "Alex@bikepart.com", "sales", "associate", "salesassociate"));
+
+        
             launch(args);
     }
 }
