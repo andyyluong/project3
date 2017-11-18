@@ -24,12 +24,13 @@ Sales associate duties includes selling bike parts to clients and generating a s
 
 How is it set up?
 If someone were to pick up our codebase today, they would get everything running in their local environment by downloading
-all the correct files and placing them into the proper packages accordingly. 
-They would then need to check if the code compiles with no errors. 
-If there are any errors, they can check where the problem is coming from and making sure that all the files 
-are under the same directory. 
-They can then run the code and see how every part of the code functions.
-When the code runs, everything in the code is implemented through the main. 
+all the correct files and placing them into the proper packages and directory accordingly. 
+They would then need to check if the code compiles with no errors by running the program. 
+If there are any errors, the user can check where the problem is coming by making sure that all the files 
+are under the same package and directory or use the debugging tool, if provided by their local environment application. 
+The user can then run the code and see how every component of the code functions.
+When the code runs, all functionality in the code is implemented through the main.
+If the user has correctly set up the program into their local environment, a GUI of a login screen should initially appear on the screen.
 
 How is it used?
 When the program is executed and starts running, a login screen will appear and prompt the user to enter in an employee's username and password of their login account. 
@@ -37,3 +38,16 @@ There are four different employees that will have login account information: sys
 Once the user enters the information for one of the employee on the login screen, the screen will open to the specific page for that employee with the actions and duties for that employee. 
 If the user enters a login account information that does not exist, login screen will indicate to the user that the login account information given is not available.
 Each employee page is divided by tabs in our program.
+The system administrator page includes text fields to input first name, last name, phone number, age, email address, username, and password.
+These are used for the button actions for the system administrator, such as create account, remove account, and reset password. 
+Additionally, there is a logout button to return back to the login screen.
+The office manager page includes text fields to input part name or number for examining part information.
+There is also text fields that the user inputs a sales associate name, start date, and end date, which is used to generate a sales paycheck.
+The actions on this page is processed through the buttons 'read sales invoice', generate sales paycheck, and examine part.
+Additionally, there is a logout button to return back to the login screen.
+The warehouse manager page includes text fields to input a 'warehouse delivery file name' and 'warehouse name'.
+These are used for the button actions for the warehouse manager, such as read warehouse delivery file and update warehouse inventory file.
+Additionally, there is a logout button to return back to the login screen.
+The sales associate page includes text fields to input the part name, part number, quantity, and customer name.
+These are used for the button actions for the sales associate, such as selling parts to clients and generating a sales invoice.
+Additionally, there is a logout button to return back to the login screen.
