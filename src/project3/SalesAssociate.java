@@ -2,12 +2,11 @@ package project3;
 
 import java.io.Serializable;
 /**
- *
  * Sales Associate class defines the actions of a sales associate employee
  * @author andyluong
  * @author anthonyPhimmasone
  * @author brianJustice
- *
+ * @author alexLundin
  */
 public class SalesAssociate extends LoginAccount implements Serializable {
     private String WarehouseName;
@@ -18,16 +17,14 @@ public class SalesAssociate extends LoginAccount implements Serializable {
      * Sales Associate constructor
      * @param firstName First name of sales associate
      * @param lastName Last name of sales associate
-     * @param age Age of sales associate
-     * @param phoneNumber Phone number of sales associate
      * @param emailAddress Email address of sales associate
      * @param userName Username of sales associate
      * @param password Password of sales associate
      * @param warehouseName Warehouse name of sales associate
      */
-    public SalesAssociate(String firstName, String lastName, int age, int phoneNumber, String emailAddress,
+    public SalesAssociate(String firstName, String lastName, String emailAddress,
                           String userName, String password, String warehouseName) {
-        super(new Person(firstName, lastName, age, phoneNumber, emailAddress), userName, password);
+        super(new Person(firstName, lastName, emailAddress), userName, password);
         this.WarehouseName = warehouseName;
         accountType = AccountType.SALES_ASSOCIATE;
         //this.Warehouse = warehouse;
