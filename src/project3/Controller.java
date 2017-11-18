@@ -194,37 +194,41 @@ public class Controller {
         String pass = passwordTextField.getText();
         for(LoginAccount a : Main.accountList.getAccounts()){
             if (a.getUserName().equals(user) && a.getPassword().equals(pass)){
-                if(a.getType() == AccountType.ADMIN) {
-                    systemAdminTab.setDisable(false);
-                    loginscreenTab.setDisable(true);
-                    warehouseManagerTab.setDisable(true);
-                    officeManagerTab.setDisable(true);
-                    salesAssociateTab.setDisable(true);
-                    selectionModel.select(systemAdminTab);
-                }
-                else if(a.getType() == AccountType.OFFICE_MANAGER) {
-                    systemAdminTab.setDisable(true);
-                    loginscreenTab.setDisable(true);
-                    warehouseManagerTab.setDisable(true);
-                    officeManagerTab.setDisable(false);
-                    salesAssociateTab.setDisable(true);
-                    selectionModel.select(officeManagerTab);
-                }
-                else if(a.getType() == AccountType.WAREHOUSE_MANAGER) {
-                    systemAdminTab.setDisable(true);
-                    loginscreenTab.setDisable(true);
-                    warehouseManagerTab.setDisable(false);
-                    officeManagerTab.setDisable(true);
-                    salesAssociateTab.setDisable(true);
-                    selectionModel.select(warehouseManagerTab);
-                }
-                else if(a.getType() == AccountType.SALES_ASSOCIATE) {
-                    systemAdminTab.setDisable(true);
-                    loginscreenTab.setDisable(true);
-                    warehouseManagerTab.setDisable(true);
-                    officeManagerTab.setDisable(true);
-                    salesAssociateTab.setDisable(false);
-                    selectionModel.select(salesAssociateTab);                  
+                if(null != a.getType()) switch (a.getType()) {
+                    case ADMIN:
+                        systemAdminTab.setDisable(false);
+                        loginscreenTab.setDisable(true);
+                        warehouseManagerTab.setDisable(true);
+                        officeManagerTab.setDisable(true);
+                        salesAssociateTab.setDisable(true);
+                        selectionModel.select(systemAdminTab);
+                        break;
+                    case OFFICE_MANAGER:
+                        systemAdminTab.setDisable(true);
+                        loginscreenTab.setDisable(true);
+                        warehouseManagerTab.setDisable(true);
+                        officeManagerTab.setDisable(false);
+                        salesAssociateTab.setDisable(true);
+                        selectionModel.select(officeManagerTab);
+                        break;
+                    case WAREHOUSE_MANAGER:
+                        systemAdminTab.setDisable(true);
+                        loginscreenTab.setDisable(true);
+                        warehouseManagerTab.setDisable(false);
+                        officeManagerTab.setDisable(true);
+                        salesAssociateTab.setDisable(true);
+                        selectionModel.select(warehouseManagerTab);
+                        break;
+                    case SALES_ASSOCIATE:
+                        systemAdminTab.setDisable(true);
+                        loginscreenTab.setDisable(true);
+                        warehouseManagerTab.setDisable(true);
+                        officeManagerTab.setDisable(true);
+                        salesAssociateTab.setDisable(false);                  
+                        selectionModel.select(salesAssociateTab);
+                        break;
+                    default:
+                        break;
                 }
             }
         }
