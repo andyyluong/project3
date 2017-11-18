@@ -19,6 +19,14 @@ public class OfficeManager extends LoginAccount {
         accountType = AccountType.OFFICE_MANAGER;
     }
 
+    public void examinePart() {
+        
+    }
+    
+    public void restockPart() {
+        
+    } 
+            
     /**
      * Get account type
      * @return Account type
