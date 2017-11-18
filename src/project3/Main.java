@@ -72,7 +72,7 @@ public class Main extends Application {
         {
             FileInputStream accountListFile = new FileInputStream("accountList.ser");
             ObjectInputStream accountListIn  = new ObjectInputStream(accountListFile);
-            accountList = (AccountList) accountListIn.readObject();
+            //accountList = (AccountList) accountListIn.readObject();
             accountListIn.close();
             accountListFile.close();                                                 
         }
@@ -85,7 +85,9 @@ public class Main extends Application {
         
         accountList.add(new SalesAssociate("Alex", "Lundin", "Alex@bikepart.com", "sales", "associate", "salesassociate"));
 
+        accountList.add(new SalesAssociate("Gusty", "Cooper", "Gusty@bikepart.com", "gustysales", "gustyassociate", "gustysalesassociate"));
+
         
-            launch(args);
+        launch(args);
     }
 }

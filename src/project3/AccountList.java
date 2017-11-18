@@ -21,6 +21,7 @@ public class AccountList implements Serializable{
      */
     public AccountList(){
         accounts = new ArrayList<>();
+        salesAssociates = new ArrayList<>();
     }
 
     /**
@@ -30,7 +31,7 @@ public class AccountList implements Serializable{
     public void add(LoginAccount account){
         if(account.getType()==AccountType.SALES_ASSOCIATE){
             salesAssociates.add((SalesAssociate) account);
-        }
+        } 
         if(account.getType()==AccountType.OFFICE_MANAGER){
             officeManager = (OfficeManager) account;
         }
@@ -64,4 +65,3 @@ public class AccountList implements Serializable{
         return accounts;
     }
 }
-
