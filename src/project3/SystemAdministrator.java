@@ -18,6 +18,27 @@ public class SystemAdministrator extends LoginAccount {
         super(p, aUserName, aPassword);
         accountType = AccountType.ADMIN;
     }
+    
+    /**
+     * Creates a account for employee
+     */
+    public void createAccount() {
+        
+    }
+    
+    /**
+     * Removes a account of an employee
+     */
+    public void removeAccount() {
+        
+    }
+    
+    /**
+     * Resets password of a employee account
+     */
+    public void resetPassword() {
+        
+    }
 
     /**
      * Get account type
