@@ -1,3 +1,4 @@
+//*********************IGNORE THIS CLASS FOR NOW (DO NOT DELETE)
 package sample;
 
 import java.io.*;
