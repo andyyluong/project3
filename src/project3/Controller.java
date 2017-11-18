@@ -165,68 +165,15 @@ public class Controller {
 
         @FXML
         void doSellPartsButton(ActionEvent event) {
-            Scanner in = new Scanner(System.in);
-            System.out.println("Enter BikePart Number: ");
-            int partNumber = in.nextInt();
 
-            boolean Found = false;
-            Date date = new Date();
-            int i = 0;
-            while (i < BikePartArray.size() && !Found) {
-
-                if (BikePartArray.get(i).getPartNumber() == (partNumber)) {
-                    Found = true;
-                    if (BikePartArray.get(i).getOnSale()) {
-                        System.out.println("Part is on sale this is the sales price and the quantity");
-                        System.out.println(BikePartArray.get(i).getPartName() + " " + BikePartArray.get(i).getSalesPrice() + " " + BikePartArray.get(i).getSoldQuantity());
-                        System.out.println("Time and date sold" + date);
-                    } else if (BikePartArray.get(i).getOnSale()) {
-                        System.out.println("Part is not on sale this is the list price");
-                        System.out.println(BikePartArray.get(i).getPartName() + " " + BikePartArray.get(i).getListPrice() + " " + BikePartArray.get(i).getSoldQuantity());
-                        System.out.println("Time and date sold" + date);
-                    }
-                }
-                i += 1;
-            }
-            if (!Found) {
-                System.out.print("Part Number Not Found!");
-            }
         }
 
 
-
-        @FXML
+       @FXML
         void doExamineParts(ActionEvent event) {
 
-            Scanner in = new Scanner(System.in);
-            System.out.println("Enter BikePart Name: ");
-            String partName = in.nextLine();
-            //System.out.println("hello :" + partName);
 
-            boolean Found = false;
-            int j = 0;
-
-            while (j < BikePartArray.size() && !Found) {
-                //System.out.println(j + "This is J");
-
-
-                if (BikePartArray.get(j).getPartName().equals(partName)) {
-                    Found = true;
-                    if (BikePartArray.get(j).getOnSale()) {
-                        System.out.println("Part Name is on sale this is the sales price");
-                        System.out.println(BikePartArray.get(j).getPartName() + " " + BikePartArray.get(j).getSalesPrice());
-                    } else if (!BikePartArray.get(j).getOnSale()) {
-                        System.out.println("Part Name is not on sale this is the list price");
-                        System.out.println(BikePartArray.get(j).getPartName() + " " + BikePartArray.get(j).getListPrice());
-                    }
-                }
-                j += 1;
-            }
-
-            if (!Found) {
-                System.out.print("Part Name Not Found!");
-            }
-        }
+       }
 
 
 
@@ -243,12 +190,20 @@ public class Controller {
     @FXML
     void doLoginButton(ActionEvent event) {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
-        systemAdminTab.setDisable(false);
-        loginscreenTab.setDisable(true);
-        warehouseManagerTab.setDisable(false);
-        officeManagerTab.setDisable(false);
-        salesAssociateTab.setDisable(false);
-        selectionModel.select(systemAdminTab);
+        String user = usernameTextField.getText();
+        String pass = passwordTextField.getText();
+        for(LoginAccount a : Main.accountList.getAccounts()){
+            if (a.getUserName().equals(user) && a.getPassword().equals(pass)){
+                if(a.getType() == AccountType.ADMIN){
+                    systemAdminTab.setDisable(false);
+                    loginscreenTab.setDisable(true);
+                    warehouseManagerTab.setDisable(true);
+                    officeManagerTab.setDisable(true);
+                    salesAssociateTab.setDisable(true);
+                    selectionModel.select(systemAdminTab);
+                }
+            }
+        }
     }
 
     @FXML
@@ -299,32 +254,6 @@ public class Controller {
         selectionModel.select(loginscreenTab);
 
     }
-
-    @FXML
-    ArrayList<BikePart> doReadSalesInvoice(ActionEvent event) {
-            ArrayList<BikePart> BikePartArray = null;
-            try {
-                myTextAreaOfficeText.appendText("Enter Input File: ");
-                Scanner user = new Scanner(System.in);
-                String inputFile = user.nextLine();
-                File input = new File(inputFile);
-                BikePartArray = new ArrayList<>();
-                Scanner read = new Scanner(input);
-                while (read.hasNextLine()) {
-                    String line = read.nextLine();
-                    String regularEXPRESSION = ",";
-                    String[] presentValue = line.split(regularEXPRESSION);
-                    System.out.println(Arrays.toString(presentValue));
-                    BikePart bp = new BikePart(presentValue[0], Integer.parseInt(presentValue[1]), Double.parseDouble(presentValue[2]),
-                            Double.parseDouble(presentValue[3]));
-                    BikePartArray.add(bp);
-                }
-            }   catch (FileNotFoundException e) {
-                System.out.println("file not found");
-                e.printStackTrace();
-            }
-            return BikePartArray;
-        }
 
     @FXML
     void doGenerateSalesPaycheck(ActionEvent event) {

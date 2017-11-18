@@ -16,7 +16,6 @@ public class AccountList implements Serializable{
     private OfficeManager officeManager;
     private SystemAdministrator systemAdministrator;
     private WarehouseManager warehouseManager;
-    
     /**
      * AccountList constructor
      */
@@ -44,10 +43,6 @@ public class AccountList implements Serializable{
         accounts.add(account);
     }
 
-    /**
-     * Delete a login account
-     * @param account Login account
-     */
     public void delete(LoginAccount account){
         if(account.getType()==AccountType.SALES_ASSOCIATE){
             salesAssociates.remove((SalesAssociate) account);
@@ -63,4 +58,10 @@ public class AccountList implements Serializable{
         }
         accounts.remove(account);
     }
+    //Iterator Pattern
+
+    public ArrayList<LoginAccount> getAccounts(){
+        return accounts;
+    }
 }
+
