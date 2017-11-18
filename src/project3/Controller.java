@@ -1,291 +1,218 @@
-package project3;
+package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
-import static project3.Main.accountList;
+import static sample.Command.doRead;
 
+/**
+ * Class Controller
+ * This is a controller class that functions the GUIs commands
+ * @author Anthony Phimmasone
+ * @course CPSC 240
+ * @professor Cooper
+ * @version 2017.2.3
+ * @build 172.3968.16
+ *
+ */
 public class Controller {
+    public static Command CMD = new Command();
+    public static ArrayList<BikePart> bikePartArrayList = new ArrayList<>();
 
-        @FXML
-        private Button updateWarehouseInventoryButton;
+    @FXML
+    private TextField inputFileText;
 
-        @FXML
-        private PasswordField passwordTextField;
+    @FXML
+    private TextField outputFileNameText;
 
-        @FXML
-        private TextArea myTextAreaAssociateText;
+    @FXML
+    private Button createButton;
 
-        @FXML
-        private TextArea myTextAreaWarehouseText;
+    @FXML
+    private Button updateButton;
 
-        @FXML
-        private TextField emailAdminText;
+    @FXML
+    private Button moveButton;
 
-        @FXML
-        private TextField phoneNumberAdminText;
+    @FXML
+    private TextArea myTextArea;
 
-        @FXML
-        private TextField quantityAssociateText;
+    @FXML
+    private TextField fromWarehouseText;
 
-        @FXML
-        private Button LogoutButton3;
+    @FXML
+    private TextField commandParamText;
 
-        @FXML
-        private Button LogoutButton2;
+    @FXML
+    private Button doCommandButton;
 
-        @FXML
-        private TextArea myTextAreaAdminText;
+    @FXML
+    private TextField warehouseNameText;
 
-        @FXML
-        private Button LogoutButton1;
+    @FXML
+    private TextField commandText;
 
-        @FXML
-        private TextField lastNameAdminText;
+    @FXML
+    private TextField toWarehousetext;
 
-        @FXML
-        private Button sellPartsButton;
+    /**
+     * method doUpdateButton
+     * @param event
+     */
 
-        @FXML
-        private Button LogoutButton4;
+    //Updates a warehouse
 
-        @FXML
-        private Button ExaminePartsButton;
+    @FXML
+    void doUpdateButton(ActionEvent event) {
+        //myTextArea.appendText(inputFileText.getText() + " has been updated in " + warehouseNameText.getText() + "\n");
+        String updateWH = inputFileText.getText();
+        WarehouseInventory.updateWarehouse(updateWH, bikePartArrayList);
+    }
 
-        @FXML
-        private TextArea myTextAreaOfficeText;
+    /**
+     * method doCreateButton
+     * @param event
+     */
 
-        @FXML
-        private Button generateSalesInvoiceButton;
+    //Creates a warehouse
 
-        @FXML
-        private Button createAccountButton;
+    @FXML
+    void doCreateButton(ActionEvent event) {
+        //myTextArea.appendText("A new warehouse named " + warehouseNameText.getText() + " has been created in " + inputFileText.getText() + "\n");
+        String createWH = inputFileText.getText();
+        WarehouseInventory.createWarehouse(createWH, bikePartArrayList);
 
-        @FXML
-        private TextField StartDateText;
+        String whName = warehouseNameText.getText();
+        String whFileName = inputFileText.getText();
+    }
 
-        @FXML
-        private TextField ageAdminText;
+    /**
+     * method doMoveButton
+     * @param event
+     */
 
-        @FXML
-        private Button generateSalesPaycheckButton;
+    //Moves bike parts to a warehouse
 
-        @FXML
-        private TextField usernameAdminText;
+    @FXML
+    void doMoveButton(ActionEvent event) {
+        //myTextArea.appendText("A new warehouse named " + fromWarehouseText.getText() + " has moved bike parts to " + toWarehousetext.getText() + " warehouse in " + outputFileNameText.getText() + "\n");
+        String fromWarehouse = fromWarehouseText.getText();
+        String toWarehouse = toWarehousetext.getText();
+        String moveWarehouses = outputFileNameText.getText();
+    }
 
-        @FXML
-        private Button loginButton;
+    /**
+     * method doCommandButton
+     * @param event
+     */
 
-        @FXML
-        private TextField salesVanFileNameText;
+    //Handles commands (Read, Enter, Sell, Display, sort name & sort number)
+    @FXML
+    void doCommandButton(ActionEvent event) {
+        //myTextArea.appendText("You have entered the " + commandText.getText() + " command for " + commandParamText.getText() + "\n");
 
-        @FXML
-        private AnchorPane AnchorPane;
+        String CMD = commandText.getText();
+        String param = commandParamText.getText();
 
-        @FXML
-        private Tab salesAssociateTab;
+        System.out.println(CMD + " " + param);
 
-        @FXML
-        private TextField salesAssociateName;
+        doRead("MainWarehouse.txt");
 
-        @FXML
-        private Button resetPasswordButton;
+        //bikePartArrayList = doRead(param);
 
-        @FXML
-        private Tab systemAdminTab;
+        switch (CMD) {
+            case "read":
+                ArrayList <BikePart> tempList;
+                tempList = doRead(param);
+                for (BikePart readParts:tempList){
+                    Main.mainWarehouse.addBikePart(readParts);
+                }
+                bikePartArrayList = doRead(param);
+                if (bikePartArrayList != null) {
+                    myTextArea.appendText("This warehouse has read successfully: " + "\n");
+                    myTextArea.appendText("\n");
+                    myTextArea.appendText("**************************************************************************");
+                    myTextArea.appendText("\n");
+                    for (BikePart bp : bikePartArrayList) {
+                        myTextArea.appendText(bp + "\n");
+                        Main.mainWarehouse.addBikePart(bp);
+                    }
+                    myTextArea.appendText("\n \n \n");
+                    myTextArea.appendText(("************************************************************************"));
+                } else
+                    myTextArea.appendText("File Not Found");
+                break;
 
-        @FXML
-        private TextField partNameAssociateText;
+            case "enter":
+                bikePartArrayList.add(Command.doEnter(param));
+                myTextArea.appendText("This part has been entered into the warehouse successfully: " + "\n");
+                if (bikePartArrayList != null) {
+                    myTextArea.appendText(param + "\n");
+                    myTextArea.appendText("\n \n \n");
+                    myTextArea.appendText(("************************************************************************"));
+                }
+                break;
 
-        @FXML
-        private Tab warehouseManagerTab;
+            case "sell":
+                //Can only sell a part that has just been entered
+                myTextArea.appendText("This part has been sold from the warehouse successfully: " + "\n");
+                myTextArea.appendText(Command.doSell(param) + "\n");
+                if (bikePartArrayList != null) {
+                    myTextArea.appendText("\n \n \n");
+                    myTextArea.appendText(("************************************************************************"));
+                } else
+                    myTextArea.appendText("Part Number Not Found");
+                break;
 
-        @FXML
-        private TextField firstNameAdminText;
+            case "display":
+                myTextArea.appendText("Part Name " + " Part Price" + "\n");
+                myTextArea.appendText(Command.doDisplay(param) + "\n");
+                myTextArea.appendText("\n \n \n");
+                myTextArea.appendText(("************************************************************************"));
+                if (bikePartArrayList != null) {
 
-        @FXML
-        private Tab loginscreenTab;
+                } else
+                    myTextArea.appendText("Part Name Not Found");
+                myTextArea.appendText("\n \n \n");
+                myTextArea.appendText(("************************************************************************"));
+                break;
 
-        @FXML
-        private TextField warehouseDeliveryFileText;
+            case "sortname":
+                myTextArea.appendText("This warehouse has been sorted by part name successfully" + "\n");
+                myTextArea.appendText(Command.doSortName() +"\n");
+                    myTextArea.appendText("\n \n \n");
+                    myTextArea.appendText(("************************************************************************"));
 
-        @FXML
-        private TextField partNumberAssociateText;
+                break;
+            case "sortnumber":
+                myTextArea.appendText("This warehouse has been sorted by part number successfully" + "\n");
+                myTextArea.appendText(Command.doSortNumber() + "\n");
+                for (BikePart bp : bikePartArrayList) {
+                    myTextArea.appendText(bp + "\n");
+                }
+                myTextArea.appendText("\n \n \n");
+                myTextArea.appendText(("************************************************************************"));
+                break;
 
-        @FXML
-        private Button readWarehouseDeliveryButton;
+            case "save":
+                myTextArea.appendText(Command.doWrite(param,bikePartArrayList) + "\n");
+                myTextArea.appendText("You have successfully saved the warehouse information" + "\n");
+                for (BikePart bp : bikePartArrayList) {
+                    myTextArea.appendText(bp + "\n");
+                }
+                myTextArea.appendText("\n \n \n");
+                myTextArea.appendText(("************************************************************************"));
+                break;
 
-        @FXML
-        private TextField CustomerNameAssociateText;
-
-        @FXML
-        private Button deleteAccountButton;
-
-        @FXML
-        private TextField EndDateText;
-
-        @FXML
-        private Tab officeManagerTab;
-
-        @FXML
-        private TextField partNameOfficeManager;
-
-        @FXML
-        private TabPane tabPane;
-
-        @FXML
-        private Button refillPartStock;
-
-        @FXML
-        private TextField partNumberOfficeManager;
-
-        @FXML
-        private TextField warehouseNameText;
-
-        @FXML
-        private TextField usernameTextField;
-
-        @FXML
-        private TextField passwordAdminText;
-
-
-
-        @FXML
-        void doSellPartsButton(ActionEvent event) {
+            default:
+                myTextArea.appendText("Invalid command! Please Try Again.");
 
         }
-
-
-
-        @FXML
-        void doExamineParts(ActionEvent event) {
-
-        }
-
-
-
-        @FXML
-        void doRefillPartStock(ActionEvent event) {
-
-        }
-
-        @FXML
-        void doReadWarehouseDelivery(ActionEvent event) {
-
-        }
-
-    @FXML
-    void doLoginButton(ActionEvent event) {
-        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
-        systemAdminTab.setDisable(false);
-        loginscreenTab.setDisable(true);
-        warehouseManagerTab.setDisable(false);
-        officeManagerTab.setDisable(false);
-        salesAssociateTab.setDisable(false);
-        selectionModel.select(systemAdminTab);
     }
-
-    @FXML
-    void doCreateAccount(ActionEvent event) {
-        myTextAreaAdminText.appendText("This login account " + usernameAdminText.getText() + " has been created for "
-                + firstNameAdminText.getText() + " " + lastNameAdminText.getText() + "\n");
-    }
-
-    @FXML
-    void doDeleteAccount(ActionEvent event) {
-        myTextAreaAdminText.appendText("The login account for " + usernameAdminText.getText() +
-                " has been successfully deleted" + "\n");
-    }
-
-    @FXML
-    void doResetPassword(ActionEvent event) {
-        myTextAreaAdminText.appendText("The account has successfully ");
-    }
-
-    @FXML
-        void doLogoutButton1(ActionEvent event) {
-        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
-        systemAdminTab.setDisable(true);
-        loginscreenTab.setDisable(false);
-        warehouseManagerTab.setDisable(true);
-        officeManagerTab.setDisable(true);
-        salesAssociateTab.setDisable(true);
-        selectionModel.select(loginscreenTab);
-    }
-
-    @FXML
-    void doGenerateSalesInvoice(ActionEvent event) {
-
-    }
-
-    @FXML
-    void doGenerateSalesVanFileButton(ActionEvent event) {
-
-
-    }
-
-    @FXML
-    void doLogoutButton2(ActionEvent event) {
-        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
-        systemAdminTab.setDisable(true);
-        loginscreenTab.setDisable(false);
-        warehouseManagerTab.setDisable(true);
-        officeManagerTab.setDisable(true);
-        salesAssociateTab.setDisable(true);
-        selectionModel.select(loginscreenTab);
-
-    }
-
-    @FXML
-    void doReadSalesInvoice(ActionEvent event) {
-
-    }
-
-    @FXML
-    void doGenerateSalesPaycheck(ActionEvent event) {
-
-    }
-
-    @FXML
-    void doLogoutButton3(ActionEvent event) {
-        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
-        systemAdminTab.setDisable(true);
-        loginscreenTab.setDisable(false);
-        warehouseManagerTab.setDisable(true);
-        officeManagerTab.setDisable(true);
-        salesAssociateTab.setDisable(true);
-        selectionModel.select(loginscreenTab);
-
-    }
-
-    @FXML
-    void doLoadWarehouseDelivery(ActionEvent event) {
-
-    }
-
-    @FXML
-    void doUpdateWarehouseInventoryButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void doLogoutButton4(ActionEvent event) {
-        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
-        systemAdminTab.setDisable(true);
-        loginscreenTab.setDisable(false);
-        warehouseManagerTab.setDisable(true);
-        officeManagerTab.setDisable(true);
-        salesAssociateTab.setDisable(true);
-        selectionModel.select(loginscreenTab);
-
-    }
-
 }
