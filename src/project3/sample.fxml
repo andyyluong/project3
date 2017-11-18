@@ -57,23 +57,17 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <Button fx:id="generateSalesInvoiceButton" layoutX="23.0" layoutY="336.0" mnemonicParsing="false" onAction="#doGenerateSalesInvoice" text="Generate Sales Invoice" />
-                        <Button fx:id="generateSalesVanFileButton" layoutX="286.0" layoutY="336.0" mnemonicParsing="false" onAction="#doGenerateSalesVanFileButton" text="Generate Sales Van Delivery File" />
+                        <Button fx:id="sellPartsButton" layoutX="389.0" layoutY="336.0" mnemonicParsing="false" onAction="#doSellPartsButton" text="Sell Parts" />
                         <TextField fx:id="salesVanFileNameText" layoutX="181.0" layoutY="36.0" />
                         <TextField fx:id="CustomerNameAssociateText" layoutX="181.0" layoutY="67.0" />
-                        <TextField fx:id="partNameAssociateText" layoutX="84.0" layoutY="100.0" />
-                        <TextField fx:id="partNumberAssociateText" layoutX="319.0" layoutY="100.0" />
-                        <TextField fx:id="listPriceAssociateText" layoutX="84.0" layoutY="137.0" />
-                        <TextField fx:id="salesPriceAssociateText" layoutX="319.0" layoutY="137.0" />
-                        <TextField fx:id="onSaleAssociateText" layoutX="84.0" layoutY="172.0" />
-                        <TextField fx:id="quantityAssociateText" layoutX="319.0" layoutY="172.0" />
+                        <TextField fx:id="partNameAssociateText" layoutX="181.0" layoutY="100.0" />
+                        <TextField fx:id="partNumberAssociateText" layoutX="181.0" layoutY="136.0" />
+                        <TextField fx:id="quantityAssociateText" layoutX="181.0" layoutY="172.0" />
                         <Label layoutX="20.0" layoutY="40.0" text="Sales Van Delivery File Name:" />
                         <Label layoutX="52.0" layoutY="71.0" text="Customer/Client name:" />
-                        <Label layoutX="23.0" layoutY="104.0" text="Part Name:" />
-                        <Label layoutX="244.0" layoutY="104.0" text="Part Number:" />
-                        <Label layoutX="23.0" layoutY="141.0" text="List Price:" />
-                        <Label layoutX="256.0" layoutY="141.0" text="Sales Price:" />
-                        <Label layoutX="34.0" layoutY="176.0" text="On Sale:" />
-                        <Label layoutX="261.0" layoutY="176.0" text="Quantity:" />
+                        <Label layoutX="113.0" layoutY="104.0" text="Part Name:" />
+                        <Label layoutX="98.0" layoutY="140.0" text="Part Number:" />
+                        <Label layoutX="118.0" layoutY="176.0" text="Quantity:" />
                         <TextArea fx:id="myTextAreaAssociateText" layoutX="20.0" layoutY="206.0" prefHeight="121.0" prefWidth="449.0" />
                         <Button fx:id="LogoutButton2" layoutX="394.0" layoutY="45.0" mnemonicParsing="false" onAction="#doLogoutButton2" text="Logout" />
                      </children>
@@ -84,14 +78,21 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="readSalesInvoiceButton" layoutX="23.0" layoutY="336.0" mnemonicParsing="false" onAction="#doReadSalesInvoice" text="Read Sales Invoice" />
-                        <Button fx:id="generateSalesPaycheckButton" layoutX="286.0" layoutY="336.0" mnemonicParsing="false" onAction="#doGenerateSalesPaycheck" text="Generate Sales Paycheck" />
-                        <TextField fx:id="StartDateText" layoutX="156.0" layoutY="58.0" />
-                        <TextField fx:id="EndDateText" layoutX="156.0" layoutY="98.0" />
-                        <Label layoutX="90.0" layoutY="62.0" text="Start Date:" />
-                        <Label layoutX="93.0" layoutY="102.0" text="End Date:" />
-                        <TextArea fx:id="myTextAreaOfficeText" layoutX="20.0" layoutY="149.0" prefHeight="178.0" prefWidth="449.0" />
-                        <Button fx:id="LogoutButton3" layoutX="394.0" layoutY="45.0" mnemonicParsing="false" onAction="#doLogoutButton3" text="Logout" />
+                        <Button fx:id="ExaminePartsButton" layoutX="358.0" layoutY="336.0" mnemonicParsing="false" onAction="#doExamineParts" text="Examine Parts" />
+                        <Button fx:id="generateSalesPaycheckButton" layoutX="20.0" layoutY="336.0" mnemonicParsing="false" onAction="#doGenerateSalesPaycheck" text="Generate Sales Paycheck" />
+                        <TextField fx:id="StartDateText" layoutX="82.0" layoutY="20.0" prefHeight="25.0" prefWidth="126.0" />
+                        <TextField fx:id="EndDateText" layoutX="296.0" layoutY="20.0" prefHeight="25.0" prefWidth="122.0" />
+                        <Label layoutX="20.0" layoutY="24.0" text="Start Date:" />
+                        <Label layoutX="244.0" layoutY="24.0" text="End Date:" />
+                        <TextArea fx:id="myTextAreaOfficeText" layoutX="20.0" layoutY="168.0" prefHeight="159.0" prefWidth="449.0" />
+                        <Button fx:id="LogoutButton3" layoutX="391.0" layoutY="139.0" mnemonicParsing="false" onAction="#doLogoutButton3" text="Logout" />
+                        <Button fx:id="refillPartStock" layoutX="206.0" layoutY="336.0" mnemonicParsing="false" onAction="#doRefillPartStock" text="Refill Part Stock" />
+                        <TextField fx:id="salesAssociateName" layoutX="195.0" layoutY="97.0" />
+                        <TextField fx:id="partNameOfficeManager" layoutX="82.0" layoutY="57.0" prefHeight="25.0" prefWidth="126.0" />
+                        <TextField fx:id="partNumberOfficeManager" layoutX="296.0" layoutY="57.0" prefHeight="25.0" prefWidth="123.0" />
+                        <Label layoutX="14.0" layoutY="61.0" text="Part Name:" />
+                        <Label layoutX="220.0" layoutY="61.0" text="Part Number:" />
+                        <Label layoutX="76.0" layoutY="101.0" text="Sales Associte Name:" />
                      </children>
                   </AnchorPane>
                </content>
@@ -100,7 +101,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="loadWarehouseDeliveryButton" layoutX="23.0" layoutY="301.0" mnemonicParsing="false" onAction="#doLoadWarehouseDelivery" text="Load Warehouse Delivery File:" />
+                        <Button fx:id="readWarehouseDeliveryButton" layoutX="23.0" layoutY="301.0" mnemonicParsing="false" onAction="#doReadWarehouseDelivery" text="Read Warehouse Delivery File:" />
                         <Button fx:id="updateWarehouseInventoryButton" layoutX="273.0" layoutY="301.0" mnemonicParsing="false" onAction="#doUpdateWarehouseInventoryButton" text="Update Warehouse Inventory File:" />
                         <TextField fx:id="warehouseDeliveryFileText" layoutX="212.0" layoutY="36.0" />
                         <TextField fx:id="warehouseNameText" layoutX="212.0" layoutY="67.0" />

@@ -11,151 +11,176 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-/**
- * Controller class contains the controller for GUI
- * @author anthonyPhimmasone
- * @author andyLuong
- * @author brianJustice
- */
+import static project3.Main.accountList;
+
 public class Controller {
 
-    @FXML
-    private Button updateWarehouseInventoryButton;
+        @FXML
+        private Button updateWarehouseInventoryButton;
 
-    @FXML
-    private PasswordField passwordTextField;
+        @FXML
+        private PasswordField passwordTextField;
 
-    @FXML
-    private TextArea myTextAreaAssociateText;
+        @FXML
+        private TextArea myTextAreaAssociateText;
 
-    @FXML
-    private TextArea myTextAreaWarehouseText;
+        @FXML
+        private TextArea myTextAreaWarehouseText;
 
-    @FXML
-    private TextField emailAdminText;
+        @FXML
+        private TextField emailAdminText;
 
-    @FXML
-    private TextField phoneNumberAdminText;
+        @FXML
+        private TextField phoneNumberAdminText;
 
-    @FXML
-    private TextField quantityAssociateText;
+        @FXML
+        private TextField quantityAssociateText;
 
-    @FXML
-    private Button LogoutButton3;
+        @FXML
+        private Button LogoutButton3;
 
-    @FXML
-    private Button LogoutButton2;
+        @FXML
+        private Button LogoutButton2;
 
-    @FXML
-    private TextArea myTextAreaAdminText;
+        @FXML
+        private TextArea myTextAreaAdminText;
 
-    @FXML
-    private Button LogoutButton1;
+        @FXML
+        private Button LogoutButton1;
 
-    @FXML
-    private TextField lastNameAdminText;
+        @FXML
+        private TextField lastNameAdminText;
 
-    @FXML
-    private Button LogoutButton4;
+        @FXML
+        private Button sellPartsButton;
 
-    @FXML
-    private TextArea myTextAreaOfficeText;
+        @FXML
+        private Button LogoutButton4;
 
-    @FXML
-    private Button generateSalesInvoiceButton;
+        @FXML
+        private Button ExaminePartsButton;
 
-    @FXML
-    private Button createAccountButton;
+        @FXML
+        private TextArea myTextAreaOfficeText;
 
-    @FXML
-    private TextField StartDateText;
+        @FXML
+        private Button generateSalesInvoiceButton;
 
-    @FXML
-    private TextField ageAdminText;
+        @FXML
+        private Button createAccountButton;
 
-    @FXML
-    private Button generateSalesPaycheckButton;
+        @FXML
+        private TextField StartDateText;
 
-    @FXML
-    private TextField onSaleAssociateText;
+        @FXML
+        private TextField ageAdminText;
 
-    @FXML
-    private TextField usernameAdminText;
+        @FXML
+        private Button generateSalesPaycheckButton;
 
-    @FXML
-    private Button loginButton;
+        @FXML
+        private TextField usernameAdminText;
 
-    @FXML
-    private TextField salesVanFileNameText;
+        @FXML
+        private Button loginButton;
 
-    @FXML
-    private AnchorPane AnchorPane;
+        @FXML
+        private TextField salesVanFileNameText;
 
-    @FXML
-    private Button resetPasswordButton;
+        @FXML
+        private AnchorPane AnchorPane;
 
-    @FXML
-    private TextField partNameAssociateText;
+        @FXML
+        private Tab salesAssociateTab;
 
-    @FXML
-    private TextField firstNameAdminText;
+        @FXML
+        private TextField salesAssociateName;
 
-    @FXML
-    private TextField salesPriceAssociateText;
+        @FXML
+        private Button resetPasswordButton;
 
-    @FXML
-    private TextField warehouseDeliveryFileText;
+        @FXML
+        private Tab systemAdminTab;
 
-    @FXML
-    private TextField partNumberAssociateText;
+        @FXML
+        private TextField partNameAssociateText;
 
-    @FXML
-    private Button readSalesInvoiceButton;
+        @FXML
+        private Tab warehouseManagerTab;
 
-    @FXML
-    private Button generateSalesVanFileButton;
+        @FXML
+        private TextField firstNameAdminText;
 
-    @FXML
-    private TextField CustomerNameAssociateText;
+        @FXML
+        private Tab loginscreenTab;
 
-    @FXML
-    private Button deleteAccountButton;
+        @FXML
+        private TextField warehouseDeliveryFileText;
 
-    @FXML
-    private TextField EndDateText;
+        @FXML
+        private TextField partNumberAssociateText;
 
-    @FXML
-    private TextField listPriceAssociateText;
+        @FXML
+        private Button readWarehouseDeliveryButton;
 
-    @FXML
-    private Button loadWarehouseDeliveryButton;
+        @FXML
+        private TextField CustomerNameAssociateText;
 
-    @FXML
-    private TextField warehouseNameText;
+        @FXML
+        private Button deleteAccountButton;
 
-    @FXML
-    private TextField usernameTextField;
+        @FXML
+        private TextField EndDateText;
 
-    @FXML
-    private TextField passwordAdminText;
-    
-    @FXML
-    private TabPane tabPane;
+        @FXML
+        private Tab officeManagerTab;
 
-    @FXML
-    private Tab systemAdminTab;
+        @FXML
+        private TextField partNameOfficeManager;
 
-    @FXML
-    private Tab warehouseManagerTab;
+        @FXML
+        private TabPane tabPane;
 
-    @FXML
-    private Tab officeManagerTab;
+        @FXML
+        private Button refillPartStock;
 
-    @FXML
-    private Tab salesAssociateTab;
+        @FXML
+        private TextField partNumberOfficeManager;
 
-    @FXML
-    private Tab loginscreenTab;
+        @FXML
+        private TextField warehouseNameText;
+
+        @FXML
+        private TextField usernameTextField;
+
+        @FXML
+        private TextField passwordAdminText;
+
+
+
+        @FXML
+        void doSellPartsButton(ActionEvent event) {
+
+        }
+
+
+
+        @FXML
+        void doExamineParts(ActionEvent event) {
+
+        }
+
+
+
+        @FXML
+        void doRefillPartStock(ActionEvent event) {
+
+        }
+
+        @FXML
+        void doReadWarehouseDelivery(ActionEvent event) {
+
+        }
 
     @FXML
     void doLoginButton(ActionEvent event) {
@@ -170,17 +195,19 @@ public class Controller {
 
     @FXML
     void doCreateAccount(ActionEvent event) {
-
+        myTextAreaAdminText.appendText("This login account " + usernameAdminText.getText() + " has been created for "
+                + firstNameAdminText.getText() + " " + lastNameAdminText.getText() + "\n");
     }
 
     @FXML
     void doDeleteAccount(ActionEvent event) {
-
+        myTextAreaAdminText.appendText("The login account for " + usernameAdminText.getText() +
+                " has been successfully deleted" + "\n");
     }
 
     @FXML
     void doResetPassword(ActionEvent event) {
-
+        myTextAreaAdminText.appendText("The account has successfully ");
     }
 
     @FXML
@@ -201,6 +228,7 @@ public class Controller {
 
     @FXML
     void doGenerateSalesVanFileButton(ActionEvent event) {
+
 
     }
 
