@@ -194,13 +194,37 @@ public class Controller {
         String pass = passwordTextField.getText();
         for(LoginAccount a : Main.accountList.getAccounts()){
             if (a.getUserName().equals(user) && a.getPassword().equals(pass)){
-                if(a.getType() == AccountType.ADMIN){
+                if(a.getType() == AccountType.ADMIN) {
                     systemAdminTab.setDisable(false);
                     loginscreenTab.setDisable(true);
                     warehouseManagerTab.setDisable(true);
                     officeManagerTab.setDisable(true);
                     salesAssociateTab.setDisable(true);
                     selectionModel.select(systemAdminTab);
+                }
+                else if(a.getType() == AccountType.OFFICE_MANAGER) {
+                    systemAdminTab.setDisable(true);
+                    loginscreenTab.setDisable(true);
+                    warehouseManagerTab.setDisable(true);
+                    officeManagerTab.setDisable(false);
+                    salesAssociateTab.setDisable(true);
+                    selectionModel.select(officeManagerTab);
+                }
+                else if(a.getType() == AccountType.WAREHOUSE_MANAGER) {
+                    systemAdminTab.setDisable(true);
+                    loginscreenTab.setDisable(true);
+                    warehouseManagerTab.setDisable(false);
+                    officeManagerTab.setDisable(true);
+                    salesAssociateTab.setDisable(true);
+                    selectionModel.select(warehouseManagerTab);
+                }
+                else if(a.getType() == AccountType.SALES_ASSOCIATE) {
+                    systemAdminTab.setDisable(true);
+                    loginscreenTab.setDisable(true);
+                    warehouseManagerTab.setDisable(true);
+                    officeManagerTab.setDisable(true);
+                    salesAssociateTab.setDisable(false);
+                    selectionModel.select(salesAssociateTab);                  
                 }
             }
         }
@@ -224,20 +248,13 @@ public class Controller {
     @FXML
         void doLogoutButton1(ActionEvent event) {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
-        String user = usernameTextField.getText();
-        String pass = passwordTextField.getText();
-        for(LoginAccount b : Main.accountList.getAccounts()){
-            if (b.getUserName().equals(user) && b.getPassword().equals(pass)){
-                if(b.getType() == AccountType.OFFICE_MANAGER){
-                    systemAdminTab.setDisable(true);
-                    loginscreenTab.setDisable(true);
-                    warehouseManagerTab.setDisable(true);
-                    officeManagerTab.setDisable(false);
-                    salesAssociateTab.setDisable(true);
-                    selectionModel.select(officeManagerTab);
-                }
-            }
-        }
+        systemAdminTab.setDisable(true);
+        loginscreenTab.setDisable(false);
+        warehouseManagerTab.setDisable(true);
+        officeManagerTab.setDisable(true);
+        salesAssociateTab.setDisable(true);
+        selectionModel.select(loginscreenTab);
+
     }
 
     @FXML
@@ -254,20 +271,13 @@ public class Controller {
     @FXML
     void doLogoutButton2(ActionEvent event) {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
-        String user = usernameTextField.getText();
-        String pass = passwordTextField.getText();
-        for(LoginAccount c : Main.accountList.getAccounts()){
-            if (c.getUserName().equals(user) && c.getPassword().equals(pass)){
-                if(c.getType() == AccountType.WAREHOUSE_MANAGER){
-                    systemAdminTab.setDisable(true);
-                    loginscreenTab.setDisable(true);
-                    warehouseManagerTab.setDisable(false);
-                    officeManagerTab.setDisable(true);
-                    salesAssociateTab.setDisable(true);
-                    selectionModel.select(warehouseManagerTab);
-                }
-            }
-        }
+        systemAdminTab.setDisable(true);
+        loginscreenTab.setDisable(false);
+        warehouseManagerTab.setDisable(true);
+        officeManagerTab.setDisable(true);
+        salesAssociateTab.setDisable(true);
+        selectionModel.select(loginscreenTab);
+
 
     }
 
@@ -279,20 +289,13 @@ public class Controller {
     @FXML
     void doLogoutButton3(ActionEvent event) {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
-        String user = usernameTextField.getText();
-        String pass = passwordTextField.getText();
-        for(LoginAccount d : Main.accountList.getAccounts()){
-            if (d.getUserName().equals(user) && d.getPassword().equals(pass)){
-                if(d.getType() == AccountType.SALES_ASSOCIATE){
-                    systemAdminTab.setDisable(true);
-                    loginscreenTab.setDisable(true);
-                    warehouseManagerTab.setDisable(true);
-                    officeManagerTab.setDisable(true);
-                    salesAssociateTab.setDisable(false);
-                    selectionModel.select(salesAssociateTab);
-                }
-            }
-        }
+        systemAdminTab.setDisable(true);
+        loginscreenTab.setDisable(false);
+        warehouseManagerTab.setDisable(true);
+        officeManagerTab.setDisable(true);
+        salesAssociateTab.setDisable(true);
+        selectionModel.select(loginscreenTab);
+
     }
 
     @FXML
