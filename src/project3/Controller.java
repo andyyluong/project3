@@ -194,7 +194,8 @@ public class Controller {
         String pass = passwordTextField.getText();
         for(LoginAccount a : Main.accountList.getAccounts()){
             if (a.getUserName().equals(user) && a.getPassword().equals(pass)){
-                if(null != a.getType()) switch (a.getType()) {
+                if(null != a.getType()) 
+                    switch (a.getType()) {
                     case ADMIN:
                         systemAdminTab.setDisable(false);
                         loginscreenTab.setDisable(true);
@@ -236,6 +237,7 @@ public class Controller {
 
     @FXML
     void doCreateAccount(ActionEvent event) {
+        
 
     }
 
