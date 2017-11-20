@@ -20,9 +20,6 @@ public class Controller {
 
     public ArrayList<BikePart> BikePartArray = new ArrayList<>();
 
-    public ArrayList<BikePart> getBikePartArray() {
-        return BikePartArray;
-    }
 
         @FXML
         private Button updateWarehouseInventoryButton;
@@ -158,7 +155,7 @@ public class Controller {
 
         @FXML
         private TextField passwordAdminText;
-    
+        
         @FXML
         private MenuButton selectEmployeeButton;
 
@@ -170,7 +167,6 @@ public class Controller {
 
         @FXML
         private MenuItem selectSalesAssociate;
-
 
 
         @FXML
@@ -192,13 +188,14 @@ public class Controller {
 
         }
 
-     private ArrayList<Inventory> doRead(String param) {
-        ArrayList<Inventory> retList = null;
-        String filename = "";
-        File input = new File(filename);
+        @FXML
+    void doReadWarehouseDelivery(ActionEvent event) {
+        ArrayList<Inventory> retList = new ArrayList<>();
+        //String filename = "";
+        File input = new File("initialInventory.txt");
         try {
             Scanner read = new Scanner(input);
-            while (read.hasNextLine()) {
+            while(read.hasNextLine()) {
                 String line = read.nextLine();
                 String regularExpression = "\\s*(\\s|,)\\s*";
                 String[] bpWH = line.split(regularExpression);
@@ -207,36 +204,12 @@ public class Controller {
                 retList.add(inv);
 
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("File Not Found");
-            e.printStackTrace();
         }
-        return retList;
-    }
 
-    //String param = myTextAreaWarehouseText.getText();
-
-    @FXML
-    void doReadWarehouseDelivery(ActionEvent event) {
-        ArrayList <Inventory> tempList;
-       // tempList = doRead(param);
-      //  for (Inventory readParts:tempList){
-        //    Main.mainWarehouse.addBikePart(readParts);
-        //}
-         //bikePartArrayList = doRead(param);
-        if (bikePartArrayList != null) {
-            myTextAreaWarehouseText.appendText("This warehouse has read successfully: " + "\n");
-            myTextAreaWarehouseText.appendText("\n");
-            myTextAreaWarehouseText.appendText("**************************************************************************");
-            myTextAreaWarehouseText.appendText("\n");
-            for (BikePart bp : bikePartArrayList) {
-                myTextAreaWarehouseText.appendText(bp + "\n");
-               // Main.mainWarehouse.addBikePart(bp);
-            }
-            myTextAreaWarehouseText.appendText("\n \n \n");
-            myTextAreaWarehouseText.appendText(("************************************************************************"));
-        } else
-            myTextAreaWarehouseText.appendText("File Not Found");
+        catch(FileNotFoundException e) {
+            System.out.println("File Not Found");
+            e.printStackTrace();           
+        }                 
     }
 
       
@@ -296,20 +269,22 @@ public class Controller {
         String email = emailAdminText.getText();
         String username = usernameAdminText.getText();
         String password = passwordAdminText.getText();
+        String warehousename = warehouseNameText.getText();
+        String accountType = "";
         /*
         --More code here--
         */
-        switch(accountType){
+        switch(accountType) {
             case "Office Manager":
-                Main.accountList.add(new OfficeManager(new Person(firstName, lastName, email), username, password);
+                Main.accountList.add(new OfficeManager(new Person(firstName, lastName, email), username, password));
                 break;
         
             case "Warehouse Manager":
-                Main.accountList.add(new WarehouseManager(new Person(firstName, lastName, email), username, password);
+                Main.accountList.add(new WarehouseManager(new Person(firstName, lastName, email), username, password));
                 break;
              
             case "Sales Associate":
-                Main.accountList.add(new SalesAssociate(new Person(firstName, lastName, email), username, password);
+                Main.accountList.add(new SalesAssociate(new Person(firstName, lastName, email), username, password, warehousename));
                 break;
          }
         myTextAreaAdminText.appendText(accountType + " " + username + " has been created.");
@@ -328,7 +303,7 @@ public class Controller {
     }
 
     @FXML
-        void doLogoutButton1(ActionEvent event) {
+    void doLogoutButton1(ActionEvent event) {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         systemAdminTab.setDisable(true);
         loginscreenTab.setDisable(false);
