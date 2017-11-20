@@ -1,5 +1,7 @@
 package project3;
 
+import cost.Cost;
+
 /**
  * Part class contains information about a part
  * @author andyLuong
