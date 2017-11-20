@@ -53,8 +53,7 @@ public class WarehouseManager extends LoginAccount implements Serializable {
     }
     
     public void readMainWarehouse(String filename) {
-        ArrayList<BikePart> bpList = null;
-        ArrayList<Inventory> invList = null;
+        ArrayList<Inventory> retList = null;
 
         File input = new File(filename);
         try {
@@ -64,11 +63,8 @@ public class WarehouseManager extends LoginAccount implements Serializable {
                 String regularExpression = "\\s*(\\s|,)\\s*";
                 String[] bpWH = line.split(regularExpression);
                 System.out.println(Arrays.toString(bpWH));
-                BikePart bp = new BikePart(bpWH[0], Integer.parseInt(bpWH[1]), Double.parseDouble(bpWH[2]), Double.parseDouble(bpWH[3]));
-                bpList.add(bp);
-                String[] invWH = line.split(regularExpression);
-                Inventory inv = new Inventory(bp, Boolean.parseBoolean(bpWH[4]));
-                invList.add(inv);
+                Inventory inv = new Inventory(new BikePart(bpWH[0], Integer.parseInt(bpWH[1]), Double.parseDouble(bpWH[2]), Double.parseDouble(bpWH[3])), Boolean.parseBoolean(bpWH[4]), Integer.parseInt(bpWH[5]));
+                retList.add(inv);
 
             }
          
