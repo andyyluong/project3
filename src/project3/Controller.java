@@ -277,11 +277,15 @@ public class Controller {
             case "Sales Associate":
                 Main.accountList.add(new SalesAssociate(new Person(firstName, lastName, email), username, password);
                 break;
+         }
+        myTextAreaAdminText.appendText(accountType + " " + username + " has been created.");
     }
 
     @FXML
     void doDeleteAccount(ActionEvent event) {
-
+        String username = usernameAdminText.getText();
+        Main.accountList.delete();
+        myTextAreaAdminText.appendText("Deleted " + username + " from the system.");
     }
 
     @FXML
