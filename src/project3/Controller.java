@@ -158,6 +158,18 @@ public class Controller {
 
         @FXML
         private TextField passwordAdminText;
+    
+        @FXML
+        private MenuButton selectEmployeeButton;
+
+        @FXML
+        private MenuItem selectOfficeManager;
+
+        @FXML
+        private MenuItem selectWarehouseManger;
+
+        @FXML
+        private MenuItem selectSalesAssociate;
 
 
 
