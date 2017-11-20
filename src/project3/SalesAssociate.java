@@ -10,23 +10,20 @@ import java.io.Serializable;
  */
 public class SalesAssociate extends LoginAccount implements Serializable {
     private String WarehouseName;
-    private Warehouse warehouse;
     private AccountType accountType;
-    private SalesVanWarehouse salesvanWH;
+    private SalesVanWarehouse warehouse;
     private SalesInvoice sales;
 
     
     /**
      * Sales Associate constructor
-     * @param firstName First name of sales associate
-     * @param lastName Last name of sales associate
-     * @param emailAddress Email address of sales associate
+     * @param person Person object
      * @param userName Username of sales associate
      * @param password Password of sales associate
      * @param warehouseName Warehouse name of sales associate
      */
-    public SalesAssociate(String firstName, String lastName, String emailAddress, String userName, String password, String warehouseName) {
-        super(new Person(firstName, lastName, emailAddress), userName, password);
+    public SalesAssociate(Person person, String userName, String password, String warehouseName) {
+        super(person, userName, password);
         this.WarehouseName = warehouseName;
         accountType = AccountType.SALES_ASSOCIATE;
         //this.Warehouse = warehouse;
@@ -65,7 +62,7 @@ public class SalesAssociate extends LoginAccount implements Serializable {
      */
     public SalesVanWarehouse getWareHouse() { 
         
-        return salesvanWH; 
+        return warehouse; 
     }
 
     /**
@@ -73,7 +70,7 @@ public class SalesAssociate extends LoginAccount implements Serializable {
      * @param warehouse Warehouse 
      */
     public void setWarehouse(Warehouse warehouse) {
-        this.warehouse = warehouse;
+        this.warehouse = (SalesVanWarehouse) warehouse;
     }
 
     /**
@@ -84,6 +81,4 @@ public class SalesAssociate extends LoginAccount implements Serializable {
     public AccountType getType() {
         return accountType;
     }
-}
-
-    
+} 
