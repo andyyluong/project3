@@ -1,5 +1,7 @@
 package project3;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -11,7 +13,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import java.util.ArrayList;
-import javafx.collections.ObservableList;
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Controller {
 
     public ArrayList<BikePart> BikePartArray = new ArrayList<>();
@@ -154,19 +158,9 @@ public class Controller {
 
         @FXML
         private TextField passwordAdminText;
-        
-        @FXML
-        private MenuButton selectEmployeeButton;
-        
-        @FXML
-        private MenuItem SelectOfficeManager;
-        
-        @FXML
-        private MenuItem SelectWarehouseManager;
-        
-        @FXML
-        private MenuItem SelectSalesAssociate;
-        
+
+
+
         @FXML
         void doSellPartsButton(ActionEvent event) {
 
@@ -187,9 +181,31 @@ public class Controller {
         }
 
         @FXML
-        void doReadWarehouseDelivery(ActionEvent event) {
+    void doReadWarehouseDelivery(ActionEvent event) {
+        //WarehouseManager.readMainWarehouse("initialInventory.txt");
+        ArrayList<Inventory> retList = null;
+        String filename = "";
+        File input = new File(filename);
+        try {
+            Scanner read = new Scanner(input);
+            while(read.hasNextLine()) {
+                String line = read.nextLine();
+                String regularExpression = "\\s*(\\s|,)\\s*";
+                String[] bpWH = line.split(regularExpression);
+                System.out.println(Arrays.toString(bpWH));
+                Inventory inv = new Inventory(new BikePart(bpWH[0], Integer.parseInt(bpWH[1]), Double.parseDouble(bpWH[2]), Double.parseDouble(bpWH[3])), Boolean.parseBoolean(bpWH[4]), Integer.parseInt(bpWH[5]));
+                retList.add(inv);
 
+            }
         }
+
+        catch(FileNotFoundException e) {
+            System.out.println("File Not Found");
+            e.printStackTrace();           
+        }                 
+    }
+
+      
 
     @FXML
     void doLoginButton(ActionEvent event) {
@@ -241,27 +257,8 @@ public class Controller {
 
     @FXML
     void doCreateAccount(ActionEvent event) {
-        String firstName = firstNameAdminText.getText();
-        String lastName = lastNameAdminText.getText();
-        String email = emailAdminText.getText();
-        String username = usernameAdminText.getText();
-        String password = passwordAdminText.getText();
-        ObservableList<MenuItem> accounts = selectEmployeeButton.getItems();
-        for(MenuItem mi: accounts){
-           myTextAreaAdminText.appendText(mi.getText()); 
-        }
-            
-        /*switch(account){
-            case "Select Office Manager":
-                Main.accountList.add(new OfficeManager(new Person(firstName, lastName, email), username, password));
-                break;
-                
-            case "Select Warehouse Manager":
-                Main.accountList.add(new WarehouseManager(new Person(firstName, lastName, email), username, password));
-                break;
-                
-            case "Select Sales Associate":
-        }*/
+        
+
     }
 
     @FXML
