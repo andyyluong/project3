@@ -45,17 +45,23 @@ public class AccountList implements Serializable{
     }
 
     public void delete(LoginAccount account){
+        LoginAccount account = null;
+        for(LoginAccount la: accounts){
+            if(la.getUserName().equals(username)){
+                account = la;
+            }
+        }
         if(account.getType()==AccountType.SALES_ASSOCIATE){
             salesAssociates.remove((SalesAssociate) account);
         }
         if(account.getType()==AccountType.OFFICE_MANAGER){
-            officeManager = (OfficeManager) account;
+            officeManager = null;
         }
         if(account.getType()==AccountType.ADMIN){
-            systemAdministrator = (SystemAdministrator) account;
+            systemAdministrator = null;
         }
         if(account.getType()==AccountType.WAREHOUSE_MANAGER){
-            warehouseManager = (WarehouseManager) account;
+            warehouseManager = null;
         }
         accounts.remove(account);
     }
