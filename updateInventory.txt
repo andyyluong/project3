@@ -1,0 +1,5 @@
+grr,1234567907,4567.89,3456.78,true,0
+WTB_saddle,1234567890,50.0,40.0,false,15
+mensShortsMedium,1234567913,100.0,89.0,true,4
+womensShortsMedium,1234567914,100.0,89.0,true,4
+zarminComputer,1234567908,543.21,480.0,false,100
