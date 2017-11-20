@@ -284,7 +284,7 @@ public class Controller {
     @FXML
     void doDeleteAccount(ActionEvent event) {
         String username = usernameAdminText.getText();
-        Main.accountList.delete();
+        Main.accountList.delete(username);
         myTextAreaAdminText.appendText("Deleted " + username + " from the system.");
     }
 
