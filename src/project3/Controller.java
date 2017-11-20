@@ -11,7 +11,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import java.util.ArrayList;
-
+import javafx.collections.ObservableList;
 public class Controller {
 
     public ArrayList<BikePart> BikePartArray = new ArrayList<>();
@@ -154,9 +154,19 @@ public class Controller {
 
         @FXML
         private TextField passwordAdminText;
-
-
-
+        
+        @FXML
+        private MenuButton selectEmployeeButton;
+        
+        @FXML
+        private MenuItem SelectOfficeManager;
+        
+        @FXML
+        private MenuItem SelectWarehouseManager;
+        
+        @FXML
+        private MenuItem SelectSalesAssociate;
+        
         @FXML
         void doSellPartsButton(ActionEvent event) {
 
@@ -231,8 +241,27 @@ public class Controller {
 
     @FXML
     void doCreateAccount(ActionEvent event) {
-        
-
+        String firstName = firstNameAdminText.getText();
+        String lastName = lastNameAdminText.getText();
+        String email = emailAdminText.getText();
+        String username = usernameAdminText.getText();
+        String password = passwordAdminText.getText();
+        ObservableList<MenuItem> accounts = selectEmployeeButton.getItems();
+        for(MenuItem mi: accounts){
+           myTextAreaAdminText.appendText(mi.getText()); 
+        }
+            
+        /*switch(account){
+            case "Select Office Manager":
+                Main.accountList.add(new OfficeManager(new Person(firstName, lastName, email), username, password));
+                break;
+                
+            case "Select Warehouse Manager":
+                Main.accountList.add(new WarehouseManager(new Person(firstName, lastName, email), username, password));
+                break;
+                
+            case "Select Sales Associate":
+        }*/
     }
 
     @FXML
