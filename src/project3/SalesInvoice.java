@@ -8,77 +8,47 @@ import java.util.*;
  * @author andyluong
  */
 public class SalesInvoice {
-
     
-    private final ArrayList<SalesItem> items;
-    private final ArrayList<ChangeListener> listeners;
+    Date saleDate;
+    String client;
+    String clientReceived;
+    double totalInvoicePrice;
+    
+
+    /**
+     * Sales invoice constructor.
+     * @param sd Sale date
+     * @param aClient Client
+     * @param aClientReceived Client that receives parts
+     * @param aTotalInvoicePrice Total invoice cost
+     */
+    public SalesInvoice(Date sd, String aClient, String aClientReceived, double aTotalInvoicePrice) {
+        if(saleDate == null) {
+            sd = new Date();
+        }
+        else {
+            sd = saleDate;
+        }
+        aClient = client;
+        aClientReceived = clientReceived;
+        aTotalInvoicePrice = totalInvoicePrice;
+    }
     
     /**
-     * Constructs a blank invoice.
+     * Get sale date
+     * @return Sale date
      */
-    public SalesInvoice() {
-        items = new ArrayList<>();
-        listeners = new ArrayList<>();
+    public Date getSaleDate() {
+        return saleDate;
     }
-
+    
     /**
-     * Adds an item to the invoice.
-     * @param item the item to add
+     * Add client that received bike parts
+     * @param name Name of client that received bike parts
      */
-    public void addItem(SalesItem item){
-        items.add(item);
-        //Notify all observers of the change to the invoice
-        ChangeEvent event = new ChangeEvent(this);
-        for (ChangeListener listener : listeners)
-            listener.stateChanged(event);
+    public void addClientReceived(String name) {
+        clientReceived = name;
     }
 
-        /**
-         * Adds a change listener to the invoice.
-         * @param listener the change listener to add
-         */
-        public void addChangeListener(ChangeListener listener){
-            listeners.add(listener);
-    }
-
-    /**
-     * Gets an iterator that iterates through the items.
-     * @return an iterator for the items
-     */
-    public Iterator<SalesItem> getItems() {
-        
-        return new Iterator<SalesItem>() {
-            
-            @Override
-            public boolean hasNext(){
-                return current < items.size();
-            }
-
-            @Override
-            public SalesItem next(){
-                return items.get(current++);
-            }
-
-            @Override
-            public void remove(){
-                throw new UnsupportedOperationException();
-            }
-
-            private int current = 0;
-        };
-    }
-
-    /**
-     * Format sales item in invoice
-     * @param formatter Invoice formatter
-     * @return Sales item formatted in an invoice
-     */
-    public String format(InvoiceFormatter formatter){
-        String r = formatter.formatHeader();
-        Iterator<SalesItem> iter = getItems();
-        while(iter.hasNext())
-            r += formatter.formatSalesItem(iter.next());
-        return r + formatter.formatFooter();
-    }
 
 }
