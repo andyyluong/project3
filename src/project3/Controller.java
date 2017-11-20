@@ -257,8 +257,26 @@ public class Controller {
 
     @FXML
     void doCreateAccount(ActionEvent event) {
+        String firstName = firstNameAdminText.getText();
+        String lastName = lastNameAdminText.getText();
+        String email = emailAdminText.getText();
+        String username = usernameAdminText.getText();
+        String password = passwordAdminText.getText();
+        /*
+        --More code here--
+        */
+        switch(accountType){
+            case "Office Manager":
+                Main.accountList.add(new OfficeManager(new Person(firstName, lastName, email), username, password);
+                break;
         
-
+            case "Warehouse Manager":
+                Main.accountList.add(new WarehouseManager(new Person(firstName, lastName, email), username, password);
+                break;
+             
+            case "Sales Associate":
+                Main.accountList.add(new SalesAssociate(new Person(firstName, lastName, email), username, password);
+                break;
     }
 
     @FXML
