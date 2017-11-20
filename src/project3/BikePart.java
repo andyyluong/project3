@@ -111,9 +111,18 @@ public class BikePart implements Serializable {
 
         return salesPrice;
     }
+    
+    /**
+     * Update bike part price attributes
+     * @param bp Bike part
+     */
+    public void updatePrice(BikePart bp) {
+        listPrice = bp.listPrice;
+        salesPrice = bp.salesPrice;
+    }
 
     /**
-     * toString Displays bike part attributes
+     * Displays bike part attributes
      * @return part name, part number, list price, and sales price
      */
     @Override
