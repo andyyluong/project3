@@ -30,8 +30,34 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }
-    //Creates an object of mainWarehouse
+    /Creates an object of mainWarehouse
     public static Warehouse mainWarehouse= new Warehouse("WH", WarehouseType.MAIN) {
+
+        @Override
+        public Inventory findInventoryByName(String name) {
+            return null;
+        }
+
+        @Override
+        public Inventory findInventoryByNumber(int number) {
+            return null;
+        }
+
+        @Override
+        public void addInventory(String part) {
+
+        }
+
+        @Override
+        public String sortName() {
+            return null;
+        }
+
+        @Override
+        public String sortNumber() {
+            return null;
+        }
+    };
   
   /**
    * Program execution stops
