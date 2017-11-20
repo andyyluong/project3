@@ -198,8 +198,8 @@ public class Controller {
     @FXML
     void doReadWarehouseDelivery(ActionEvent event) {
         ArrayList<Inventory> retList = new ArrayList<>();
-        //String filename = "";
-        File input = new File("initialInventory.txt");
+        String filename = warehouseDeliveryFileText.getText();
+        File input = new File(filename);
         try {
             Scanner read = new Scanner(input);
             while(read.hasNextLine()) {
@@ -209,6 +209,7 @@ public class Controller {
                 System.out.println(Arrays.toString(bpWH));
                 Inventory inv = new Inventory(new BikePart(bpWH[0], Integer.parseInt(bpWH[1]), Double.parseDouble(bpWH[2]), Double.parseDouble(bpWH[3])), Boolean.parseBoolean(bpWH[4]), Integer.parseInt(bpWH[5]));
                 retList.add(inv);
+                myTextAreaWarehouseText.appendText(String.valueOf(retList + "\n"));
 
             }
         }
