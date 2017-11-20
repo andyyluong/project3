@@ -38,7 +38,7 @@ public class Main extends Application {
    */
   @Override
   public void stop() throws FileNotFoundException, IOException{
-        FileOutputStream warehouseInventoryFileOut = new FileOutputStream("warehouseInvetory.ser");
+        FileOutputStream warehouseInventoryFileOut = new FileOutputStream("warehouseInventory.ser");
         FileOutputStream accountListFileOut = new FileOutputStream("accountList.ser");
         ObjectOutputStream warehouseInventoryOut = new ObjectOutputStream(warehouseInventoryFileOut);
         ObjectOutputStream accountListOut = new ObjectOutputStream(accountListFileOut);
@@ -77,15 +77,16 @@ public class Main extends Application {
             accountListFile.close();                                                 
         }
         
-        accountList.add(new SystemAdministrator(new Person("Andy", "Luong", "Andy@bikepart.com"), "system", "admin"));
-        
+        //System administrator
+        accountList.add(new SystemAdministrator(new Person("Andy", "Luong", "Andy@bikepart.com"), "admin", "minda"));
+        //Office manager
         accountList.add(new OfficeManager(new Person("Anthony", "Phimmasone", "Anthony@bikepart.com"), "office", "manager"));
-
+        //Warehouse manager
         accountList.add(new WarehouseManager(new Person("Brian", "Justice", "Brian@bikepart.com"), "warehouse", "manager"));
-        
-        accountList.add(new SalesAssociate("Alex", "Lundin", "Alex@bikepart.com", "sales", "associate", "salesassociate"));
-
-        accountList.add(new SalesAssociate("Gusty", "Cooper", "Gusty@bikepart.com", "gustysales", "gustyassociate", "gustysalesassociate"));
+        //Sales associate #1
+        accountList.add(new SalesAssociate(new Person("Alex", "Lundin", "Alex@bikepart.com"), "sales", "associate", "salesassociate"));
+        //Sales associate #2
+        accountList.add(new SalesAssociate(new Person("Gusty", "Cooper", "Gusty@bikepart.com"), "gustysales", "gustyassociate", "gustysalesassociate"));
 
         
         launch(args);
