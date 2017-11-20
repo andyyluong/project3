@@ -30,7 +30,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }
-    /Creates an object of mainWarehouse
+    //Creates an object of mainWarehouse
     public static Warehouse mainWarehouse= new Warehouse("WH", WarehouseType.MAIN) {
 
         @Override
