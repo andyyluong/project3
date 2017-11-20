@@ -1,7 +1,6 @@
 package project3;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -12,183 +11,191 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Controller {
 
     public ArrayList<BikePart> BikePartArray = new ArrayList<>();
 
+    public ArrayList<BikePart> getBikePartArray() {
+        return BikePartArray;
+    }
 
-        @FXML
-        private Button updateWarehouseInventoryButton;
+    public static ArrayList<BikePart> bikePartArrayList = new ArrayList<>();
 
-        @FXML
-        private PasswordField passwordTextField;
+    @FXML
+    private Button updateWarehouseInventoryButton;
 
-        @FXML
-        private TextArea myTextAreaAssociateText;
+    @FXML
+    private PasswordField passwordTextField;
 
-        @FXML
-        private TextArea myTextAreaWarehouseText;
+    @FXML
+    private TextArea myTextAreaAssociateText;
 
-        @FXML
-        private TextField emailAdminText;
+    @FXML
+    private TextArea myTextAreaWarehouseText;
 
-        @FXML
-        private TextField quantityAssociateText;
+    @FXML
+    private TextField emailAdminText;
 
-        @FXML
-        private Button LogoutButton3;
+    @FXML
+    private TextField quantityAssociateText;
 
-        @FXML
-        private Button LogoutButton2;
+    @FXML
+    private Button LogoutButton3;
 
-        @FXML
-        private TextArea myTextAreaAdminText;
+    @FXML
+    private Button LogoutButton2;
 
-        @FXML
-        private Button LogoutButton1;
+    @FXML
+    private TextArea myTextAreaAdminText;
 
-        @FXML
-        private TextField lastNameAdminText;
+    @FXML
+    private Button LogoutButton1;
 
-        @FXML
-        private Button sellPartsButton;
+    @FXML
+    private TextField lastNameAdminText;
 
-        @FXML
-        private Button LogoutButton4;
+    @FXML
+    private Button sellPartsButton;
 
-        @FXML
-        private Button ExaminePartsButton;
+    @FXML
+    private Button LogoutButton4;
 
-        @FXML
-        private TextArea myTextAreaOfficeText;
+    @FXML
+    private Button ExaminePartsButton;
 
-        @FXML
-        private Button generateSalesInvoiceButton;
+    @FXML
+    private TextArea myTextAreaOfficeText;
 
-        @FXML
-        private Button createAccountButton;
+    @FXML
+    private Button generateSalesInvoiceButton;
 
-        @FXML
-        private TextField StartDateText;
+    @FXML
+    private Button createAccountButton;
 
-        @FXML
-        private Button generateSalesPaycheckButton;
+    @FXML
+    private TextField StartDateText;
 
-        @FXML
-        private TextField usernameAdminText;
+    @FXML
+    private Button generateSalesPaycheckButton;
 
-        @FXML
-        private Button loginButton;
+    @FXML
+    private TextField usernameAdminText;
 
-        @FXML
-        private TextField salesVanFileNameText;
+    @FXML
+    private Button loginButton;
 
-        @FXML
-        private AnchorPane AnchorPane;
+    @FXML
+    private TextField salesVanFileNameText;
 
-        @FXML
-        private Tab salesAssociateTab;
+    @FXML
+    private AnchorPane AnchorPane;
 
-        @FXML
-        private TextField salesAssociateName;
+    @FXML
+    private Tab salesAssociateTab;
 
-        @FXML
-        private Button resetPasswordButton;
+    @FXML
+    private TextField salesAssociateName;
 
-        @FXML
-        private Tab systemAdminTab;
+    @FXML
+    private Button resetPasswordButton;
 
-        @FXML
-        private TextField partNameAssociateText;
+    @FXML
+    private Tab systemAdminTab;
 
-        @FXML
-        private Tab warehouseManagerTab;
+    @FXML
+    private TextField partNameAssociateText;
 
-        @FXML
-        private TextField firstNameAdminText;
+    @FXML
+    private Tab warehouseManagerTab;
 
-        @FXML
-        private Tab loginscreenTab;
+    @FXML
+    private TextField firstNameAdminText;
 
-        @FXML
-        private TextField warehouseDeliveryFileText;
+    @FXML
+    private Tab loginscreenTab;
 
-        @FXML
-        private TextField partNumberAssociateText;
+    @FXML
+    private TextField warehouseDeliveryFileText;
 
-        @FXML
-        private Button readWarehouseDeliveryButton;
+    @FXML
+    private TextField partNumberAssociateText;
 
-        @FXML
-        private TextField CustomerNameAssociateText;
+    @FXML
+    private Button readWarehouseDeliveryButton;
 
-        @FXML
-        private Button deleteAccountButton;
+    @FXML
+    private TextField CustomerNameAssociateText;
 
-        @FXML
-        private TextField EndDateText;
+    @FXML
+    private Button deleteAccountButton;
 
-        @FXML
-        private Tab officeManagerTab;
+    @FXML
+    private TextField EndDateText;
 
-        @FXML
-        private TextField partNameOfficeManager;
+    @FXML
+    private Tab officeManagerTab;
 
-        @FXML
-        private TabPane tabPane;
+    @FXML
+    private TextField partNameOfficeManager;
 
-        @FXML
-        private Button refillPartStock;
+    @FXML
+    private TabPane tabPane;
 
-        @FXML
-        private TextField partNumberOfficeManager;
+    @FXML
+    private Button refillPartStock;
 
-        @FXML
-        private TextField warehouseNameText;
+    @FXML
+    private TextField partNumberOfficeManager;
 
-        @FXML
-        private TextField usernameTextField;
+    @FXML
+    private TextField warehouseNameText;
 
-        @FXML
-        private TextField passwordAdminText;
-        
-        @FXML
-        private MenuButton selectEmployeeButton;
+    @FXML
+    private TextField usernameTextField;
 
-        @FXML
-        private MenuItem selectOfficeManager;
+    @FXML
+    private TextField passwordAdminText;
 
-        @FXML
-        private MenuItem selectWarehouseManger;
+    @FXML
+    private MenuButton selectEmployeeButton;
 
-        @FXML
-        private MenuItem selectSalesAssociate;
+    @FXML
+    private MenuItem selectOfficeManager;
 
+    @FXML
+    private MenuItem selectWarehouseManger;
 
-        @FXML
-        void doSellPartsButton(ActionEvent event) {
+    @FXML
+    private MenuItem selectSalesAssociate;
 
-        }
+    @FXML
+    void doSellPartsButton(ActionEvent event) {
 
-
-       @FXML
-        void doExamineParts(ActionEvent event) {
-
-
-       }
+    }
 
 
+    @FXML
+    void doExamineParts(ActionEvent event) {
 
-        @FXML
-        void doRefillPartStock(ActionEvent event) {
 
-        }
+    }
 
-        @FXML
+
+
+    @FXML
+    void doRefillPartStock(ActionEvent event) {
+
+    }
+
+    @FXML
     void doReadWarehouseDelivery(ActionEvent event) {
         ArrayList<Inventory> retList = new ArrayList<>();
         //String filename = "";
@@ -208,11 +215,9 @@ public class Controller {
 
         catch(FileNotFoundException e) {
             System.out.println("File Not Found");
-            e.printStackTrace();           
-        }                 
+            e.printStackTrace();
+        }
     }
-
-      
 
     @FXML
     void doLoginButton(ActionEvent event) {
@@ -221,42 +226,37 @@ public class Controller {
         String pass = passwordTextField.getText();
         for(LoginAccount a : Main.accountList.getAccounts()){
             if (a.getUserName().equals(user) && a.getPassword().equals(pass)){
-                if(null != a.getType()) 
-                    switch (a.getType()) {
-                    case ADMIN:
-                        systemAdminTab.setDisable(false);
-                        loginscreenTab.setDisable(true);
-                        warehouseManagerTab.setDisable(true);
-                        officeManagerTab.setDisable(true);
-                        salesAssociateTab.setDisable(true);
-                        selectionModel.select(systemAdminTab);
-                        break;
-                    case OFFICE_MANAGER:
-                        systemAdminTab.setDisable(true);
-                        loginscreenTab.setDisable(true);
-                        warehouseManagerTab.setDisable(true);
-                        officeManagerTab.setDisable(false);
-                        salesAssociateTab.setDisable(true);
-                        selectionModel.select(officeManagerTab);
-                        break;
-                    case WAREHOUSE_MANAGER:
-                        systemAdminTab.setDisable(true);
-                        loginscreenTab.setDisable(true);
-                        warehouseManagerTab.setDisable(false);
-                        officeManagerTab.setDisable(true);
-                        salesAssociateTab.setDisable(true);
-                        selectionModel.select(warehouseManagerTab);
-                        break;
-                    case SALES_ASSOCIATE:
-                        systemAdminTab.setDisable(true);
-                        loginscreenTab.setDisable(true);
-                        warehouseManagerTab.setDisable(true);
-                        officeManagerTab.setDisable(true);
-                        salesAssociateTab.setDisable(false);                  
-                        selectionModel.select(salesAssociateTab);
-                        break;
-                    default:
-                        break;
+                if(a.getType() == AccountType.ADMIN) {
+                    systemAdminTab.setDisable(false);
+                    loginscreenTab.setDisable(true);
+                    warehouseManagerTab.setDisable(true);
+                    officeManagerTab.setDisable(true);
+                    salesAssociateTab.setDisable(true);
+                    selectionModel.select(systemAdminTab);
+                }
+                else if(a.getType() == AccountType.OFFICE_MANAGER) {
+                    systemAdminTab.setDisable(true);
+                    loginscreenTab.setDisable(true);
+                    warehouseManagerTab.setDisable(true);
+                    officeManagerTab.setDisable(false);
+                    salesAssociateTab.setDisable(true);
+                    selectionModel.select(officeManagerTab);
+                }
+                else if(a.getType() == AccountType.WAREHOUSE_MANAGER) {
+                    systemAdminTab.setDisable(true);
+                    loginscreenTab.setDisable(true);
+                    warehouseManagerTab.setDisable(false);
+                    officeManagerTab.setDisable(true);
+                    salesAssociateTab.setDisable(true);
+                    selectionModel.select(warehouseManagerTab);
+                }
+                else if(a.getType() == AccountType.SALES_ASSOCIATE) {
+                    systemAdminTab.setDisable(true);
+                    loginscreenTab.setDisable(true);
+                    warehouseManagerTab.setDisable(true);
+                    officeManagerTab.setDisable(true);
+                    salesAssociateTab.setDisable(false);
+                    selectionModel.select(salesAssociateTab);
                 }
             }
         }
@@ -278,15 +278,15 @@ public class Controller {
             case "Office Manager":
                 Main.accountList.add(new OfficeManager(new Person(firstName, lastName, email), username, password));
                 break;
-        
+
             case "Warehouse Manager":
                 Main.accountList.add(new WarehouseManager(new Person(firstName, lastName, email), username, password));
                 break;
-             
+
             case "Sales Associate":
                 Main.accountList.add(new SalesAssociate(new Person(firstName, lastName, email), username, password, warehousename));
                 break;
-         }
+        }
         myTextAreaAdminText.appendText(accountType + " " + username + " has been created.");
     }
 
@@ -374,6 +374,11 @@ public class Controller {
         officeManagerTab.setDisable(true);
         salesAssociateTab.setDisable(true);
         selectionModel.select(loginscreenTab);
+
+    }
+
+    @FXML
+    void doSelectEmployee(ActionEvent event) {
 
     }
 
