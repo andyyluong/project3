@@ -15,6 +15,7 @@ public class WarehouseManager extends LoginAccount implements Serializable {
     private String warehouseName;
     private Warehouse warehouse;
     private AccountType accountType;
+    ArrayList<Inventory> retList;
     
     /**
      * Warehouse Manager constructor
@@ -52,32 +53,6 @@ public class WarehouseManager extends LoginAccount implements Serializable {
         return accountType;
     }
     
-    /**
-     * Read main warehouse file
-     * @param filename Main warehouse file
-     */
-    public void readMainWarehouse(String filename) {
-        ArrayList<Inventory> retList = null;
-
-        File input = new File(filename);
-        try {
-            Scanner read = new Scanner(input);
-            while(read.hasNextLine()) {
-                String line = read.nextLine();
-                String regularExpression = "\\s*(\\s|,)\\s*";
-                String[] bpWH = line.split(regularExpression);
-                System.out.println(Arrays.toString(bpWH));
-                Inventory inv = new Inventory(new BikePart(bpWH[0], Integer.parseInt(bpWH[1]), Double.parseDouble(bpWH[2]), Double.parseDouble(bpWH[3])), Boolean.parseBoolean(bpWH[4]), Integer.parseInt(bpWH[5]));
-                retList.add(inv);
-
-            }
-         
-        }
-        catch(FileNotFoundException e) {
-            System.out.println("File Not Found");
-            e.printStackTrace();           
-        }                 
-    }
 }
             
             
