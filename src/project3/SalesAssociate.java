@@ -12,6 +12,9 @@ public class SalesAssociate extends LoginAccount implements Serializable {
     private String WarehouseName;
     private Warehouse warehouse;
     private AccountType accountType;
+    private SalesVanWarehouse salesvanWH;
+    private SalesInvoice sales;
+
     
     /**
      * Sales Associate constructor
@@ -54,6 +57,15 @@ public class SalesAssociate extends LoginAccount implements Serializable {
      */
     public Warehouse getWarehouse() {
         return warehouse;
+    }
+ 
+    /**
+     * Get sales van warehouse
+     * @return Sales van warehouse
+     */
+    public SalesVanWarehouse getWareHouse() { 
+        
+        return salesvanWH; 
     }
 
     /**
