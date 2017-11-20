@@ -1,10 +1,9 @@
 package project3;
 
-import javax.swing.event.*;
 import java.util.*;
 
 /**
- * An invoice for a sale, consisting of a sales items.
+ * Sales invoice for sales associate to generate when selling bike parts to clients.
  * @author andyluong
  */
 public class SalesInvoice {
@@ -43,11 +42,35 @@ public class SalesInvoice {
     }
     
     /**
-     * Add client that received bike parts
-     * @param name Name of client that received bike parts
+     * Get client
+     * @return Client
+     */
+    public String getClient() {
+        return client;
+    }
+    
+    /**
+     * Get client that received sold bike part
+     * @return 
+     */
+    public String getClientReceived() {
+        return clientReceived;
+    }
+ 
+    /**
+     * Add client that received sold bike parts
+     * @param name Name of client that received sold bike parts
      */
     public void addClientReceived(String name) {
         clientReceived = name;
+    }
+    
+    /**
+     * Get total sales invoice price
+     * @return Total sales invoice price
+     */
+    public double getTotalInvoicePrice() {
+        return totalInvoicePrice;
     }
 
 
