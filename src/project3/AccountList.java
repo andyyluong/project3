@@ -59,8 +59,8 @@ public class AccountList implements Serializable{
         }
         accounts.remove(account);
     }
-    //Iterator Pattern
-
+    
+    //Make into an Iterator Pattern
     public ArrayList<LoginAccount> getAccounts(){
         return accounts;
     }
