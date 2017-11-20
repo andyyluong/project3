@@ -52,6 +52,10 @@ public class WarehouseManager extends LoginAccount implements Serializable {
         return accountType;
     }
     
+    /**
+     * Read main warehouse file
+     * @param filename Main warehouse file
+     */
     public void readMainWarehouse(String filename) {
         ArrayList<Inventory> retList = null;
 
