@@ -44,7 +44,7 @@ public class AccountList implements Serializable{
         accounts.add(account);
     }
 
-    public void delete(LoginAccount account){
+    public void delete(String username){
         LoginAccount account = null;
         for(LoginAccount la: accounts){
             if(la.getUserName().equals(username)){
