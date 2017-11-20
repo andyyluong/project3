@@ -52,14 +52,6 @@ public class Inventory implements Serializable {
     }
 
     /**
-     * Get sales price of bike part
-     * @return Bike part sales price
-     */
-    public double getSalesPrice(){
-        return bikePart.getSalesPrice();
-    }
-
-    /**
      * Get part number of bike part
      * @return Bike part number
      */
@@ -73,6 +65,14 @@ public class Inventory implements Serializable {
      */
     public double getListPrice(){
         return bikePart.getListPrice();
+    }
+    
+    /**
+     * Get sales price of bike part
+     * @return Bike part sales price
+     */
+    public double getSalesPrice(){
+        return bikePart.getSalesPrice();
     }
   
     /**
