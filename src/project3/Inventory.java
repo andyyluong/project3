@@ -2,7 +2,6 @@ package project3;
 
 import java.io.Serializable;
 
-
 /**
  * Inventory class defines an inventory
  * @author andyluong
@@ -20,10 +19,12 @@ public class Inventory implements Serializable {
      * Inventory constructor
      * @param bikepart Bike part
      * @param onSale On sale or not
+     * @param quantity Quantity 
      */
-    public Inventory(BikePart bikepart, Boolean onSale){
+    public Inventory(BikePart bikepart, Boolean onSale, int quantity){
         this.bikePart = bikepart;
         this.onSale = onSale;
+        this.quantity = quantity;
     }
     
     /**
@@ -40,31 +41,6 @@ public class Inventory implements Serializable {
      */
     public void take(int number){
         quantity -= number;
-    }
-    
-    /**
-     * Set bike part on sale
-     * @param onSale Bike part on sale or not
-     */
-    public void setOnSale(boolean onSale){
-        this.onSale = onSale;
-    }
-    
-    /**
-     * Get on sale
-     * @return Bike part on sale or not
-     */
-    public Boolean getOnSale(){
-        return onSale;
-    }
-    
-    /**
-     * Display bike part attributes
-     * @return Bike part name, number, price, sales price, on sale, and quantity
-     */
-    @Override
-    public String toString(){
-        return bikePart.toString() + "," + onSale + "," + quantity;
     }
 
     /**
@@ -97,6 +73,47 @@ public class Inventory implements Serializable {
      */
     public double getListPrice(){
         return bikePart.getListPrice();
+    }
+  
+    /**
+     * Set bike part on sale
+     * @param onSale Bike part on sale or not
+     */
+    public void setOnSale(boolean onSale){
+        this.onSale = onSale;
+    }
+    
+    /**
+     * Get on sale
+     * @return Bike part on sale or not
+     */
+    public Boolean getOnSale(){
+        return onSale;
+    }
+    
+    /**
+     * Set quantity
+     * @param quantity Quantity of bike part
+     */
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
+    }
+    
+    /**
+     * Get quantity
+     * @return Quantity of bike part
+     */
+    public int getQuantity(){
+        return quantity;
+    }
+
+    /**
+     * Display bike part attributes
+     * @return Bike part name, number, price, sales price, on sale, and quantity
+     */
+    @Override
+    public String toString(){
+        return bikePart.toString() + "," + onSale + "," + quantity;
     }
 }
     
