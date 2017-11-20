@@ -180,15 +180,13 @@ public class Controller {
 
         }
 
-        @FXML
-    void doReadWarehouseDelivery(ActionEvent event) {
-        //WarehouseManager.readMainWarehouse("initialInventory.txt");
+     private ArrayList<Inventory> doRead(String param) {
         ArrayList<Inventory> retList = null;
         String filename = "";
         File input = new File(filename);
         try {
             Scanner read = new Scanner(input);
-            while(read.hasNextLine()) {
+            while (read.hasNextLine()) {
                 String line = read.nextLine();
                 String regularExpression = "\\s*(\\s|,)\\s*";
                 String[] bpWH = line.split(regularExpression);
@@ -197,12 +195,36 @@ public class Controller {
                 retList.add(inv);
 
             }
-        }
-
-        catch(FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.out.println("File Not Found");
-            e.printStackTrace();           
-        }                 
+            e.printStackTrace();
+        }
+        return retList;
+    }
+
+    //String param = myTextAreaWarehouseText.getText();
+
+    @FXML
+    void doReadWarehouseDelivery(ActionEvent event) {
+        ArrayList <Inventory> tempList;
+       // tempList = doRead(param);
+      //  for (Inventory readParts:tempList){
+        //    Main.mainWarehouse.addBikePart(readParts);
+        //}
+         //bikePartArrayList = doRead(param);
+        if (bikePartArrayList != null) {
+            myTextAreaWarehouseText.appendText("This warehouse has read successfully: " + "\n");
+            myTextAreaWarehouseText.appendText("\n");
+            myTextAreaWarehouseText.appendText("**************************************************************************");
+            myTextAreaWarehouseText.appendText("\n");
+            for (BikePart bp : bikePartArrayList) {
+                myTextAreaWarehouseText.appendText(bp + "\n");
+               // Main.mainWarehouse.addBikePart(bp);
+            }
+            myTextAreaWarehouseText.appendText("\n \n \n");
+            myTextAreaWarehouseText.appendText(("************************************************************************"));
+        } else
+            myTextAreaWarehouseText.appendText("File Not Found");
     }
 
       
