@@ -253,7 +253,8 @@ public class Controller {
             }
         }
     }
-
+    
+    public static String accountType = "Office Manager";
     @FXML
     void doCreateAccount(ActionEvent event) {
         String firstName = firstNameAdminText.getText();
@@ -262,22 +263,21 @@ public class Controller {
         String username = usernameAdminText.getText();
         String password = passwordAdminText.getText();
         String warehousename = warehouseNameText.getText();
-        String accountType = "";
         /*
         --More code here--
         */
         switch(accountType) {
             case "Office Manager":
                 Main.accountList.add(new OfficeManager(new Person(firstName, lastName, email), username, password));
-                break;
+            break;
 
             case "Warehouse Manager":
                 Main.accountList.add(new WarehouseManager(new Person(firstName, lastName, email), username, password));
-                break;
+            break;
 
             case "Sales Associate":
                 Main.accountList.add(new SalesAssociate(new Person(firstName, lastName, email), username, password, warehousename));
-                break;
+            break;
         }
         myTextAreaAdminText.appendText(accountType + " " + username + " has been created.");
     }
