@@ -184,6 +184,9 @@ public class Controller {
 
     @FXML
     void doExamineParts(ActionEvent event) {
+        
+        String partname = partNameOfficeManager.getText();
+        String partnumber = partNumberOfficeManager.getText();
 
 
     }
@@ -197,27 +200,11 @@ public class Controller {
 
     @FXML
     void doReadWarehouseDelivery(ActionEvent event) {
-        ArrayList<Inventory> retList = new ArrayList<>();
-        String filename = warehouseDeliveryFileText.getText();
-        File input = new File(filename);
-        try {
-            Scanner read = new Scanner(input);
-            while(read.hasNextLine()) {
-                String line = read.nextLine();
-                String regularExpression = "\\s*(\\s|,)\\s*";
-                String[] bpWH = line.split(regularExpression);
-                System.out.println(Arrays.toString(bpWH));
-                Inventory inv = new Inventory(new BikePart(bpWH[0], Integer.parseInt(bpWH[1]), Double.parseDouble(bpWH[2]), Double.parseDouble(bpWH[3])), Boolean.parseBoolean(bpWH[4]), Integer.parseInt(bpWH[5]));
-                retList.add(inv);
-                myTextAreaWarehouseText.appendText(String.valueOf(retList + "\n"));
-
-            }
-        }
-
-        catch(FileNotFoundException e) {
-            System.out.println("File Not Found");
-            e.printStackTrace();
-        }
+        String fn = warehouseDeliveryFileText.getText();
+        String s = Main.mainWH.read(fn); 
+        myTextAreaWarehouseText.appendText(s);
+        
+        
     }
 
     @FXML
