@@ -162,7 +162,7 @@ public class Controller {
     private TextField usernameTextField;
 
     @FXML
-    private TextField passwordAdminText;
+    private PasswordField passwordAdminText;
 
     @FXML
     private MenuButton selectEmployeeButton;
@@ -184,7 +184,7 @@ public class Controller {
 
     @FXML
     void doExamineParts(ActionEvent event) {
-        
+
         String partname = partNameOfficeManager.getText();
         String partnumber = partNumberOfficeManager.getText();
 
@@ -201,10 +201,10 @@ public class Controller {
     @FXML
     void doReadWarehouseDelivery(ActionEvent event) {
         String fn = warehouseDeliveryFileText.getText();
-        String s = Main.mainWH.read(fn); 
+        String s = Main.mainWH.read(fn);
         myTextAreaWarehouseText.appendText(s);
-        
-        
+
+
     }
 
     @FXML
@@ -253,7 +253,7 @@ public class Controller {
             }
         }
     }
-    
+
     public static String accountType = "Office Manager";
     @FXML
     void doCreateAccount(ActionEvent event) {
@@ -269,15 +269,15 @@ public class Controller {
         switch(accountType) {
             case "Office Manager":
                 Main.accountList.add(new OfficeManager(new Person(firstName, lastName, email), username, password));
-            break;
+                break;
 
             case "Warehouse Manager":
                 Main.accountList.add(new WarehouseManager(new Person(firstName, lastName, email), username, password));
-            break;
+                break;
 
             case "Sales Associate":
                 Main.accountList.add(new SalesAssociate(new Person(firstName, lastName, email), username, password, warehousename));
-            break;
+                break;
         }
         myTextAreaAdminText.appendText(accountType + " " + username + " has been created.");
     }
@@ -372,6 +372,24 @@ public class Controller {
     @FXML
     void doSelectEmployee(ActionEvent event) {
 
+    }
+
+    @FXML
+    void createSalesAssociateAction(ActionEvent event) {
+        accountType = "Sales Associate";
+        selectEmployeeButton.setText(accountType);
+    }
+
+    @FXML
+    void createWarehouseManagerAction(ActionEvent event) {
+        accountType = "Warehouse Manager";
+        selectEmployeeButton.setText(accountType);
+    }
+
+    @FXML
+    void createOfficeManagerAction(ActionEvent event) {
+        accountType = "Office Manager";
+        selectEmployeeButton.setText(accountType);
     }
 
 }
