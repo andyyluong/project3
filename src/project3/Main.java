@@ -23,6 +23,9 @@ import javafx.stage.Stage;
 public class Main extends Application {
     public static WarehouseInventory warehouseInventory = new WarehouseInventory();
     public static AccountList accountList = new AccountList();
+    //public static MainWarehouse mainWH = new MainWarehouse("mainWH", WarehouseType.MAIN);
+    public static Warehouse mainWH = new MainWarehouse("mainWH", WarehouseType.MAIN);
+            
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
@@ -30,34 +33,6 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }
-    //Creates an object of mainWarehouse
-    public static Warehouse mainWarehouse= new Warehouse("WH", WarehouseType.MAIN) {
-
-        @Override
-        public Inventory findInventoryByName(String name) {
-            return null;
-        }
-
-        @Override
-        public Inventory findInventoryByNumber(int number) {
-            return null;
-        }
-
-        @Override
-        public void addInventory(String part) {
-
-        }
-
-        @Override
-        public String sortName() {
-            return null;
-        }
-
-        @Override
-        public String sortNumber() {
-            return null;
-        }
-    };
   
   /**
    * Program execution stops
@@ -106,7 +81,7 @@ public class Main extends Application {
         }
         
         //System administrator
-        accountList.add(new SystemAdministrator(new Person("Andy", "Luong", "Andy@bikepart.com"), "admin", "minda"));
+        accountList.add(new SystemAdministrator(new Person("Andy", "Luong", "Andy@bikepart.com"), "system", "admin"));
         //Office manager
         accountList.add(new OfficeManager(new Person("Anthony", "Phimmasone", "Anthony@bikepart.com"), "office", "manager"));
         //Warehouse manager
@@ -115,6 +90,7 @@ public class Main extends Application {
         accountList.add(new SalesAssociate(new Person("Alex", "Lundin", "Alex@bikepart.com"), "sales", "associate", "salesassociate"));
         //Sales associate #2
         accountList.add(new SalesAssociate(new Person("Gusty", "Cooper", "Gusty@bikepart.com"), "gustysales", "gustyassociate", "gustysalesassociate"));
+        
 
         
         launch(args);
