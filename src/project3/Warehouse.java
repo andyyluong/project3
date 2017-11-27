@@ -92,6 +92,9 @@ public abstract class Warehouse implements Serializable
             if(name.equals(i.getName())){
                 inventory = i;
             }
+            if(name.equals(String.valueOf(i.getNumber()))){
+                inventory = i;
+            }
         }
         return inventory;
     }
