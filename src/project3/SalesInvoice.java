@@ -18,10 +18,8 @@ public class SalesInvoice {
      * Sales invoice constructor.
      * @param sd Sale date
      * @param aClient Client
-     * @param aClientReceived Client that receives parts
-     * @param aTotalInvoicePrice Total invoice cost
      */
-    public SalesInvoice(Date sd, String aClient, String aClientReceived, double aTotalInvoicePrice) {
+    public SalesInvoice(Date sd, String aClient) {
         if(saleDate == null) {
             sd = new Date();
         }
@@ -29,8 +27,7 @@ public class SalesInvoice {
             sd = saleDate;
         }
         aClient = client;
-        aClientReceived = clientReceived;
-        aTotalInvoicePrice = totalInvoicePrice;
+        this.totalInvoicePrice = 0;
     }
     
     /**
