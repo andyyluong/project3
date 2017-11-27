@@ -17,6 +17,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 public class Controller {
@@ -356,6 +357,18 @@ public class Controller {
             start = new Date();
             end = new Date();
         }
+        
+        for(LoginAccount a : Main.accountList.getAccounts()) {
+            if(a instanceof SalesAssociate) {
+                SalesAssociate sa = (SalesAssociate) a;
+                List<SalesInvoice> salesInvoiceList = sa.getSales(start, end);
+                for(SalesInvoice si : salesInvoiceList) {
+                    myTextAreaOfficeText.appendText(si.toString());
+                    
+                }
+                
+            }
+        } 
     }
 
     @FXML
