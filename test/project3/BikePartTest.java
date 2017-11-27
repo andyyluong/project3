@@ -14,7 +14,7 @@ public class BikePartTest {
      */
     @Test
     public void testGetPartName() {
-        System.out.println("getPartName");
+        System.out.println("Get Part Name");
         BikePart instance = new BikePart();
         String expResult = "bikehandle";
         String result = instance.getPartName();
@@ -27,7 +27,7 @@ public class BikePartTest {
      */
     @Test
     public void testGetPartNumber() {
-        System.out.println("getPartNumber");
+        System.out.println("Get Part Number");
         BikePart instance = new BikePart();
         int expResult = 1234567890;
         int result = instance.getPartNumber();
@@ -40,7 +40,7 @@ public class BikePartTest {
      */
     @Test
     public void testGetPrice() {
-        System.out.println("getPrice");
+        System.out.println("Get Price");
         BikePart instance = new BikePart();
         double expResult = 10.0;
         double result = instance.getListPrice();
