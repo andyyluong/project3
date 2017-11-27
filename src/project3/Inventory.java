@@ -10,23 +10,23 @@ import java.io.Serializable;
  * @author alexLundin
  */
 public class Inventory implements Serializable {
-    
+
     private BikePart bikePart;
     private Boolean onSale;
     private int quantity;
-    
+
     /**
      * Inventory constructor
      * @param bikepart Bike part
      * @param onSale On sale or not
-     * @param quantity Quantity 
+     * @param quantity Quantity
      */
     public Inventory(BikePart bikepart, Boolean onSale, int quantity){
         this.bikePart = bikepart;
         this.onSale = onSale;
         this.quantity = quantity;
     }
-    
+
     /**
      * Add quantity of inventory
      * @param number Number of quantity added
@@ -34,7 +34,7 @@ public class Inventory implements Serializable {
     public void add(int number){
         quantity += number;
     }
-    
+
     /**
      * Take quantity of inventory
      * @param number Number of quantity taken
@@ -66,7 +66,7 @@ public class Inventory implements Serializable {
     public double getListPrice(){
         return bikePart.getListPrice();
     }
-    
+
     /**
      * Get sales price of bike part
      * @return Bike part sales price
@@ -74,7 +74,7 @@ public class Inventory implements Serializable {
     public double getSalesPrice(){
         return bikePart.getSalesPrice();
     }
-  
+
     /**
      * Set bike part on sale
      * @param onSale Bike part on sale or not
@@ -82,7 +82,7 @@ public class Inventory implements Serializable {
     public void setOnSale(boolean onSale){
         this.onSale = onSale;
     }
-    
+
     /**
      * Get on sale
      * @return Bike part on sale or not
@@ -90,7 +90,7 @@ public class Inventory implements Serializable {
     public Boolean getOnSale(){
         return onSale;
     }
-    
+
     /**
      * Set quantity
      * @param quantity Quantity of bike part
@@ -98,7 +98,7 @@ public class Inventory implements Serializable {
     public void setQuantity(int quantity){
         this.quantity = quantity;
     }
-    
+
     /**
      * Get quantity
      * @return Quantity of bike part
@@ -116,4 +116,3 @@ public class Inventory implements Serializable {
         return bikePart.toString() + "," + onSale + "," + quantity;
     }
 }
-    
