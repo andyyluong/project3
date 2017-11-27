@@ -16,7 +16,7 @@ import java.util.Scanner;
  */
 public abstract class Warehouse implements Serializable
 {
-    private ArrayList<Inventory> inventoryWarehouse;
+    public ArrayList<Inventory> inventoryWarehouse;
     private String name;
     private WarehouseType warehouseType;
     
