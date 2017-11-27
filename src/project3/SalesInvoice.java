@@ -11,6 +11,7 @@ public class SalesInvoice {
     Date saleDate;
     String client;
     String clientReceived;
+    List <Inventory> invoiceList;
     double totalInvoicePrice;
     
 
@@ -61,13 +62,22 @@ public class SalesInvoice {
     public void addClientReceived(String name) {
         clientReceived = name;
     }
-    
+
     /**
      * Get total sales invoice price
      * @return Total sales invoice price
      */
     public double getTotalInvoicePrice() {
         return totalInvoicePrice;
+    }
+    
+    @Override
+    public String toString() {
+        String salesassociate = "Invoice: " + client + "Date: " + saleDate + "\n";
+        for(Inventory inv : invoiceList)
+            salesassociate += inv.toString();
+        salesassociate += totalInvoicePrice;
+        return salesassociate;
     }
 
 
