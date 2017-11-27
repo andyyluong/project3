@@ -90,4 +90,12 @@ public class Person implements Serializable {
     public String toString() {
         return firstName + " " + lastName + " " + emailAddress;
     }
+    /**
+     * Person constructor for JUnit testing
+     */
+    public Person() {
+        firstName = "Andy";
+        lastName = "Luong";
+        emailAddress = "Andy@bikepart.com";
+    }
 }
