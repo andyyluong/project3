@@ -319,8 +319,7 @@ public class Controller {
         }
         SalesInvoice salesInvoice = new SalesInvoice(new Date(), customer);
         myTextAreaAssociateText.appendText("Sales invoice for: " + customer + "\n");
-        myTextAreaAssociateText.appendText("                        List   Sale          \n");
-        myTextAreaAssociateText.appendText("Part Name  Part Number  Price  Price  Quantity   Total\n");
+        myTextAreaAssociateText.appendText("Part Name  Part Number  List Price  Sale Price  Quantity   Total\n");
         double aTotalInvoicePrice = 0;
 
     }
