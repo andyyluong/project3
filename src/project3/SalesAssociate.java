@@ -1,6 +1,9 @@
 package project3;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 /**
  * Sales Associate class defines the actions of a sales associate employee
  * @author andyluong
@@ -10,23 +13,23 @@ import java.io.Serializable;
  */
 public class SalesAssociate extends LoginAccount implements Serializable {
     private String WarehouseName;
+    private Warehouse warehouse;
     private AccountType accountType;
-    private SalesVanWarehouse warehouse;
-    private SalesInvoice sales;
+    private SalesVanWarehouse salesvanWH;
+    private List<SalesInvoice> sales;
 
     
     /**
      * Sales Associate constructor
-     * @param person Person object
+     * @param p Person that is a sales associate
      * @param userName Username of sales associate
      * @param password Password of sales associate
      * @param warehouseName Warehouse name of sales associate
      */
-    public SalesAssociate(Person person, String userName, String password, String warehouseName) {
-        super(person, userName, password);
+    public SalesAssociate(Person p, String userName, String password, String warehouseName) {
+        super(p, userName, password);
         this.WarehouseName = warehouseName;
         accountType = AccountType.SALES_ASSOCIATE;
-        //this.Warehouse = warehouse;
     }
 
     //-----------------------------------------------------------------------------------------------------------------
@@ -62,7 +65,7 @@ public class SalesAssociate extends LoginAccount implements Serializable {
      */
     public SalesVanWarehouse getWareHouse() { 
         
-        return warehouse; 
+        return salesvanWH; 
     }
 
     /**
@@ -70,7 +73,7 @@ public class SalesAssociate extends LoginAccount implements Serializable {
      * @param warehouse Warehouse 
      */
     public void setWarehouse(Warehouse warehouse) {
-        this.warehouse = (SalesVanWarehouse) warehouse;
+        this.warehouse = warehouse;
     }
 
     /**
@@ -81,4 +84,26 @@ public class SalesAssociate extends LoginAccount implements Serializable {
     public AccountType getType() {
         return accountType;
     }
-} 
+
+    /**
+     * Get sales invoice from start to end date of sales associate
+     * @param startDate Start date of sales invoice
+     * @param endDate End date of sales invoice
+     * @return Sales invoice with sales from indicated dates
+     */
+    public List<SalesInvoice> getSales(Date startDate, Date endDate) {
+        List<SalesInvoice> salesList = new ArrayList<>();
+        for (SalesInvoice si : sales) {
+            if (startDate == null) {
+                salesList.add(si);
+            }
+            else {
+                if (startDate.compareTo(si.getSaleDate()) <= 0 && endDate.compareTo(si.getSaleDate()) >= 0)
+                    salesList.add(si);
+            }
+        }
+        return salesList;
+    }
+}
+
+    
