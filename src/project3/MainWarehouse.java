@@ -42,7 +42,7 @@ public class MainWarehouse extends Warehouse {
      */
     public void addInventory(String part) {
         String qualities[] = part.split(",");
-        inventoryWarehouse.add(new BikePart(qualities[0], Integer.parseInt(qualities[1]), Double.parseDouble(qualities[2]), Double.parseDouble(qualities[3])), Boolean.parseBoolean(qualities[4]));
+        inventoryWarehouse.add(new Inventory(new BikePart(qualities[0], Integer.parseInt(qualities[1]), Double.parseDouble(qualities[2]), Double.parseDouble(qualities[3])), Boolean.parseBoolean(qualities[4]), Integer.parseInt(qualities[5])));
     }
 
     /**
