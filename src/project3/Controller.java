@@ -228,7 +228,7 @@ public class Controller {
                         officeManagerTab.setDisable(true);
                         salesAssociateTab.setDisable(true);
                         selectionModel.select(systemAdminTab);
-                        break;
+                    break;
                     case OFFICE_MANAGER:
                         systemAdminTab.setDisable(true);
                         loginscreenTab.setDisable(true);
@@ -236,7 +236,7 @@ public class Controller {
                         officeManagerTab.setDisable(false);
                         salesAssociateTab.setDisable(true);
                         selectionModel.select(officeManagerTab);
-                        break;
+                    break;
                     case WAREHOUSE_MANAGER:
                         systemAdminTab.setDisable(true);
                         loginscreenTab.setDisable(true);
@@ -244,7 +244,7 @@ public class Controller {
                         officeManagerTab.setDisable(true);
                         salesAssociateTab.setDisable(true);
                         selectionModel.select(warehouseManagerTab);
-                        break;
+                    break;
                     case SALES_ASSOCIATE:
                         systemAdminTab.setDisable(true);
                         loginscreenTab.setDisable(true);
@@ -252,9 +252,9 @@ public class Controller {
                         officeManagerTab.setDisable(true);
                         salesAssociateTab.setDisable(false);
                         selectionModel.select(salesAssociateTab);
-                        break;
+                    break;
                     default:
-                        break;
+                    break;
                 }
             }
         }
@@ -269,6 +269,7 @@ public class Controller {
         String username = usernameAdminText.getText();
         String password = passwordAdminText.getText();
         String warehousename = warehouseNameText.getText();
+
         switch(accountType) {
             case "Office Manager":
                 Main.accountList.add(new OfficeManager(new Person(firstName, lastName, email), username, password));
@@ -311,6 +312,15 @@ public class Controller {
 
     @FXML
     void doGenerateSalesInvoice(ActionEvent event) {
+        String customer = CustomerNameAssociateText.getText();
+        if(customer.equals("")) {
+            myTextAreaAssociateText.appendText("Must enter customer name");
+        }
+        SalesInvoice salesInvoice = new SalesInvoice(new Date(), customer);
+        myTextAreaAssociateText.appendText("Sales invoice for: " + customer + "\n");
+        myTextAreaAssociateText.appendText("                        List   Sale          \n");
+        myTextAreaAssociateText.appendText("Part Name  Part Number  Price  Price  Quantity   Total\n");
+        double aTotalInvoicePrice = 0;
 
     }
 
@@ -335,7 +345,17 @@ public class Controller {
 
     @FXML
     void doGenerateSalesPaycheck(ActionEvent event) {
-
+        Date start, end;
+        String startDate = StartDateText.getText();
+        String endDate = EndDateText.getText();
+        if (startDate.equals("") && endDate.equals("")) {
+            start = null;
+            end = null;
+        }
+        else {
+            start = new Date();
+            end = new Date();
+        }
     }
 
     @FXML
