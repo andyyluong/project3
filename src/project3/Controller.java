@@ -228,7 +228,7 @@ public class Controller {
                         officeManagerTab.setDisable(true);
                         salesAssociateTab.setDisable(true);
                         selectionModel.select(systemAdminTab);
-                    break;
+                        break;
                     case OFFICE_MANAGER:
                         systemAdminTab.setDisable(true);
                         loginscreenTab.setDisable(true);
@@ -236,7 +236,7 @@ public class Controller {
                         officeManagerTab.setDisable(false);
                         salesAssociateTab.setDisable(true);
                         selectionModel.select(officeManagerTab);
-                    break;
+                        break;
                     case WAREHOUSE_MANAGER:
                         systemAdminTab.setDisable(true);
                         loginscreenTab.setDisable(true);
@@ -244,7 +244,7 @@ public class Controller {
                         officeManagerTab.setDisable(true);
                         salesAssociateTab.setDisable(true);
                         selectionModel.select(warehouseManagerTab);
-                    break;
+                        break;
                     case SALES_ASSOCIATE:
                         systemAdminTab.setDisable(true);
                         loginscreenTab.setDisable(true);
@@ -252,9 +252,9 @@ public class Controller {
                         officeManagerTab.setDisable(true);
                         salesAssociateTab.setDisable(false);
                         selectionModel.select(salesAssociateTab);
-                    break;
+                        break;
                     default:
-                    break;
+                        break;
                 }
             }
         }
