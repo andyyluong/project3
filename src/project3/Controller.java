@@ -1,6 +1,5 @@
 package project3;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -177,6 +176,10 @@ public class Controller {
     @FXML
     private MenuItem selectSalesAssociate;
 
+    /**
+     * Sell bike part and quantity for Sales Associate tab
+     * @param event 
+     */
     @FXML
     void doSellPartsButton(ActionEvent event) {
         String partName = partNameAssociateText.getText();
@@ -191,6 +194,10 @@ public class Controller {
     }
 
 
+    /**
+     * Examine part information by part name and number for Office Manager tab
+     * @param event 
+     */
     @FXML
     void doExamineParts(ActionEvent event) {
 
@@ -200,7 +207,7 @@ public class Controller {
             System.out.println(partName);
             myTextAreaOfficeText.appendText(Main.mainWH.getInventory(partName).toString() + "\n");
         }
-        else{
+        else {
             System.out.println(partNumber);
             myTextAreaOfficeText.appendText(Main.mainWH.getInventory(partNumber).toString() + "\n");
         }
@@ -213,6 +220,10 @@ public class Controller {
 
     }
 
+    /**
+     * Read warehouse delivery file for Warehouse Manager tab
+     * @param event 
+     */
     @FXML
     void doReadWarehouseDelivery(ActionEvent event) {
         String fn = warehouseDeliveryFileText.getText();
@@ -222,6 +233,10 @@ public class Controller {
 
     }
 
+    /**
+     * Login screen for four employee types: system administrator, office manager, warehouse manager, and sales associate
+     * @param event 
+     */
     @FXML
     void doLoginButton(ActionEvent event) {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
@@ -269,6 +284,9 @@ public class Controller {
         }
     }
 
+    /**
+     * Create employee account for System Administrator tab
+     */
     public static String accountType = "";
     @FXML
     void doCreateAccount(ActionEvent event) {
@@ -295,6 +313,10 @@ public class Controller {
         myTextAreaAdminText.appendText(accountType + " " + username + " has been created.");
     }
 
+    /**
+     * Delete employee account for System Administrator tab
+     * @param event 
+     */
     @FXML
     void doDeleteAccount(ActionEvent event) {
         String username = usernameAdminText.getText();
@@ -307,6 +329,10 @@ public class Controller {
 
     }
 
+    /**
+     * Log out button for System Administrator tab
+     * @param event 
+     */
     @FXML
     void doLogoutButton1(ActionEvent event) {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
@@ -319,6 +345,10 @@ public class Controller {
 
     }
 
+    /**
+     * Generate a sales invoice for Sales Associate tab
+     * @param event 
+     */
     @FXML
     void doGenerateSalesInvoice(ActionEvent event) {
         String customer = CustomerNameAssociateText.getText();
@@ -339,6 +369,10 @@ public class Controller {
 
     }
 
+    /**
+     * Log out button for Office Manager tab
+     * @param event 
+     */
     @FXML
     void doLogoutButton2(ActionEvent event) {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
@@ -379,6 +413,10 @@ public class Controller {
         }
     }
 
+    /**
+     * Log out button for Warehouse Manager tab
+     * @param event 
+     */
     @FXML
     void doLogoutButton3(ActionEvent event) {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
@@ -396,6 +434,10 @@ public class Controller {
 
     }
 
+    /**
+     * Log out button for Sales Associate tab
+     * @param event 
+     */
     @FXML
     void doLogoutButton4(ActionEvent event) {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
@@ -413,18 +455,30 @@ public class Controller {
 
     }
 
+    /**
+     * Create Sales Associate account
+     * @param event 
+     */
     @FXML
     void createSalesAssociateAction(ActionEvent event) {
         accountType = "Sales Associate";
         selectEmployeeButton.setText(accountType);
     }
 
+    /**
+     * Create Warehouse Manager account
+     * @param event 
+     */
     @FXML
     void createWarehouseManagerAction(ActionEvent event) {
         accountType = "Warehouse Manager";
         selectEmployeeButton.setText(accountType);
     }
-
+    
+    /**
+     * Create Office Manager account
+     * @param event 
+     */
     @FXML
     void createOfficeManagerAction(ActionEvent event) {
         accountType = "Office Manager";
