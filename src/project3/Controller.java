@@ -17,7 +17,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
 
 public class Controller {
@@ -183,16 +182,12 @@ public class Controller {
     }
 
 
-    /**
-     * Examine part information by part name and number for Office Manager tab
-     * @param event 
-     */
     @FXML
     void doExamineParts(ActionEvent event) {
 
         String partName = partNameOfficeManager.getText();
         String partNumber = partNumberOfficeManager.getText();
-        if(partName.equals("") || partNumber == null){
+        if(partNumber.equals("")||partNumber==null){
             System.out.println(partName);
             myTextAreaOfficeText.appendText(Main.mainWH.getInventory(partName).toString());
         }
@@ -209,10 +204,6 @@ public class Controller {
 
     }
 
-    /**
-     * Read warehouse delivery file for Warehouse Manager tab
-     * @param event 
-     */
     @FXML
     void doReadWarehouseDelivery(ActionEvent event) {
         String fn = warehouseDeliveryFileText.getText();
@@ -222,10 +213,6 @@ public class Controller {
 
     }
 
-    /**
-     * Login screen for four employee types: system administrator, office manager, warehouse manager, and sales associate
-     * @param event 
-     */
     @FXML
     void doLoginButton(ActionEvent event) {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
@@ -273,9 +260,6 @@ public class Controller {
         }
     }
 
-    /**
-     * Create account button action for System Administrator tab
-     */
     public static String accountType = "";
     @FXML
     void doCreateAccount(ActionEvent event) {
@@ -302,9 +286,6 @@ public class Controller {
         myTextAreaAdminText.appendText(accountType + " " + username + " has been created.");
     }
 
-    /**
-     * Delete account button action for System Administrator tab
-     */
     @FXML
     void doDeleteAccount(ActionEvent event) {
         String username = usernameAdminText.getText();
@@ -317,10 +298,6 @@ public class Controller {
 
     }
 
-    /**
-     * Log out button for System Administrator tab
-     * @param event 
-     */
     @FXML
     void doLogoutButton1(ActionEvent event) {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
@@ -341,22 +318,18 @@ public class Controller {
         }
         SalesInvoice salesInvoice = new SalesInvoice(new Date(), customer);
         myTextAreaAssociateText.appendText("Sales invoice for: " + customer + "\n");
-        myTextAreaAssociateText.appendText("Part Name  Part Number  List Price  Sale Price  Quantity   Total\n");
+        myTextAreaAssociateText.appendText("                        List   Sale          \n");
+        myTextAreaAssociateText.appendText("Part Name  Part Number  Price  Price  Quantity   Total\n");
         double aTotalInvoicePrice = 0;
 
     }
 
     @FXML
     void doGenerateSalesVanFileButton(ActionEvent event) {
-        
 
 
     }
 
-    /**
-     * Log out button for Office Manager tab
-     * @param event 
-     */
     @FXML
     void doLogoutButton2(ActionEvent event) {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
@@ -383,25 +356,8 @@ public class Controller {
             start = new Date();
             end = new Date();
         }
-        
-        for(LoginAccount a : Main.accountList.getAccounts()) {
-            if(a instanceof SalesAssociate) {
-                SalesAssociate sa = (SalesAssociate) a;
-                List<SalesInvoice> salesInvoiceList = sa.getSales(start, end);
-                for(SalesInvoice si : salesInvoiceList) {
-                    myTextAreaOfficeText.appendText(si.toString());
-                    
-                }
-                
-            }
-        }
-            
     }
 
-    /**
-     * Log out button for Warehouse Manager tab
-     * @param event 
-     */
     @FXML
     void doLogoutButton3(ActionEvent event) {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
@@ -424,10 +380,6 @@ public class Controller {
 
     }
 
-    /**
-     * Log out button for Sales Associate tab
-     * @param event 
-     */
     @FXML
     void doLogoutButton4(ActionEvent event) {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
@@ -445,30 +397,18 @@ public class Controller {
 
     }
 
-    /**
-     * Create a sales associate
-     * @param event 
-     */
     @FXML
     void createSalesAssociateAction(ActionEvent event) {
         accountType = "Sales Associate";
         selectEmployeeButton.setText(accountType);
     }
 
-    /**
-     * Create a warehouse manager
-     * @param event 
-     */
     @FXML
     void createWarehouseManagerAction(ActionEvent event) {
         accountType = "Warehouse Manager";
         selectEmployeeButton.setText(accountType);
     }
 
-    /**
-     * Create a office manager
-     * @param event 
-     */
     @FXML
     void createOfficeManagerAction(ActionEvent event) {
         accountType = "Office Manager";

@@ -19,7 +19,7 @@ public abstract class Warehouse implements Serializable
     protected ArrayList<Inventory> inventoryWarehouse;
     protected String name;
     protected WarehouseType warehouseType;
-    
+
     /**
      * Warehouse constructor
      * @param name Name of warehouse
@@ -31,8 +31,8 @@ public abstract class Warehouse implements Serializable
         this.name = name;
         this.warehouseType = warehouseType;
     }
-    
-    
+
+
     /**
      * Get warehouse type
      * @return Warehouse type
@@ -41,11 +41,11 @@ public abstract class Warehouse implements Serializable
     {
         return warehouseType;
     }
-    
+
     public String read(String filename) {
-       ArrayList<Inventory> invList = new ArrayList<>();
-       String retString = new String();
-       File input = new File(filename);
+        ArrayList<Inventory> invList = new ArrayList<>();
+        String retString = new String();
+        File input = new File(filename);
         try {
             Scanner read = new Scanner(input);
             while(read.hasNextLine()) {
@@ -56,9 +56,9 @@ public abstract class Warehouse implements Serializable
                 Inventory inv = new Inventory(new BikePart(bpWH[0], Integer.parseInt(bpWH[1]), Double.parseDouble(bpWH[2]), Double.parseDouble(bpWH[3])), Boolean.parseBoolean(bpWH[4]), Integer.parseInt(bpWH[5]));
                 invList.add(inv);
                 retString += inv.toString() + "\n";
-                
+
             }
-            
+
             return retString;
         }
 
@@ -66,20 +66,20 @@ public abstract class Warehouse implements Serializable
             System.out.println("File Not Found");
             e.printStackTrace();
         }
-        return "File Not Found 2";        
-        
+        return "File Not Found 2";
+
     }
-            
+
     //public Inventory findInventoryByName(String name);
-    
+
     //public Inventory findInventoryByNumber(int number);
-    
+
     //public void addInventory(String part);
-    
+
     //public void sell(int partNumber, int amount);
-    
+
     //public String sortName();
-    
+
     //public String sortNumber();
 
     public String getName() {
