@@ -179,7 +179,15 @@ public class Controller {
 
     @FXML
     void doSellPartsButton(ActionEvent event) {
-
+        String partName = partNameAssociateText.getText();
+        String subtractedQuantity = quantityAssociateText.getText();
+        myTextAreaAssociateText.appendText("This part has been sold from the warehouse successfully: " + "\n");
+        myTextAreaAssociateText.appendText(Main.mainWH.getInventory(partName).toString() + "\n");
+        //Inventory.setQuantity(Inventory.getQuantity()-1);
+        //myTextAreaAssociateText.appendText(Main.mainWH.getInventory(subtractedQuantity).toString());
+        if (bikePartArrayList != null) {
+        } else
+            myTextAreaAssociateText.appendText("Part Number Not Found");
     }
 
 
@@ -190,11 +198,11 @@ public class Controller {
         String partNumber = partNumberOfficeManager.getText();
         if(partNumber.equals("")||partNumber==null){
             System.out.println(partName);
-            myTextAreaOfficeText.appendText(Main.mainWH.getInventory(partName).toString());
+            myTextAreaOfficeText.appendText(Main.mainWH.getInventory(partName).toString() + "\n");
         }
         else{
             System.out.println(partNumber);
-            myTextAreaOfficeText.appendText(Main.mainWH.getInventory(partNumber).toString());
+            myTextAreaOfficeText.appendText(Main.mainWH.getInventory(partNumber).toString() + "\n");
         }
     }
 
@@ -321,6 +329,7 @@ public class Controller {
         myTextAreaAssociateText.appendText("Sales invoice for: " + customer + "\n");
         myTextAreaAssociateText.appendText("Part Name  Part Number  List Price  Sale Price  Quantity   Total\n");
         double aTotalInvoicePrice = 0;
+        //myTextAreaAssociateText.appendText(Main.mainWH.getInventory().toString() + "\n");
 
     }
 
@@ -356,18 +365,18 @@ public class Controller {
             start = new Date();
             end = new Date();
         }
-        
+
         for(LoginAccount a : Main.accountList.getAccounts()) {
             if(a instanceof SalesAssociate) {
                 SalesAssociate sa = (SalesAssociate) a;
                 List<SalesInvoice> salesInvoiceList = sa.getSales(start, end);
                 for(SalesInvoice si : salesInvoiceList) {
                     myTextAreaOfficeText.appendText(si.toString());
-                    
+
                 }
-                
+
             }
-        } 
+        }
     }
 
     @FXML
@@ -379,11 +388,6 @@ public class Controller {
         officeManagerTab.setDisable(true);
         salesAssociateTab.setDisable(true);
         selectionModel.select(loginscreenTab);
-
-    }
-
-    @FXML
-    void doLoadWarehouseDelivery(ActionEvent event) {
 
     }
 

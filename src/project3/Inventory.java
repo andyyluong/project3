@@ -113,6 +113,6 @@ public class Inventory implements Serializable {
      */
     @Override
     public String toString(){
-        return bikePart.toString() + "," + onSale + "," + quantity + "\n";
+        return bikePart.toString() + "," + onSale + "," + quantity;
     }
 }
