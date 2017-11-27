@@ -185,16 +185,17 @@ public class Controller {
     @FXML
     void doExamineParts(ActionEvent event) {
 
-        String partName = partNameOfficeManager.getText();
-        String partNumber = partNumberOfficeManager.getText();
-        if(partNumber.equals("")||partNumber==null){
-            System.out.println(partName);
-            myTextAreaOfficeText.appendText(Main.mainWH.getInventory(partName).toString());
-        }
-        else{
-            System.out.println(partNumber);
-            myTextAreaOfficeText.appendText(Main.mainWH.getInventory(partNumber).toString());
-        }
+        String partname = partNameOfficeManager.getText();
+        String partnumber = partNumberOfficeManager.getText();
+
+        myTextAreaOfficeText.appendText("Part Name " + " Part Price" + "\n");
+        myTextAreaOfficeText.appendText(partname);
+        myTextAreaOfficeText.appendText(partnumber);
+        myTextAreaOfficeText.appendText(Main.mainWH(param) + "\n");
+        if (bikePartArrayList != null) {
+
+        } else
+            myTextAreaOfficeText.appendText("Part Name Not Found");
     }
 
 
@@ -228,7 +229,7 @@ public class Controller {
                         officeManagerTab.setDisable(true);
                         salesAssociateTab.setDisable(true);
                         selectionModel.select(systemAdminTab);
-                        break;
+                    break;
                     case OFFICE_MANAGER:
                         systemAdminTab.setDisable(true);
                         loginscreenTab.setDisable(true);
@@ -236,7 +237,7 @@ public class Controller {
                         officeManagerTab.setDisable(false);
                         salesAssociateTab.setDisable(true);
                         selectionModel.select(officeManagerTab);
-                        break;
+                    break;
                     case WAREHOUSE_MANAGER:
                         systemAdminTab.setDisable(true);
                         loginscreenTab.setDisable(true);
@@ -244,7 +245,7 @@ public class Controller {
                         officeManagerTab.setDisable(true);
                         salesAssociateTab.setDisable(true);
                         selectionModel.select(warehouseManagerTab);
-                        break;
+                    break;
                     case SALES_ASSOCIATE:
                         systemAdminTab.setDisable(true);
                         loginscreenTab.setDisable(true);
@@ -252,15 +253,15 @@ public class Controller {
                         officeManagerTab.setDisable(true);
                         salesAssociateTab.setDisable(false);
                         selectionModel.select(salesAssociateTab);
-                        break;
+                    break;
                     default:
-                        break;
+                    break;
                 }
             }
         }
     }
 
-    public static String accountType = "Office Manager";
+    public static String accountType = "";
     @FXML
     void doCreateAccount(ActionEvent event) {
         String firstName = firstNameAdminText.getText();
@@ -269,9 +270,7 @@ public class Controller {
         String username = usernameAdminText.getText();
         String password = passwordAdminText.getText();
         String warehousename = warehouseNameText.getText();
-        /*
-        --More code here--
-        */
+
         switch(accountType) {
             case "Office Manager":
                 Main.accountList.add(new OfficeManager(new Person(firstName, lastName, email), username, password));
@@ -314,6 +313,15 @@ public class Controller {
 
     @FXML
     void doGenerateSalesInvoice(ActionEvent event) {
+        String customer = CustomerNameAssociateText.getText();
+        if(customer.equals("")) {
+            myTextAreaAssociateText.appendText("Must enter customer name");
+        }
+        SalesInvoice salesInvoice = new SalesInvoice(new Date(), customer);
+        myTextAreaAssociateText.appendText("Sales invoice for: " + customer + "\n");
+        myTextAreaAssociateText.appendText("                        List   Sale          \n");
+        myTextAreaAssociateText.appendText("Part Name  Part Number  Price  Price  Quantity   Total\n");
+        double aTotalInvoicePrice = 0;
 
     }
 
@@ -338,7 +346,17 @@ public class Controller {
 
     @FXML
     void doGenerateSalesPaycheck(ActionEvent event) {
-
+        Date start, end;
+        String startDate = StartDateText.getText();
+        String endDate = EndDateText.getText();
+        if (startDate.equals("") && endDate.equals("")) {
+            start = null;
+            end = null;
+        }
+        else {
+            start = new Date();
+            end = new Date();
+        }
     }
 
     @FXML
