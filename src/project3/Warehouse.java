@@ -16,9 +16,9 @@ import java.util.Scanner;
  */
 public abstract class Warehouse implements Serializable
 {
-    public ArrayList<Inventory> inventoryWarehouse;
-    private String name;
-    private WarehouseType warehouseType;
+    protected ArrayList<Inventory> inventoryWarehouse;
+    protected String name;
+    protected WarehouseType warehouseType;
     
     /**
      * Warehouse constructor
@@ -81,4 +81,18 @@ public abstract class Warehouse implements Serializable
     //public String sortName();
     
     //public String sortNumber();
+
+    public String getName() {
+        return name;
+    }
+
+    public Inventory getInventory(String name) {
+        Inventory inventory = null;
+        for(Inventory i: inventoryWarehouse){
+            if(name.equals(i.getName())){
+                inventory = i;
+            }
+        }
+        return inventory;
+    }
 }
