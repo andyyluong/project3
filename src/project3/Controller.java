@@ -183,14 +183,12 @@ public class Controller {
     @FXML
     void doSellPartsButton(ActionEvent event) {
         String partName = partNameAssociateText.getText();
-        String subtractedQuantity = quantityAssociateText.getText();
+        String soldQuantity = quantityAssociateText.getText();
         myTextAreaAssociateText.appendText("This part has been sold from the warehouse successfully: " + "\n");
         myTextAreaAssociateText.appendText(Main.mainWH.getInventory(partName).toString() + "\n");
-        //Inventory.setQuantity(Inventory.getQuantity()-1);
-        //myTextAreaAssociateText.appendText(Main.mainWH.getInventory(subtractedQuantity).toString());
-        if (bikePartArrayList != null) {
-        } else
-            myTextAreaAssociateText.appendText("Part Number Not Found");
+        Main.mainWH.setQuantity(Main.mainWH.getQuantity()-1);
+        myTextAreaAssociateText.appendText(Main.mainWH.getInventory(soldQuantity).toString());
+
     }
 
 
@@ -203,7 +201,7 @@ public class Controller {
 
         String partName = partNameOfficeManager.getText();
         String partNumber = partNumberOfficeManager.getText();
-        if(partNumber.equals("")||partNumber==null){
+        if(partNumber.equals("")){
             System.out.println(partName);
             myTextAreaOfficeText.appendText(Main.mainWH.getInventory(partName).toString() + "\n");
         }
@@ -310,7 +308,7 @@ public class Controller {
                 Main.accountList.add(new SalesAssociate(new Person(firstName, lastName, email), username, password, warehousename));
                 break;
         }
-        myTextAreaAdminText.appendText(accountType + " " + username + " has been created.");
+        myTextAreaAdminText.appendText(accountType + "account " + username + " has been created. \n");
     }
 
     /**
@@ -321,7 +319,7 @@ public class Controller {
     void doDeleteAccount(ActionEvent event) {
         String username = usernameAdminText.getText();
         Main.accountList.delete(username);
-        myTextAreaAdminText.appendText("Deleted " + username + " from the system.");
+        myTextAreaAdminText.appendText("Deleted " + username + " from the system. \n");
     }
 
     @FXML
