@@ -70,4 +70,14 @@ public class AccountList implements Serializable{
     public ArrayList<LoginAccount> getAccounts(){
         return accounts;
     }
+    
+    public SalesAssociate getSalesAssociate(String name){
+        SalesAssociate salesAssociate = null;
+        for(SalesAssociate sa: salesAssociates){
+            if(sa.getUserName().equals(name)){
+                salesAssociate = sa;
+            }
+        }
+        return salesAssociate;
+    }
 }
