@@ -39,7 +39,7 @@ public class Inventory implements Serializable {
      * Take quantity of inventory
      * @param number Number of quantity taken
      */
-    public void take(int number){
+    public void remove(int number){
         quantity -= number;
     }
 

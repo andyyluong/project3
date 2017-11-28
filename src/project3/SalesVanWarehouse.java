@@ -42,7 +42,8 @@ public class SalesVanWarehouse extends Warehouse {
      * @param part Part added to inventory
      */
     public void addInventory(String part) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String qualities[] = part.split(",");
+        inventoryWarehouse.add(new Inventory(new BikePart(qualities[0], Integer.parseInt(qualities[1]), Double.parseDouble(qualities[2]), Double.parseDouble(qualities[3])), Boolean.parseBoolean(qualities[4]), Integer.parseInt(qualities[5])));
     }
 
     /**
@@ -50,8 +51,17 @@ public class SalesVanWarehouse extends Warehouse {
      * @param partNumber Part number of inventory
      * @param amount Amount of inventory
      */
-    public void sell(int partNumber, int amount) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void sell(String partName, int amount) {
+        Inventory inventory = null;
+        for(Inventory i: inventoryWarehouse){
+            if(i.getName().equals(partName)){
+                inventory = i;
+            }
+        }
+        System.out.println(inventory.getQuantity());
+        inventory.remove(amount);
+        System.out.println(inventory.getQuantity());
+        System.out.println(inventory.getName());
     }
     
 }

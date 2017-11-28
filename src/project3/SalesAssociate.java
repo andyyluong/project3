@@ -29,6 +29,8 @@ public class SalesAssociate extends LoginAccount implements Serializable {
     public SalesAssociate(Person p, String userName, String password, String warehouseName) {
         super(p, userName, password);
         this.WarehouseName = warehouseName;
+        salesvanWH = new SalesVanWarehouse(warehouseName, WarehouseType.SALES);
+        Main.warehouseInventory.add(salesvanWH);
         accountType = AccountType.SALES_ASSOCIATE;
     }
 
@@ -55,17 +57,8 @@ public class SalesAssociate extends LoginAccount implements Serializable {
      * Get warehouse
      * @return Warehouse
      */
-    public Warehouse getWarehouse() {
-        return warehouse;
-    }
- 
-    /**
-     * Get sales van warehouse
-     * @return Sales van warehouse
-     */
-    public SalesVanWarehouse getWareHouse() { 
-        
-        return salesvanWH; 
+    public SalesVanWarehouse getWarehouse() {
+        return salesvanWH;
     }
 
     /**
@@ -73,7 +66,7 @@ public class SalesAssociate extends LoginAccount implements Serializable {
      * @param warehouse Warehouse 
      */
     public void setWarehouse(Warehouse warehouse) {
-        this.warehouse = warehouse;
+        this.warehouse = salesvanWH;
     }
 
     /**

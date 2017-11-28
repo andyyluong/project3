@@ -185,10 +185,10 @@ public class Controller {
         SalesAssociate salesAssociateLoggedIn = Main.accountList.getSalesAssociate(salesAssociate);
         String partName = partNameAssociateText.getText();
         String soldQuantity = quantityAssociateText.getText();
+        salesAssociateLoggedIn.getWarehouse().sell(partName, Integer.parseInt(soldQuantity));
         myTextAreaAssociateText.appendText("This part has been sold from the warehouse successfully: " + "\n");
-        myTextAreaAssociateText.appendText(Main.mainWH.getInventory(partName).toString() + "\n");
-        Main.mainWH.setQuantity(Main.mainWH.getQuantity()-1);
-        myTextAreaAssociateText.appendText(Main.mainWH.getInventory(soldQuantity).toString());
+        myTextAreaAssociateText.appendText(salesAssociateLoggedIn.getWarehouse().getInventory(partName).toString() + "\n");
+        //myTextAreaAssociateText.appendText(salesAssociateLoggedIn.getWarehouse().getInventory(soldQuantity).toString() + "\n");
 
     }
 

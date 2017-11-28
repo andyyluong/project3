@@ -98,7 +98,7 @@ public class Main extends Application {
         Scanner scanner = new Scanner (file);
         Scanner scanner2 = new Scanner (file3);
         while (scanner.hasNext()) {
-            mainWH.addInventory(scanner.next());
+            accountList.getSalesAssociate("sales").getWarehouse().addInventory(scanner.next());
         }
         while (scanner2.hasNext()) {
             mainWH.addInventory(scanner2.next());
