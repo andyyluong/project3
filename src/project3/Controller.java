@@ -182,6 +182,7 @@ public class Controller {
      */
     @FXML
     void doSellPartsButton(ActionEvent event) {
+        SalesAssociate salesAssociateLoggedIn = Main.accountList.getSalesAssociate(salesAssociate);
         String partName = partNameAssociateText.getText();
         String soldQuantity = quantityAssociateText.getText();
         myTextAreaAssociateText.appendText("This part has been sold from the warehouse successfully: " + "\n");
@@ -235,6 +236,7 @@ public class Controller {
      * Login screen for four employee types: system administrator, office manager, warehouse manager, and sales associate
      * @param event 
      */
+    String salesAssociate = "";
     @FXML
     void doLoginButton(ActionEvent event) {
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
@@ -274,6 +276,7 @@ public class Controller {
                         officeManagerTab.setDisable(true);
                         salesAssociateTab.setDisable(false);
                         selectionModel.select(salesAssociateTab);
+                        salesAssociate = user;
                         break;
                     default:
                         break;
