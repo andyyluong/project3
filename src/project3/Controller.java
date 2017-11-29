@@ -432,7 +432,7 @@ public class Controller {
 
     @FXML
     void doUpdateWarehouseInventoryButton(ActionEvent event) {
-
+        myTextAreaWarehouseText.appendText(Main.mainWH.toString());
     }
 
     /**
