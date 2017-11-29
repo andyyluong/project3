@@ -98,4 +98,13 @@ public abstract class Warehouse implements Serializable
         }
         return inventory;
     }
+    
+    @Override
+    public String toString(){
+        String string = "";
+        for(Inventory i: inventoryWarehouse){
+            string += i.toString() + "\n";
+        }
+        return string;
+    }
 }
