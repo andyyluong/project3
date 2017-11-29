@@ -1,9 +1,7 @@
 package project3;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
-import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -70,6 +68,19 @@ public abstract class Warehouse implements Serializable
 
     }
 
+    public String update(String filename, ArrayList<Inventory> inventoryWarehouse) {
+            try {
+                PrintWriter writer = new PrintWriter(filename, "UTF-8");
+                for (Inventory inv : inventoryWarehouse)
+                    writer.println(inv);
+                writer.close();
+            }   catch (IOException e) {
+                System.out.println("file error!");
+                e.printStackTrace();
+            }
+            return filename;
+        }
+
     //public Inventory findInventoryByName(String name);
 
     //public Inventory findInventoryByNumber(int number);
@@ -97,14 +108,5 @@ public abstract class Warehouse implements Serializable
             }
         }
         return inventory;
-    }
-    
-    @Override
-    public String toString(){
-        String string = "";
-        for(Inventory i: inventoryWarehouse){
-            string += i.toString() + "\n";
-        }
-        return string;
     }
 }

@@ -29,6 +29,8 @@ public class Controller {
 
     public static ArrayList<BikePart> bikePartArrayList = new ArrayList<>();
 
+    public ArrayList<Inventory> inventoryWarehouse = new ArrayList<>();
+
     @FXML
     private Button updateWarehouseInventoryButton;
 
@@ -178,7 +180,7 @@ public class Controller {
 
     /**
      * Sell bike part and quantity for Sales Associate tab
-     * @param event 
+     * @param event
      */
     @FXML
     void doSellPartsButton(ActionEvent event) {
@@ -195,7 +197,7 @@ public class Controller {
 
     /**
      * Examine part information by part name and number for Office Manager tab
-     * @param event 
+     * @param event
      */
     @FXML
     void doExamineParts(ActionEvent event) {
@@ -221,7 +223,7 @@ public class Controller {
 
     /**
      * Read warehouse delivery file for Warehouse Manager tab
-     * @param event 
+     * @param event
      */
     @FXML
     void doReadWarehouseDelivery(ActionEvent event) {
@@ -229,12 +231,11 @@ public class Controller {
         String s = Main.mainWH.read(fn);
         myTextAreaWarehouseText.appendText(s);
 
-
     }
 
     /**
      * Login screen for four employee types: system administrator, office manager, warehouse manager, and sales associate
-     * @param event 
+     * @param event
      */
     String salesAssociate = "";
     @FXML
@@ -316,7 +317,7 @@ public class Controller {
 
     /**
      * Delete employee account for System Administrator tab
-     * @param event 
+     * @param event
      */
     @FXML
     void doDeleteAccount(ActionEvent event) {
@@ -332,7 +333,7 @@ public class Controller {
 
     /**
      * Log out button for System Administrator tab
-     * @param event 
+     * @param event
      */
     @FXML
     void doLogoutButton1(ActionEvent event) {
@@ -348,7 +349,7 @@ public class Controller {
 
     /**
      * Generate a sales invoice for Sales Associate tab
-     * @param event 
+     * @param event
      */
     @FXML
     void doGenerateSalesInvoice(ActionEvent event) {
@@ -372,7 +373,7 @@ public class Controller {
 
     /**
      * Log out button for Office Manager tab
-     * @param event 
+     * @param event
      */
     @FXML
     void doLogoutButton2(ActionEvent event) {
@@ -416,7 +417,7 @@ public class Controller {
 
     /**
      * Log out button for Warehouse Manager tab
-     * @param event 
+     * @param event
      */
     @FXML
     void doLogoutButton3(ActionEvent event) {
@@ -432,12 +433,17 @@ public class Controller {
 
     @FXML
     void doUpdateWarehouseInventoryButton(ActionEvent event) {
-        myTextAreaWarehouseText.appendText(Main.mainWH.toString());
-    }
+        String updateWH = warehouseDeliveryFileText.getText();
+        System.out.println(updateWH);
+        String u = Main.mainWH.update(updateWH, inventoryWarehouse);
+        System.out.println(u);
+        myTextAreaWarehouseText.appendText(u);
+        //myTextAreaWarehouseText.appendText(Main.mainWH.toString());
+        }
 
     /**
      * Log out button for Sales Associate tab
-     * @param event 
+     * @param event
      */
     @FXML
     void doLogoutButton4(ActionEvent event) {
@@ -458,7 +464,7 @@ public class Controller {
 
     /**
      * Create Sales Associate account
-     * @param event 
+     * @param event
      */
     @FXML
     void createSalesAssociateAction(ActionEvent event) {
@@ -468,17 +474,17 @@ public class Controller {
 
     /**
      * Create Warehouse Manager account
-     * @param event 
+     * @param event
      */
     @FXML
     void createWarehouseManagerAction(ActionEvent event) {
         accountType = "Warehouse Manager";
         selectEmployeeButton.setText(accountType);
     }
-    
+
     /**
      * Create Office Manager account
-     * @param event 
+     * @param event
      */
     @FXML
     void createOfficeManagerAction(ActionEvent event) {
