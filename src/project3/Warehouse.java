@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Collections;
 
 /**
  * Warehouse class contains information about a warehouse
@@ -53,6 +54,7 @@ public abstract class Warehouse implements Serializable
                 System.out.println(Arrays.toString(bpWH));
                 Inventory inv = new Inventory(new BikePart(bpWH[0], Integer.parseInt(bpWH[1]), Double.parseDouble(bpWH[2]), Double.parseDouble(bpWH[3])), Boolean.parseBoolean(bpWH[4]), Integer.parseInt(bpWH[5]));
                 invList.add(inv);
+                Collections.sort(invList, new InventoryComparatorByName());
                 retString += inv.toString() + "\n";
 
             }
