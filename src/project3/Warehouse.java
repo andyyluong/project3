@@ -54,11 +54,13 @@ public abstract class Warehouse implements Serializable
                 System.out.println(Arrays.toString(bpWH));
                 Inventory inv = new Inventory(new BikePart(bpWH[0], Integer.parseInt(bpWH[1]), Double.parseDouble(bpWH[2]), Double.parseDouble(bpWH[3])), Boolean.parseBoolean(bpWH[4]), Integer.parseInt(bpWH[5]));
                 invList.add(inv);
-                Collections.sort(invList, new InventoryComparatorByName());
-                retString += inv.toString() + "\n";
+                //retString += inv.toString() + "\n";
 
             }
-
+            Collections.sort(invList, new InventoryComparatorByName());
+            for(Inventory i: invList){
+                retString += i.toString() + "\n";
+            }
             return retString;
         }
 
