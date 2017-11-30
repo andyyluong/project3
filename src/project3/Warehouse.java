@@ -95,7 +95,7 @@ public abstract class Warehouse implements Serializable
     {
         String sort = "";
         Collections.sort(inventoryWarehouse, new InventoryComparatorByName());
-        for(Inventory i: inventoryWarehosue)
+        for(Inventory i: inventoryWarehouse)
         {
             sort += i.toString() + "\n";
         }
