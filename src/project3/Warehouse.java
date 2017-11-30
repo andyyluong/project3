@@ -89,9 +89,27 @@ public abstract class Warehouse implements Serializable
 
     //public void sell(int partNumber, int amount);
 
-    //public String sortName();
-
-    //public String sortNumber();
+    public String sortName()
+    {
+        String sort = "";
+        Collections.sort(inventoryWarehouse, new InventoryComparatorByName());
+        for(Inventory i: inventoryWarehosue)
+        {
+            sort += i.toString() + "\n";
+        }
+        return sort;
+    }
+    
+    public String sortNumber()
+    {
+        String sort = "";
+        Collections.sort(inventoryWarehouse, new InventoryComparatorByNumber());
+        for(Inventory i: inventoryWarehouse)
+        {
+            sort += i.toString() + "\n";
+        }
+        return sort;
+    }
 
     public String getName() {
         return name;
