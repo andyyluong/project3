@@ -68,6 +68,9 @@ public class Controller {
     private Button sellPartsButton;
 
     @FXML
+    private Button addSalesVan;
+
+    @FXML
     private Button LogoutButton4;
 
     @FXML
@@ -191,6 +194,11 @@ public class Controller {
         myTextAreaAssociateText.appendText("This part has been sold from the warehouse successfully: " + "\n");
         myTextAreaAssociateText.appendText(salesAssociateLoggedIn.getWarehouse().getInventory(partName).toString() + "\n");
         //myTextAreaAssociateText.appendText(salesAssociateLoggedIn.getWarehouse().getInventory(soldQuantity).toString() + "\n");
+
+    }
+
+    @FXML
+    void doAddSalesVan(ActionEvent event) {
 
     }
 
