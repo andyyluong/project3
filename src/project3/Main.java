@@ -25,7 +25,6 @@ import javafx.stage.Stage;
 public class Main extends Application {
     public static WarehouseInventory warehouseInventory = new WarehouseInventory();
     public static AccountList accountList = AccountList.getObject();
-    //public static MainWarehouse mainWH = new MainWarehouse("mainWH", WarehouseType.MAIN);
     public static MainWarehouse mainWH = new MainWarehouse("mainWH", WarehouseType.MAIN);
 
     @Override
@@ -47,7 +46,7 @@ public class Main extends Application {
         FileOutputStream accountListFileOut = new FileOutputStream("accountList.ser");
         ObjectOutputStream warehouseInventoryOut = new ObjectOutputStream(warehouseInventoryFileOut);
         ObjectOutputStream accountListOut = new ObjectOutputStream(accountListFileOut);
-        //warehouseInventoryOut.writeObject(warehouseInventory);
+        warehouseInventoryOut.writeObject(warehouseInventory);
         warehouseInventoryOut.close();
         warehouseInventoryFileOut.close();
         accountListOut.writeObject(accountList);
@@ -65,43 +64,42 @@ public class Main extends Application {
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
         File file1 = new File("warehouseInventory.ser");
         File file2 = new File("accountList.ser");
-        if(file1.exists())
-        {
+        if(file1.exists()) {
             FileInputStream warehouseInventoryFile = new FileInputStream("warehouseInventory.ser");
             ObjectInputStream warehouseInventoryIn = new ObjectInputStream(warehouseInventoryFile);
-            //warehouseInventory = (WarehouseInventory) warehouseInventoryIn.readObject();
+            warehouseInventory = (WarehouseInventory) warehouseInventoryIn.readObject();
             warehouseInventoryIn.close();
             warehouseInventoryFile.close();
         }
-        if(file2.exists())
-        {
+        if(file2.exists()) {
             FileInputStream accountListFile = new FileInputStream("accountList.ser");
             ObjectInputStream accountListIn  = new ObjectInputStream(accountListFile);
-            //accountList = (AccountList) accountListIn.readObject();
+            accountList = (AccountList) accountListIn.readObject();
             accountListIn.close();
             accountListFile.close();
         }
-
-        //System administrator
-        accountList.add(new SystemAdministrator(new Person("Andy", "Luong", "Andy@bikepart.com"), "aluong", "admin"));
-        //Office manager
-        accountList.add(new OfficeManager(new Person("Anthony", "Phimmasone", "Anthony@bikepart.com"), "aphimmas", "manager"));
-        //Warehouse manager
-        accountList.add(new WarehouseManager(new Person("Brian", "Justice", "Brian@bikepart.com"), "bjustice", "manager"));
-        //Sales associate #1
-        accountList.add(new SalesAssociate(new Person("Alex", "Lundin", "Alex@bikepart.com"), "alundin", "associate", "salesassociate"));
-        //Sales associate #2
-        accountList.add(new SalesAssociate(new Person("Gusty", "Cooper", "Gusty@bikepart.com"), "gcooper", "ssociate", "gustysalesassociate"));
-
-        File file = new File("initialInventory.txt");
-        File file3 = new File("updateInventory.txt");
-        Scanner scanner = new Scanner (file);
-        Scanner scanner2 = new Scanner (file3);
-        while (scanner.hasNext()) {
-            accountList.getSalesAssociate("sales").getWarehouse().addInventory(scanner.next());
-        }
-        while (scanner2.hasNext()) {
-            mainWH.addInventory(scanner2.next());
+        if(!(file1.exists()&&file2.exists())) {
+            //System administrator
+            accountList.add(new SystemAdministrator(new Person("Andy", "Luong", "Andy@bikepart.com"), "aluong", "admin"));
+            //Office manager
+            accountList.add(new OfficeManager(new Person("Anthony", "Phimmasone", "Anthony@bikepart.com"), "aphimmas", "manager"));
+            //Warehouse manager
+            accountList.add(new WarehouseManager(new Person("Alex", "Lundin", "Alex@bikepart.com"), "alundin", "manager"));
+            //Sales associate #1
+            accountList.add(new SalesAssociate(new Person("Brian", "Justice", "Brian@bikepart.com"), "bjustice", "associate", "salesAssociate"));
+            //Sales associate #2
+            accountList.add(new SalesAssociate(new Person("Gusty", "Cooper", "Gusty@bikepart.com"), "gcooper", "ssociate", "gustysalesassociate"));
+        
+            File file = new File("initialInventory.txt");
+            File file3 = new File("updateInventory.txt");
+            Scanner scanner = new Scanner (file);
+            Scanner scanner2 = new Scanner (file3);
+            while (scanner.hasNext()) {
+                accountList.getSalesAssociate("bjustice").getWarehouse().addInventory(scanner.next());
+            }
+            while (scanner2.hasNext()) {
+                mainWH.addInventory(scanner2.next());
+            }
         }
         launch(args);
     }
