@@ -198,8 +198,13 @@ public class Controller {
     }
     
     @FXML
-    void doAddSalesVan(ActionEvent event) {
- 
+    void doAddSalesVan(ActionEvent event) throws FileNotFoundException {
+        String filename = salesVanFileNameText.getText();
+        File file = new File(filename);
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNext()) {
+            Main.accountList.getSalesAssociate(salesAssociate).getWarehouse().addInventory(scanner.next());
+        }
     }
 
 
