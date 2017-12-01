@@ -48,7 +48,7 @@ public class SalesVanWarehouse extends Warehouse {
 
     /**
      * Sell inventory
-     * @param partNumber Part number of inventory
+     * @param partName Part name of inventory
      * @param amount Amount of inventory
      */
     public void sell(String partName, int amount) {
