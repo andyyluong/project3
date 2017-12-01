@@ -83,15 +83,15 @@ public class Main extends Application {
         }
 
         //System administrator
-        accountList.add(new SystemAdministrator(new Person("Andy", "Luong", "Andy@bikepart.com"), "system", "admin"));
+        accountList.add(new SystemAdministrator(new Person("Andy", "Luong", "Andy@bikepart.com"), "aluong", "admin"));
         //Office manager
-        accountList.add(new OfficeManager(new Person("Anthony", "Phimmasone", "Anthony@bikepart.com"), "office", "manager"));
+        accountList.add(new OfficeManager(new Person("Anthony", "Phimmasone", "Anthony@bikepart.com"), "aphimmas", "manager"));
         //Warehouse manager
-        accountList.add(new WarehouseManager(new Person("Brian", "Justice", "Brian@bikepart.com"), "warehouse", "manager"));
+        accountList.add(new WarehouseManager(new Person("Brian", "Justice", "Brian@bikepart.com"), "bjustice", "manager"));
         //Sales associate #1
-        accountList.add(new SalesAssociate(new Person("Alex", "Lundin", "Alex@bikepart.com"), "sales", "associate", "salesassociate"));
+        accountList.add(new SalesAssociate(new Person("Alex", "Lundin", "Alex@bikepart.com"), "alundin", "associate", "salesassociate"));
         //Sales associate #2
-        accountList.add(new SalesAssociate(new Person("Gusty", "Cooper", "Gusty@bikepart.com"), "gustysales", "gustyassociate", "gustysalesassociate"));
+        accountList.add(new SalesAssociate(new Person("Gusty", "Cooper", "Gusty@bikepart.com"), "gcooper", "ssociate", "gustysalesassociate"));
 
         File file = new File("initialInventory.txt");
         File file3 = new File("updateInventory.txt");
