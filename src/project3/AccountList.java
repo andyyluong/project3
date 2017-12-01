@@ -81,7 +81,15 @@ public class AccountList implements Serializable{
         }
         return salesAssociate;
     }
-    
+    public LoginAccount getOtherAccountByName(String username){
+        if(systemAdministrator.getUserName().equals(username)){
+            return systemAdministrator;
+        }
+        if(officeManager.getUserName().equals(username)){
+            return officeManager;
+        }
+        return warehouseManager;
+    }
     public static AccountList getObject(){
         return accountList;
     }

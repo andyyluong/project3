@@ -68,9 +68,6 @@ public class Controller {
     private Button sellPartsButton;
 
     @FXML
-    private Button addSalesVan;
-
-    @FXML
     private Button LogoutButton4;
 
     @FXML
@@ -194,11 +191,6 @@ public class Controller {
         myTextAreaAssociateText.appendText("This part has been sold from the warehouse successfully: " + "\n");
         myTextAreaAssociateText.appendText(salesAssociateLoggedIn.getWarehouse().getInventory(partName).toString() + "\n");
         //myTextAreaAssociateText.appendText(salesAssociateLoggedIn.getWarehouse().getInventory(soldQuantity).toString() + "\n");
-
-    }
-
-    @FXML
-    void doAddSalesVan(ActionEvent event) {
 
     }
 
@@ -336,7 +328,22 @@ public class Controller {
 
     @FXML
     void doResetPassword(ActionEvent event) {
-
+        String username = usernameAdminText.getText();
+        String password = passwordAdminText.getText();     
+        LoginAccount loginAccount = null;
+        for(LoginAccount la: Main.accountList.getAccounts()){
+            if(la.getUserName().equals(username)){
+                loginAccount = la;
+            }   
+        }
+        switch(loginAccount.getType()){
+                case SALES_ASSOCIATE:
+                    Main.accountList.getSalesAssociate(username).setPassword(password);
+                    break;
+                    
+                default:
+                    Main.accountList.getOtherAccountByName(username).setPassword(password);
+            }
     }
 
     /**
