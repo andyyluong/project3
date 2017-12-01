@@ -1,3 +1,4 @@
+
 package project3;
 
 import javafx.event.ActionEvent;
@@ -312,7 +313,7 @@ public class Controller {
                 Main.accountList.add(new SalesAssociate(new Person(firstName, lastName, email), username, password, warehousename));
                 break;
         }
-        myTextAreaAdminText.appendText(accountType + "account " + username + " has been created. \n");
+        myTextAreaAdminText.appendText(accountType + " account " + username + " has been created. \n");
     }
 
     /**
@@ -326,6 +327,10 @@ public class Controller {
         myTextAreaAdminText.appendText("Deleted " + username + " from the system. \n");
     }
 
+    /**
+     * Reset employee account password for System Administrator tab
+     * @param event 
+     */
     @FXML
     void doResetPassword(ActionEvent event) {
         String username = usernameAdminText.getText();
@@ -338,11 +343,14 @@ public class Controller {
         }
         switch(loginAccount.getType()){
                 case SALES_ASSOCIATE:
+                    myTextAreaAdminText.appendText(username + "'s password has been resetted. \n");
                     Main.accountList.getSalesAssociate(username).setPassword(password);
                     break;
                     
                 default:
+                    myTextAreaAdminText.appendText(username + "'s password has been resetted. \n");
                     Main.accountList.getOtherAccountByName(username).setPassword(password);
+
             }
     }
 
