@@ -1,4 +1,3 @@
-
 package project3;
 
 import javafx.event.ActionEvent;
@@ -67,6 +66,9 @@ public class Controller {
 
     @FXML
     private Button sellPartsButton;
+    
+    @FXML
+    private Button addSalesVan;
 
     @FXML
     private Button LogoutButton4;
@@ -193,6 +195,11 @@ public class Controller {
         myTextAreaAssociateText.appendText(salesAssociateLoggedIn.getWarehouse().getInventory(partName).toString() + "\n");
         //myTextAreaAssociateText.appendText(salesAssociateLoggedIn.getWarehouse().getInventory(soldQuantity).toString() + "\n");
 
+    }
+    
+    @FXML
+    void doAddSalesVan(ActionEvent event) {
+ 
     }
 
 
