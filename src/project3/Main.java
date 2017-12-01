@@ -24,7 +24,7 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
     public static WarehouseInventory warehouseInventory = new WarehouseInventory();
-    public static AccountList accountList = new AccountList();
+    public static AccountList accountList = AccountList.getObject();
     //public static MainWarehouse mainWH = new MainWarehouse("mainWH", WarehouseType.MAIN);
     public static MainWarehouse mainWH = new MainWarehouse("mainWH", WarehouseType.MAIN);
 

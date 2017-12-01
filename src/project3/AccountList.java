@@ -16,10 +16,11 @@ public class AccountList implements Serializable{
     private OfficeManager officeManager;
     private SystemAdministrator systemAdministrator;
     private WarehouseManager warehouseManager;
+    private static AccountList accountList = new AccountList();
     /**
      * AccountList constructor
      */
-    public AccountList(){
+    private AccountList(){
         accounts = new ArrayList<>();
         salesAssociates = new ArrayList<>();
     }
@@ -79,5 +80,9 @@ public class AccountList implements Serializable{
             }
         }
         return salesAssociate;
+    }
+    
+    public static AccountList getObject(){
+        return accountList;
     }
 }
