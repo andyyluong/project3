@@ -1,35 +1,27 @@
-Main Users Information (Made Up):
+Main Users Information
 
 System Administrator:
 First Name: Andy
-Username: system
+Username: aluong
 Password: admin
-Phone Number: 1234567
-Age:
 Email: Andy@bikepart.com
 
 Warehouse Manager:
 First Name: Anthony
-Username: warehouse
+Username: aphimmas
 Password: manager
-Phone Number: 7654321
-Age:
 Email: Anthony@bikepart.com
 
 Sales Associate:
 First Name: Brian
-Username: sales
+Username: bjustice
 Password: associate
-Phone Number: 6543210
-Age:
 Email: Brian@bikepart.com
 
 Office Manager:
 First Name: Alex
-Username: office
+Username: alundin
 Password: manager
-Phone Number: 0123456
-Age:
 Email: Alex@bikepart.com
 
 Created Users:
