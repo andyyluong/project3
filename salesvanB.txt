@@ -1,0 +1,2 @@
+womensJacketMedium,1234567911,120.00,95.00,false,4
+mensJacketMedium,1234567910,120.00,95.00,false,4
