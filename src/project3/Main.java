@@ -82,9 +82,9 @@ public class Main extends Application {
             //System administrator
             accountList.add(new SystemAdministrator(new Person("Andy", "Luong", "Andy@bikepart.com"), "aluong", "admin"));
             //Office manager
-            accountList.add(new OfficeManager(new Person("Anthony", "Phimmasone", "Anthony@bikepart.com"), "aphimmas", "manager"));
+            accountList.add(new OfficeManager(new Person("Alex", "Lundin", "Alex@bikepart.com"), "alundin", "manager"));
             //Warehouse manager
-            accountList.add(new WarehouseManager(new Person("Alex", "Lundin", "Alex@bikepart.com"), "alundin", "manager"));
+            accountList.add(new WarehouseManager(new Person("Anthony", "Phimmasone", "Anthony@bikepart.com"), "aphimmas", "manager"));
             //Sales associate #1
             accountList.add(new SalesAssociate(new Person("Brian", "Justice", "Brian@bikepart.com"), "bjustice", "associate", "salesAssociate"));
             //Sales associate #2
