@@ -44,14 +44,19 @@ public class Main extends Application {
     public void stop() throws FileNotFoundException, IOException{
         FileOutputStream warehouseInventoryFileOut = new FileOutputStream("warehouseInventory.ser");
         FileOutputStream accountListFileOut = new FileOutputStream("accountList.ser");
+        FileOutputStream mainWarehouseFileOut = new FileOutputStream("mainWarehouse.ser");
         ObjectOutputStream warehouseInventoryOut = new ObjectOutputStream(warehouseInventoryFileOut);
         ObjectOutputStream accountListOut = new ObjectOutputStream(accountListFileOut);
+        ObjectOutputStream mainWarehouseOut = new ObjectOutputStream(mainWarehouseFileOut);
         warehouseInventoryOut.writeObject(warehouseInventory);
         warehouseInventoryOut.close();
         warehouseInventoryFileOut.close();
         accountListOut.writeObject(accountList);
         accountListOut.close();
         accountListFileOut.close();
+        mainWarehouseOut.writeObject(mainWH);
+        mainWarehouseOut.close();
+        mainWarehouseFileOut.close();
     }
 
     /**
@@ -64,10 +69,11 @@ public class Main extends Application {
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
         File file1 = new File("warehouseInventory.ser");
         File file2 = new File("accountList.ser");
+        File file4 = new File("mainWarehouse.ser");
         if(file1.exists()) {
             FileInputStream warehouseInventoryFile = new FileInputStream("warehouseInventory.ser");
             ObjectInputStream warehouseInventoryIn = new ObjectInputStream(warehouseInventoryFile);
-            //warehouseInventory = (WarehouseInventory) warehouseInventoryIn.readObject();
+            warehouseInventory = (WarehouseInventory) warehouseInventoryIn.readObject();
             warehouseInventoryIn.close();
             warehouseInventoryFile.close();
         }
@@ -78,7 +84,14 @@ public class Main extends Application {
             accountListIn.close();
             accountListFile.close();
         }
-        if(!(file1.exists()&&file2.exists())) {
+        if(file4.exists()){
+            FileInputStream mainWarehouseFile = new FileInputStream("mainWarehouse.ser");
+            ObjectInputStream mainWarehouseIn = new ObjectInputStream(mainWarehouseFile);
+            mainWH = (MainWarehouse) mainWarehouseIn.readObject();
+            mainWarehouseIn.close();
+            mainWarehouseFile.close();
+        }
+        if(!(file1.exists()&&file2.exists()&&file4.exists())) {
             //System administrator
             accountList.add(new SystemAdministrator(new Person("Andy", "Luong", "Andy@bikepart.com"), "aluong", "admin"));
             //Office manager
@@ -91,7 +104,7 @@ public class Main extends Application {
             accountList.add(new SalesAssociate(new Person("Gusty", "Cooper", "Gusty@bikepart.com"), "gcooper", "associate", "gustysalesassociate"));
             //Sales associate #3
             accountList.add(new SalesAssociate(new Person("Bob", "Smith", "Bob@bikepart.com"), "bsmith", "associate", "bobsalesassociate"));
-            
+
             File file = new File("salesvanMain.txt"); //Main sales associate
             File file3 = new File("mainInventory.txt"); //Main warehouse
             Scanner scanner = new Scanner (file);
