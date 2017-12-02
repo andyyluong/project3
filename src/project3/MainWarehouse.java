@@ -1,5 +1,7 @@
 package project3;
 
+import java.io.Serializable;
+
 /**
  * MainWarehouse defines a main warehouse
  * @author brianJustice
@@ -7,7 +9,7 @@ package project3;
  * @author anthonyPhimmasone
  * @author alexLundin
  */
-public class MainWarehouse extends Warehouse {
+public class MainWarehouse extends Warehouse implements Serializable{
     
     /**
      * Main Warehouse constructor
