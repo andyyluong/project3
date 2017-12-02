@@ -67,7 +67,7 @@ public class Main extends Application {
         if(file1.exists()) {
             FileInputStream warehouseInventoryFile = new FileInputStream("warehouseInventory.ser");
             ObjectInputStream warehouseInventoryIn = new ObjectInputStream(warehouseInventoryFile);
-            warehouseInventory = (WarehouseInventory) warehouseInventoryIn.readObject();
+            //warehouseInventory = (WarehouseInventory) warehouseInventoryIn.readObject();
             warehouseInventoryIn.close();
             warehouseInventoryFile.close();
         }
@@ -88,10 +88,12 @@ public class Main extends Application {
             //Sales associate #1
             accountList.add(new SalesAssociate(new Person("Brian", "Justice", "Brian@bikepart.com"), "bjustice", "associate", "salesAssociate"));
             //Sales associate #2
-            accountList.add(new SalesAssociate(new Person("Gusty", "Cooper", "Gusty@bikepart.com"), "gcooper", "ssociate", "gustysalesassociate"));
-        
-            File file = new File("initialInventory.txt");
-            File file3 = new File("updateInventory.txt");
+            accountList.add(new SalesAssociate(new Person("Gusty", "Cooper", "Gusty@bikepart.com"), "gcooper", "associate", "gustysalesassociate"));
+            //Sales associate #3
+            accountList.add(new SalesAssociate(new Person("Bob", "Smith", "Bob@bikepart.com"), "bsmith", "associate", "bobsalesassociate"));
+            
+            File file = new File("salesvanMain.txt"); //Main sales associate
+            File file3 = new File("mainInventory.txt"); //Main warehouse
             Scanner scanner = new Scanner (file);
             Scanner scanner2 = new Scanner (file3);
             while (scanner.hasNext()) {
