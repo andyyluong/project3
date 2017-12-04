@@ -1,6 +1,7 @@
 package project3;
 
 import java.io.Serializable;
+import person.Person;
 
 /**
  * LoginAccount class contains the information of a login account
@@ -81,5 +82,6 @@ public abstract class LoginAccount implements Serializable {
      * @return Employee account type
      */
     public abstract AccountType getType();
+
     
 }
