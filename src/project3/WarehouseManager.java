@@ -6,10 +6,15 @@ import person.Person;
 
 /**
  * WarehouseManager class contains actions for a warehouse manager employee
- * @author andyluong
+ * @author andyLuong
+ * @author anthonyPhimmasone
+ * @author brianJustice
  */
 public class WarehouseManager extends LoginAccount implements Serializable {
 
+    /**
+     * Data member
+     */
     private String warehouseName;
     private Warehouse warehouse;
     private AccountType accountType;

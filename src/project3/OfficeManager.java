@@ -3,11 +3,16 @@ package project3;
 import person.Person;
 
 /**
- * Office Manager class contains actions for office manager employee
- * @author andyluong
+ * Office Manager class defines the actions for a office manager employee
+ * @author andyLuong
+ * @author anthonyPhimmasone
+ * @author brianJustice
  */
 public class OfficeManager extends LoginAccount {
 
+    /**
+     * Data member
+     */
     private AccountType accountType;
     
     /**

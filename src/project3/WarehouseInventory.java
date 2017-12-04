@@ -1,15 +1,14 @@
 package project3;
 
-/**
- * WarehouseInventory class defines a warehouse inventory
- * @author andyluong
- * @author anthonyPhimmasone
- * @author brianJustice
- * @author alexLundin
- */
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * WarehouseInventory class defines a warehouse inventory
+ * @author andyLuong
+ * @author anthonyPhimmasone
+ * @author brianJustice
+ */
 public class WarehouseInventory implements Serializable {
   private ArrayList<Warehouse> warehouseInventory;
   

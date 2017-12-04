@@ -14,13 +14,19 @@ import javafx.scene.layout.AnchorPane;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 import person.Person;
 
+/**
+ * Controller class contains the actions for the GUI
+ * @author andyLuong
+ * @author anthonyPhimmasone
+ * @author brianJustice
+ */
 public class Controller {
+    
 
     public ArrayList<BikePart> BikePartArray = new ArrayList<>();
 
@@ -31,7 +37,11 @@ public class Controller {
     public static ArrayList<BikePart> bikePartArrayList = new ArrayList<>();
 
     public ArrayList<Inventory> inventoryWarehouse = new ArrayList<>();
+    
 
+    /**
+     * Data members
+     */
     @FXML
     private Button updateWarehouseInventoryButton;
 
@@ -196,7 +206,12 @@ public class Controller {
         myTextAreaAssociateText.appendText(salesAssociateLoggedIn.getWarehouse().getInventory(partName).toString() + "\n");
 
     }
-    
+   
+    /**
+     * Add sale van delivery file for Sales Associate tab
+     * @param event
+     * @throws FileNotFoundException 
+     */
     @FXML
     void doAddSalesVan(ActionEvent event) throws FileNotFoundException {
         String filename = salesVanFileNameText.getText();
@@ -228,7 +243,10 @@ public class Controller {
     }
 
 
-
+    /**
+     * Refill part stock for Office Manager tab
+     * @param event 
+     */
     @FXML
     void doRefillPartStock(ActionEvent event) {
 
@@ -247,7 +265,7 @@ public class Controller {
     }
 
     /**
-     * Login screen for four employee types: system administrator, office manager, warehouse manager, and sales associate
+     * Login screen for four employee types: system administrator, office manager, warehouse manager, and sales associate in System Administrator tab
      * @param event
      */
     String salesAssociate = "";
@@ -266,7 +284,7 @@ public class Controller {
                         officeManagerTab.setDisable(true);
                         salesAssociateTab.setDisable(true);
                         selectionModel.select(systemAdminTab);
-                        break;
+                    break;
                     case OFFICE_MANAGER:
                         systemAdminTab.setDisable(true);
                         loginscreenTab.setDisable(true);
@@ -274,7 +292,7 @@ public class Controller {
                         officeManagerTab.setDisable(false);
                         salesAssociateTab.setDisable(true);
                         selectionModel.select(officeManagerTab);
-                        break;
+                    break;
                     case WAREHOUSE_MANAGER:
                         systemAdminTab.setDisable(true);
                         loginscreenTab.setDisable(true);
@@ -282,7 +300,7 @@ public class Controller {
                         officeManagerTab.setDisable(true);
                         salesAssociateTab.setDisable(true);
                         selectionModel.select(warehouseManagerTab);
-                        break;
+                    break;
                     case SALES_ASSOCIATE:
                         systemAdminTab.setDisable(true);
                         loginscreenTab.setDisable(true);
@@ -291,9 +309,10 @@ public class Controller {
                         salesAssociateTab.setDisable(false);
                         selectionModel.select(salesAssociateTab);
                         salesAssociate = user;
-                        break;
+                    break;
                     default:
-                        break;
+                        
+                    break;
                 }
             }
         }
@@ -422,7 +441,10 @@ public class Controller {
 
 
     }
-
+    /**
+     * Generate sales paycheck for sales associate in Office Manager tab
+     * @param event 
+     */
     @FXML
     void doGenerateSalesPaycheck(ActionEvent event) {
         Date start, end;
@@ -466,6 +488,10 @@ public class Controller {
 
     }
 
+    /**
+     * Update warehouse inventory for Warehouse Manager tab
+     * @param event 
+     */
     @FXML
     void doUpdateWarehouseInventoryButton(ActionEvent event) {
         String updateWH = warehouseDeliveryFileText.getText();
@@ -473,7 +499,6 @@ public class Controller {
         String u = Main.mainWH.update(updateWH, inventoryWarehouse);
         System.out.println(u);
         myTextAreaWarehouseText.appendText(u);
-        //myTextAreaWarehouseText.appendText(Main.mainWH.toString());
         }
 
     /**

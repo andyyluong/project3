@@ -5,7 +5,9 @@ import person.Person;
 
 /**
  * LoginAccount class contains the information of a login account
- * @author andyluong
+ * @author andyLuong
+ * @author anthonyPhimmasone
+ * @author brianJustice
  */
 public abstract class LoginAccount implements Serializable {
     

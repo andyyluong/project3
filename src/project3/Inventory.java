@@ -4,10 +4,9 @@ import java.io.Serializable;
 
 /**
  * Inventory class defines an inventory
- * @author andyluong
+ * @author andyLuong
  * @author anthonyPhimmasone
  * @author brianJustice
- * @author alexLundin
  */
 public class Inventory implements Serializable {
 

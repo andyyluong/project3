@@ -1,13 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package project3;
 
 /**
  * A sale item in an invoice
- * @author andyluong
+ * @author andyLuong
+ * @author anthonyPhimmasone
+ * @author brianJustice
  */
 public interface SalesItem {
     /**
@@ -24,7 +21,7 @@ public interface SalesItem {
     
     /**
      * Gets the description of this sale item
-     * @return the description
+     * @return The description
      */
     @Override
     String toString();

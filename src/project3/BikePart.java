@@ -3,20 +3,19 @@ package project3;
 import java.io.Serializable;
 
 /**
- * This is a BikePart class that stores information about bicycle part
- * @author andyluong
+ * BikePart class that stores information about bicycle part
+ * @author andyLuong
  * @author anthonyPhimmasone
- * @author brianJustice
- * @author alexLundin
+ * @author brianJustice 
  */
 public class BikePart implements Serializable {
-
+    
+    /**
+     * Data members
+     */
     private String partName;
-
     private int partNumber;
-
     private double listPrice;
-
     private double salesPrice;
 
     /**
@@ -29,11 +28,8 @@ public class BikePart implements Serializable {
     public BikePart(String partName, int partNumber, double listPrice, double salesPrice) {
 
         this.partName = partName;
-
         this.partNumber = partNumber;
-
         this.listPrice = listPrice;
-
         this.salesPrice = salesPrice;
     }
 
@@ -122,7 +118,7 @@ public class BikePart implements Serializable {
     }
 
     /**
-     * Displays bike part attributes
+     * xDisplays bike part attributes
      * @return part name, part number, list price, and sales price
      */
     @Override

@@ -3,11 +3,10 @@ package project3;
 import java.util.*;
 
 /**
- * A bundle of line items that is again a line item.
+ * A bundle of sales items that is a single sales item.
  * @author andyLuong
  * @author anthonyPhimmasone
  * @author brianJustice
- * @author alexLundin
  */
 public class Bundle implements SalesItem {
     
@@ -51,7 +50,7 @@ public class Bundle implements SalesItem {
         }
         return description;
     }
-
+    
     private ArrayList<SalesItem> items;
 
     /**

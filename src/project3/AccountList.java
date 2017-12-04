@@ -5,18 +5,22 @@ import java.util.ArrayList;
 
 /**
  * AccountList class that contains all the login accounts information
- * @author andyluong
+ * @author andyLuong
  * @author anthonyPhimmasone
  * @author brianJustice
- * @author alexLundin
  */
 public class AccountList implements Serializable{
+    
+    /**
+     * Data members
+     */
     private ArrayList<LoginAccount> accounts;
     private ArrayList<SalesAssociate> salesAssociates;
     private OfficeManager officeManager;
     private SystemAdministrator systemAdministrator;
     private WarehouseManager warehouseManager;
     private static AccountList accountList = new AccountList();
+    
     /**
      * AccountList constructor
      */
@@ -45,6 +49,10 @@ public class AccountList implements Serializable{
         accounts.add(account);
     }
 
+    /**
+     * Delete employee login account
+     * @param username Username of login account
+     */
     public void delete(String username){
         LoginAccount account = null;
         for(LoginAccount la: accounts){
@@ -67,11 +75,19 @@ public class AccountList implements Serializable{
         accounts.remove(account);
     }
     
-    //Make into an Iterator Pattern
+    /**
+     * Get login accounts
+     * @return list of login accounts
+     */
     public ArrayList<LoginAccount> getAccounts(){
         return accounts;
     }
     
+    /**
+     * Get sales associate
+     * @param name Sales associate name
+     * @return Sales associate by name
+     */
     public SalesAssociate getSalesAssociate(String name){
         SalesAssociate salesAssociate = null;
         for(SalesAssociate sa: salesAssociates){
@@ -81,6 +97,12 @@ public class AccountList implements Serializable{
         }
         return salesAssociate;
     }
+    
+    /**
+     * Get other employee accounts by name
+     * @param username Username of employee account
+     * @return Employee account that matches the name
+     */
     public LoginAccount getOtherAccountByName(String username){
         if(systemAdministrator.getUserName().equals(username)){
             return systemAdministrator;
@@ -90,6 +112,11 @@ public class AccountList implements Serializable{
         }
         return warehouseManager;
     }
+   
+    /**
+     * Get an account list object
+     * @return Instance of account list
+     */
     public static AccountList getObject(){
         return accountList;
     }

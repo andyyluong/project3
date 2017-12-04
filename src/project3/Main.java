@@ -21,7 +21,6 @@ import javafx.stage.Stage;
  * @author andyLuong
  * @author anthonyPhimmasone
  * @author brianJustice
- * @author alexLundin
  */
 public class Main extends Application {
     public static WarehouseInventory warehouseInventory = new WarehouseInventory();
@@ -93,6 +92,7 @@ public class Main extends Application {
             mainWarehouseFile.close();
         }
         if(!(file1.exists()&&file2.exists()&&file4.exists())) {
+            
             //System administrator
             accountList.add(new SystemAdministrator(new Person("Andy", "Luong", "Andy@bikepart.com"), "aluong", "admin"));
             //Office manager
@@ -108,8 +108,8 @@ public class Main extends Application {
 
             File file = new File("salesvanMain.txt"); //Main sales associate
             File file3 = new File("mainInventory.txt"); //Main warehouse
-            Scanner scanner = new Scanner (file);
-            Scanner scanner2 = new Scanner (file3);
+            Scanner scanner = new Scanner(file);
+            Scanner scanner2 = new Scanner(file3);
             while (scanner.hasNext()) {
                 accountList.getSalesAssociate("bjustice").getWarehouse().addInventory(scanner.next());
             }

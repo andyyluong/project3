@@ -5,10 +5,15 @@ import java.util.List;
 
 /**
  * Subject class contains the subject for the observer
- * @author andyluong
+ * @author andyLuong
+ * @author anthonyPhimmasone
+ * @author brianJustice
  */
 public class Subject {
 
+    /**
+     * Data members
+     */
     private List<Observer> observers = new ArrayList<Observer>();
     private String message;
 

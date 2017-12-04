@@ -7,12 +7,15 @@ import java.util.List;
 import person.Person;
 /**
  * Sales Associate class defines the actions of a sales associate employee
- * @author andyluong
+ * @author andyLuong
  * @author anthonyPhimmasone
  * @author brianJustice
- * @author alexLundin
  */
 public class SalesAssociate extends LoginAccount implements Serializable {
+    
+    /**
+     * Data members
+     */
     private String WarehouseName;
     private Warehouse warehouse;
     private AccountType accountType;
@@ -34,9 +37,6 @@ public class SalesAssociate extends LoginAccount implements Serializable {
         Main.warehouseInventory.add(salesvanWH);
         accountType = AccountType.SALES_ASSOCIATE;
     }
-
-    //-----------------------------------------------------------------------------------------------------------------
-    //Getters & Setters
 
     /**
      * Get warehouse name

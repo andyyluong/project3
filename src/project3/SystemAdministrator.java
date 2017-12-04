@@ -4,10 +4,15 @@ import person.Person;
 
 /**
  * System Administrator class contains actions for system administrator employee
- * @author andyluong
+ * @author andyLuong
+ * @author anthonyPhimmasone
+ * @author brianJustice
  */
 public class SystemAdministrator extends LoginAccount {
 
+    /**
+     * Data member
+     */
     private AccountType accountType;
     
     /**

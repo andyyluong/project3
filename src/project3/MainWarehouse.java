@@ -7,7 +7,6 @@ import java.io.Serializable;
  * @author brianJustice
  * @author andyLuong
  * @author anthonyPhimmasone
- * @author alexLundin
  */
 public class MainWarehouse extends Warehouse implements Serializable{
     
@@ -21,7 +20,7 @@ public class MainWarehouse extends Warehouse implements Serializable{
     }
 
     /**
-     * Add inventory
+     * Add inventory to main warehouse
      * @param part Part added to inventory
      */
     public void addInventory(String part) {

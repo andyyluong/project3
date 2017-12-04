@@ -1,16 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package project3;
 
 /**
- * A decorator for an item that applies a discount
- * @author andyluong
+ * DiscountedItem contains a decorator for an item that applies a discount
+ * @author andyLuong
+ * @author anthonyPhimmasone
+ * @author brianJustice
  */
 public class DiscountedItem implements SalesItem {
 
+    /**
+     * Data members
+     */
     private final double discount;
     private final SalesItem item;
     

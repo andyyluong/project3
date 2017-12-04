@@ -11,10 +11,12 @@ import java.util.Collections;
  * @author brianJustice
  * @author andyLuong
  * @author anthonyPhimmasone
- * @author alexLundin
  */
-public abstract class Warehouse implements Serializable
-{
+public abstract class Warehouse implements Serializable {
+    
+    /**
+     * Data members
+     */
     protected ArrayList<Inventory> inventoryWarehouse;
     protected String name;
     protected WarehouseType warehouseType;
@@ -31,7 +33,6 @@ public abstract class Warehouse implements Serializable
         this.warehouseType = warehouseType;
     }
 
-
     /**
      * Get warehouse type
      * @return Warehouse type
@@ -41,6 +42,11 @@ public abstract class Warehouse implements Serializable
         return warehouseType;
     }
 
+    /**
+     * Read a warehouse
+     * @param filename File name of warehouse
+     * @return Inventory file of a warehouse
+     */
     public String read(String filename) {
         ArrayList<Inventory> invList = new ArrayList<>();
         String retString = new String();
@@ -72,6 +78,12 @@ public abstract class Warehouse implements Serializable
 
     }
 
+   /**
+    * Update warehouse
+    * @param filename File name of warehouse
+    * @param inventoryWarehouse Inventory of warehouse
+    * @return Updated warehouse inventory
+    */ 
     public String update(String filename, ArrayList<Inventory> inventoryWarehouse) {
             try {
                 PrintWriter writer = new PrintWriter(filename, "UTF-8");
@@ -93,6 +105,10 @@ public abstract class Warehouse implements Serializable
 
     //public void sell(int partNumber, int amount);
 
+    /**
+     * Sort name in inventory of warehouse
+     * @return Sorted warehouse inventory by name
+     */
     public String sortName()
     {
         String sort = "";
@@ -104,6 +120,10 @@ public abstract class Warehouse implements Serializable
         return sort;
     }
     
+    /**
+     * Sort number in inventory of warehouse
+     * @return Sorted warehouse inventory by number
+     */
     public String sortNumber()
     {
         String sort = "";
@@ -115,10 +135,19 @@ public abstract class Warehouse implements Serializable
         return sort;
     }
 
+    /**
+     * Get name of warehouse
+     * @return Warehouse name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Get inventory of warehouse
+     * @param name Name of warehouse
+     * @return Inventory of warehouse
+     */
     public Inventory getInventory(String name) {
         Inventory inventory = null;
         for(Inventory i: inventoryWarehouse){

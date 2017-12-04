@@ -4,10 +4,15 @@ import java.util.*;
 
 /**
  * Sales invoice for sales associate to generate when selling bike parts to clients.
- * @author andyluong
+ * @author andyLuong
+ * @author anthonyPhimmasone
+ * @author brianJustice
  */
 public class SalesInvoice {
     
+    /**
+     * Data members
+     */
     Date saleDate;
     String client;
     String clientReceived;
@@ -71,6 +76,10 @@ public class SalesInvoice {
         return totalInvoicePrice;
     }
     
+    /**
+     * Sales invoice description
+     * @return Sales invoice from a sales associate
+     */
     @Override
     public String toString() {
         String salesassociate = "Invoice: " + client + "Date: " + saleDate + "\n";
