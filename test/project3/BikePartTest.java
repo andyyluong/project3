@@ -5,7 +5,9 @@ import static org.junit.Assert.*;
 
 /**
  * BikePartTest contains the Bike part class for JUnit test
- * @author andyluong
+ * @author andyLuong
+ * @author anthonyPhimmasone
+ * @author brianJustice
  */
 public class BikePartTest {
     

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package project3;
 
 import org.junit.Test;
@@ -10,7 +5,7 @@ import static org.junit.Assert.*;
 import person.Person;
 
 /**
- *
+ * PersonTest contains the Person class for JUnit test
  * @author andyluong
  */
 public class PersonTest {
