@@ -1,5 +1,7 @@
 package project3;
 
+import person.Person;
+
 /**
  * Office Manager class contains actions for office manager employee
  * @author andyluong
