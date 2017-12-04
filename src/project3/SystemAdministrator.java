@@ -1,5 +1,7 @@
 package project3;
 
+import person.Person;
+
 /**
  * System Administrator class contains actions for system administrator employee
  * @author andyluong
