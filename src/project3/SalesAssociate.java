@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import person.Person;
 /**
  * Sales Associate class defines the actions of a sales associate employee
  * @author andyluong
@@ -98,5 +99,3 @@ public class SalesAssociate extends LoginAccount implements Serializable {
         return salesList;
     }
 }
-
-    
