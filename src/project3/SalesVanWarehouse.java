@@ -8,6 +8,9 @@ package project3;
  */
 public class SalesVanWarehouse extends Warehouse {
     
+    /**
+     * Data member
+     */
     WarehouseInventory salesVanwhDB;
 
     /**
