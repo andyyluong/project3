@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  *
  * Person class defines a person 
- * @author andyluong
+ * @author andyLuong
  * @author anthonyPhimmasone
  * @author brianJustice
  *
@@ -30,9 +30,6 @@ public class Person implements Serializable {
         this.lastName = lastName;
         this.emailAddress = aEmailAddress;
     }
-     
-    //-----------------------------------------------------------------------------------------------------------------
-    //Getters & Setters
 
     /**
      * Get first name of a person
