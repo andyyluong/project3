@@ -1,11 +1,10 @@
 package project3;
 
 /**
- *
+ * WarehouseType Enumeration type contains the type of warehouse
  * @author brianJustice
  * @author andyLuong
  * @author anthonyPhimmasone
- * @author alexLundin
  */
 public enum WarehouseType {
 
