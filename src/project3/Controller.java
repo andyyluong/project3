@@ -18,6 +18,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+import person.Person;
 
 public class Controller {
 
@@ -193,7 +194,6 @@ public class Controller {
         salesAssociateLoggedIn.getWarehouse().sell(partName, Integer.parseInt(soldQuantity));
         myTextAreaAssociateText.appendText("This part has been sold from the warehouse successfully: " + "\n");
         myTextAreaAssociateText.appendText(salesAssociateLoggedIn.getWarehouse().getInventory(partName).toString() + "\n");
-        //myTextAreaAssociateText.appendText(salesAssociateLoggedIn.getWarehouse().getInventory(soldQuantity).toString() + "\n");
 
     }
     
@@ -357,7 +357,7 @@ public class Controller {
                 case SALES_ASSOCIATE:
                     myTextAreaAdminText.appendText(username + "'s password has been resetted. \n");
                     Main.accountList.getSalesAssociate(username).setPassword(password);
-                    break;
+                break;
                     
                 default:
                     myTextAreaAdminText.appendText(username + "'s password has been resetted. \n");
@@ -390,13 +390,13 @@ public class Controller {
     void doGenerateSalesInvoice(ActionEvent event) {
         String customer = CustomerNameAssociateText.getText();
         if(customer.equals("")) {
-            myTextAreaAssociateText.appendText("Must enter customer name");
+            myTextAreaAssociateText.appendText("Must enter customer name \n");
         }
         SalesInvoice salesInvoice = new SalesInvoice(new Date(), customer);
         myTextAreaAssociateText.appendText("Sales invoice for: " + customer + "\n");
         myTextAreaAssociateText.appendText("Part Name  Part Number  List Price  Sale Price  Quantity   Total\n");
+        myTextAreaAssociateText.appendText(salesInvoice.toString() + "\n");
         double aTotalInvoicePrice = 0;
-        //myTextAreaAssociateText.appendText(Main.mainWH.getInventory().toString() + "\n");
 
     }
 
