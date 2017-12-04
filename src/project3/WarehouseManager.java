@@ -1,11 +1,9 @@
 package project3;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import person.Person;
+
 /**
  * WarehouseManager class contains actions for a warehouse manager employee
  * @author andyluong
