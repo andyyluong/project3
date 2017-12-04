@@ -7,6 +7,7 @@ package project3;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+import person.Person;
 
 /**
  *
